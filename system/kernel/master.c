@@ -21,7 +21,7 @@ string domain_file(string str)
 
 object connect(int port)
 {
-    return new("/clone/login");
+    return new(LOGIN_OB);
 }
 
 string creator_file(string str)
