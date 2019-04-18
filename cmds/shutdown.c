@@ -4,7 +4,9 @@ int main(object me, string arg)
     {
         shutdown(0);
         return 1;
-    } else {
+    }
+    else
+    {
         return 0;
     }
 }

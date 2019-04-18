@@ -2,7 +2,7 @@ int main(object me, string file)
 {
     object ob, env = environment(me);
 
-    if(!wizardp(me))
+    if (!wizardp(me))
     {
         return 0;
     }
@@ -14,7 +14,7 @@ int main(object me, string file)
 
     if (file == "here")
     {
-        if(env)
+        if (env)
             file = file_name(env);
         else
             return notify_fail("你不在任何环境中。\n");
@@ -35,7 +35,8 @@ int main(object me, string file)
     if (objectp(load_object(file)))
     {
         write("成功!\n");
-    } else
+    }
+    else
     {
         write("失败!\n");
     }

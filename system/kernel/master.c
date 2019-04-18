@@ -3,7 +3,6 @@ string get_root_uid()
     return "ROOT";
 }
 
-
 string author_file(string str)
 {
     return str;
@@ -21,7 +20,7 @@ string domain_file(string str)
 
 object connect(int port)
 {
-    return new(LOGIN_OB);
+    return new (LOGIN_OB);
 }
 
 string creator_file(string str)

@@ -29,9 +29,12 @@ int command_hook(string arg)
     cmd = CMD_PATH + query_verb();
 
     cmd_ob = load_object(cmd);
-    if (cmd_ob) {
+    if (cmd_ob)
+    {
         return (int)cmd_ob->main(this_object(), arg);
-    } else {
+    }
+    else
+    {
         return notify_fail("Ö¸Áî²»´æÔÚ T_T\n");
     }
 }
