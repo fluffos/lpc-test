@@ -6,6 +6,9 @@ Author: xuefeng
 Version: v1.0
 Date: 2019-04-18
 *****************************************************************************/
+#define CMD_PATH "/cmds/"
+#define WELCOME "/README"
+
 int command_hook(string arg);
 
 void logon()
@@ -15,6 +18,7 @@ void logon()
     enable_wizard();
     enable_commands();
     add_action("command_hook", "", 1);
+    move_object(VOID_OB);
 }
 
 int command_hook(string arg)
