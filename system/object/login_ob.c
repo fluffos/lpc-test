@@ -14,8 +14,6 @@ int command_hook(string arg);
 void logon()
 {
     write(read_file(WELCOME));
-    set_heart_beat(1);
-    enable_wizard();
     enable_commands();
     add_action("command_hook", "", 1);
     move_object(VOID_OB);

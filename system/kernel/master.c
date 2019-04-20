@@ -27,3 +27,36 @@ string creator_file(string str)
 {
     return str;
 }
+
+void log_error(string file, string message)
+{
+    write_file(LOG_DIR + "log_error", message);
+}
+
+void error_handler(mapping map, int flag)
+{
+    object ob;
+    string str;
+
+    ob = this_interactive() || this_player();
+
+    if (flag)
+        str = "*Error caught\n";
+    else
+        str = "";
+
+    str += sprintf("\nError: %s\nProgram: %s\nObject: %O\nFile: %s - Line: %d\n[%s]\n",
+                   map["error"], (map["program"] || "No program"),
+                   (map["object"] || "No object"),
+                   map["file"],
+                   map["line"],
+                   implode(map_array(map["trace"],
+                                     (
+                                         : sprintf("\n\tProgram: %s\n\tObject: %O \n\tFile: %s\n\tFunction : %s\n\tLine: %d\n", $1["program"], $1["object"], $1["file"], $1["function"], $1["line"])
+                                         :)),
+                           "\n"));
+    write_file(LOG_DIR + "error_handler", str);
+
+    if (!flag && ob)
+        tell_object(ob, str);
+}

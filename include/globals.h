@@ -4,3 +4,5 @@
 
 #define LOGIN_OB "/system/object/login_ob"
 #define VOID_OB "/system/object/void_ob"
+
+#define LOG_DIR "/log/"
