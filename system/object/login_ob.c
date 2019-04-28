@@ -1,7 +1,7 @@
 /*****************************************************************************
 Copyright: 2019, Mud.Ren
 File name: login_ob.c
-Description: Íæ¼ÒµÇÂ¼Á¬Ïß¶ÔÏó£¬ÊµÏÖÖ¸Áî»¥¶¯¹¦ÄÜ
+Description: ç©å®¶ç™»å½•è¿çº¿å¯¹è±¡ï¼Œå®ç°æŒ‡ä»¤äº’åŠ¨åŠŸèƒ½
 Author: xuefeng
 Version: v1.0
 Date: 2019-04-18
@@ -33,6 +33,6 @@ int command_hook(string arg)
     }
     else
     {
-        return notify_fail("Ö¸Áî²»´æÔÚ T_T\n");
+        return notify_fail("æŒ‡ä»¤ä¸å­˜åœ¨ T_T\n");
     }
 }

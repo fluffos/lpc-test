@@ -4,7 +4,7 @@ int main(object me, string file)
 
     if (!file)
     {
-        return notify_fail("Ö¸Áî£ºupdate /ÎÄ¼şÂ·¾¶/ÎÄ¼şÃû\nÀıÈç£ºupdate /cmds/shutdown \n");
+        return notify_fail("æŒ‡ä»¤ï¼šupdate /æ–‡ä»¶è·¯å¾„/æ–‡ä»¶å\nä¾‹å¦‚ï¼šupdate /cmds/shutdown \n");
     }
 
     if (file == "here")
@@ -12,15 +12,15 @@ int main(object me, string file)
         if (env)
             file = file_name(env);
         else
-            return notify_fail("Äã²»ÔÚÈÎºÎ»·¾³ÖĞ¡£\n");
+            return notify_fail("ä½ ä¸åœ¨ä»»ä½•ç¯å¢ƒä¸­ã€‚\n");
     }
 
     if (file == VOID_OB)
     {
-        return notify_fail("Äã²»ÄÜÔÚ VOID_OB Àï±àÒë VOID_OB¡£\n");
+        return notify_fail("ä½ ä¸èƒ½åœ¨ VOID_OB é‡Œç¼–è¯‘ VOID_OBã€‚\n");
     }
 
-    write("±àÒë[" + file + "]:");
+    write("ç¼–è¯‘[" + file + "]:");
 
     if (ob = find_object(file))
     {
@@ -29,11 +29,11 @@ int main(object me, string file)
 
     if (objectp(load_object(file)))
     {
-        write("³É¹¦!\n");
+        write("æˆåŠŸ!\n");
     }
     else
     {
-        write("Ê§°Ü!\n");
+        write("å¤±è´¥!\n");
     }
 
     return 1;
