@@ -1,3 +1,4 @@
+// 更新文件指令（重新载入对象）
 int main(object me, string file)
 {
     object ob, env = environment(me);
