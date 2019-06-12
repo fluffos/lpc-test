@@ -35,3 +35,8 @@ int main(object me, string arg)
     test();
     return 1;
 }
+
+void create()
+{
+    debug_message("create 5.1.1");
+}
