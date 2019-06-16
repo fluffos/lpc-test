@@ -9,6 +9,8 @@ int main(object me, string arg)
     printf("s[0..20] = %s\n", s[0..20]);
     printf("s[20..30] = %s\n", s[20..30]);
     printf("s[1..0] = %s\n", s[1..0]);
+    printf("s[4..<1] = %s\n", s[4..<1]);
+    printf("s[<7..<5] = %s\n", s[<7..<5]);
 
     return 1;
 }

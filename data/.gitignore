@@ -1,0 +1,5 @@
+# 如果系统未能在 log 目录下自动生成以下二个文件，请手动增加
+# author_stats
+# domain_stats
+*
+!.gitignore

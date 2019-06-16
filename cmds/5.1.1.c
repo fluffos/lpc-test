@@ -1,42 +1,30 @@
-private
-void test1()
+// 示例：5.1.1
+// apply 方法，对象加载时自动执行
+void create()
 {
-    printf("%s\n", "A:我是 private test1。");
+    // 发送信息给当前玩家
+    write("create 5.1.1!\n");
 }
 
-protected
-void test2()
+// apply 方法，设置心跳后自动执行
+void heart_beat()
 {
-    printf("%s\n", "A:我是 protected test2。");
-}
-
-public
-void test3()
-{
-    printf("%s\n", "A:我是 public test3。");
-}
-
-void test4()
-{
-    printf("%s\n", "A:我还是 public test4。");
-}
-
-void test()
-{
-    printf("%s\n", "A:我是 public 并且 nomask test。");
+    // 记录日志，请在driver界面或 debug.log 文件中查看
+    debug_message(file_name(this_object()) + ": " + time());
 }
 
 int main(object me, string arg)
 {
-    test1();
-    test2();
-    test3();
-    test4();
-    test();
-    return 1;
-}
+    if (query_heart_beat())
+    {
+        write("停止心跳！\n");
+        set_heart_beat(0);
+    }
+    else
+    {
+        write("开始心跳！\n");
+        set_heart_beat(1);
+    }
 
-void create()
-{
-    debug_message("create 5.1.1");
+    return 1;
 }
