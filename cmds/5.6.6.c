@@ -1,7 +1,7 @@
 // 示例：5.6.6
-string s = "我在示例 5.6.6 中!";
+string s6 = "我在示例 5.6.6 中!";
 
 void test()
 {
-    printf("%s\n", s);
+    printf("%s\n", s6);
 }
