@@ -60,8 +60,8 @@ void error_handler(mapping map, int flag)
 
 int valid_bind(object binder, object old_owner, object new_owner)
 {
-    // debug_message("binder:" + binder);
-    // debug_message("old_owner:" + old_owner);
-    // debug_message("new_owner:" + new_owner);
-    return 0;
+    debug_message("binder:" + binder);
+    debug_message("old_owner:" + old_owner);
+    debug_message("new_owner:" + new_owner);
+    return 1;
 }

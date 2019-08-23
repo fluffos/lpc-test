@@ -7,6 +7,7 @@ Version: v1.0
 Date: 2019-04-18
 *****************************************************************************/
 #define CMD_PATH "/cmds/"
+#define TEST_PATH "/cmds/test/"
 #define WELCOME "/README"
 
 int command_hook(string arg);
@@ -21,13 +22,13 @@ void logon()
 
 int command_hook(string arg)
 {
-    string cmd;
+    string cmd, test;
     object cmd_ob;
 
     cmd = CMD_PATH + query_verb();
+    test = TEST_PATH + query_verb();
 
-    cmd_ob = load_object(cmd);
-    if (cmd_ob)
+    if (cmd_ob = load_object(cmd) || cmd_ob = load_object(test))
     {
         return (int)cmd_ob->main(this_object(), arg);
     }
