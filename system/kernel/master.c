@@ -46,17 +46,22 @@ void error_handler(mapping map, int flag)
         str = "";
 
     str += sprintf("\nError: %s\nProgram: %s\nObject: %O\nFile: %s - Line: %d\n[%s]\n",
-                   map["error"], (map["program"] || "No program"),
-                   (map["object"] || "No object"),
-                   map["file"],
-                   map["line"],
-                   implode(map_array(map["trace"],
-                                     (
-                                         : sprintf("\n\tProgram: %s\n\tObject: %O \n\tFile: %s\n\tFunction : %s\n\tLine: %d\n", $1["program"], $1["object"], $1["file"], $1["function"], $1["line"])
-                                         :)),
-                           "\n"));
+                map["error"], (map["program"] || "No program"),
+                (map["object"] || "No object"),
+                map["file"],
+                map["line"],
+                implode(map_array(map["trace"],
+                    (: sprintf("\n\tProgram: %s\n\tObject: %O \n\tFile: %s\n\tFunction : %s\n\tLine: %d\n", $1["program"], $1["object"], $1["file"], $1["function"], $1["line"]) :)), "\n"));
     write_file(LOG_DIR + "error_handler", str);
 
     if (!flag && ob)
         tell_object(ob, str);
+}
+
+int valid_bind(object binder, object old_owner, object new_owner)
+{
+    // debug_message("binder:" + binder);
+    // debug_message("old_owner:" + old_owner);
+    // debug_message("new_owner:" + new_owner);
+    return 0;
 }
