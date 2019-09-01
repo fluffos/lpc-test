@@ -2,7 +2,7 @@
 int main(object me, string arg)
 {
     if (!arg)
-        return notify_fail("指令格式 : cat <档案名>\n      如 : cat test\n");
+        return notify_fail("指令格式 : cat <档案名>\n      如 : cat demo/2.1.1\n");
 
     sscanf(arg, "%s.c", arg);
     arg = "/cmds/" + arg + ".c";
