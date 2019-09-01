@@ -8,7 +8,7 @@ int main(object me, string arg)
         function fun = bind((: move_object :), me);
         evaluate(fun, arg);
 
-        arg = HIG "位置报告：" + file_name(environment(me)) + "\n" NOR;
+        arg = HIG "位置报告：" + arg + "\n" NOR;
     }
     else
     {
