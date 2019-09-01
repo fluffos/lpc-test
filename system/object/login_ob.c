@@ -14,21 +14,20 @@ void setup(string arg)
 
     if (!(arg = filter(arg, (: $1 > 96 && $1 < 123 :))))
     {
-        write("名称只能是英文字母（a~z）！请重新输入：");
+        write("名称只能是英文字母（a~z）请重新输入：");
         input_to("setup");
     }
     else
     {
         from = this_object();
-        to = new(USER_OB);
+        to = new(USER_OB, arg);
         exec(to, from);
-        to->setup(arg);
     }
 }
 
 void logon()
 {
     write(read_file(WELCOME));
-    write("请输入你的英文名：");
+    write("请输入你的英文名(限a~z，无关字符会过滤掉)：");
     input_to("setup");
 }

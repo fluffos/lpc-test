@@ -3,12 +3,15 @@
 
 int command_hook(string arg);
 
-void setup(string arg)
+varargs void create(string arg)
 {
-    enable_commands();
-    add_action("command_hook", "", 1);
-    set_living_name(arg);
-    move_object(VOID_OB);
+    if (clonep())
+    {
+        enable_commands();
+        add_action("command_hook", "", 1);
+        set_living_name(arg);
+        move_object(VOID_OB);
+    }
 }
 
 int command_hook(string arg)
