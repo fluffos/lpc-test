@@ -15,7 +15,7 @@ int main(object me, string arg)
     {
         if (!(ob = load_object(str1)))
         {
-            return notify_fail(HIR "没有找到对象: " + str1 + "\n" NOR);
+            return notify_fail(HIR "没有找到对象 " + str1 + "\n" NOR);
         }
         msg = HIG "对象 " + str1 + " 取名为：" + str2 + "\n" NOR;
     }

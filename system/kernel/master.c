@@ -58,6 +58,7 @@ void error_handler(mapping map, int flag)
         tell_object(ob, str);
 }
 
+// bind()
 int valid_bind(object binder, object old_owner, object new_owner)
 {
     debug_message("binder : " + binder);
@@ -66,6 +67,14 @@ int valid_bind(object binder, object old_owner, object new_owner)
     return 1;
 }
 
+// set_hide()
+int valid_hide(object ob)
+{
+    debug_message("valid_hide : " + ob);
+    return 1;
+}
+
+// shadow()
 int valid_shadow(object ob)
 {
     debug_message("valid_shadow : " + ob);

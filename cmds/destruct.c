@@ -6,11 +6,11 @@ int main(object me, string arg)
 
     if (!arg)
     {
-        print_r(all_inventory(me));
+        destruct(this_object());
     }
-    else if (ob = load_object(arg))
+    else if (ob = find_object(arg))
     {
-        print_r(all_inventory(ob));
+        destruct(ob);
     }
     else
     {

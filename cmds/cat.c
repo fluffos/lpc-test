@@ -10,7 +10,10 @@ int main(object me, string arg)
     {
         return notify_fail("没有找到这个档案 T_T\n");
     }
-    write(read_file(arg));
+    else
+    {
+        write(read_file(arg));
+    }
 
     return 1;
 }

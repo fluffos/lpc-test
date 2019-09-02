@@ -12,7 +12,7 @@ int main(object me, string arg)
 
     if (!(ob = load_object(arg)))
     {
-        return notify_fail(HIR "没有找到对象: " + arg + "\n" NOR);
+        return notify_fail(HIR "没有找到对象 " + arg + "\n" NOR);
     }
 
     fun = bind((: disable_commands :), ob);

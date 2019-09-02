@@ -6,11 +6,11 @@ int main(object me, string arg)
 
     if (!arg)
     {
-        print_r(all_inventory(me));
+        write(HIG "你在 " + environment(me) + " 中\n" NOR);
     }
-    else if (ob = load_object(arg))
+    else if (ob = find_object(arg))
     {
-        print_r(all_inventory(ob));
+        write(HIG "对象 " + arg + " 在 " + environment(ob) + " 中\n" NOR);
     }
     else
     {
