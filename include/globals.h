@@ -7,3 +7,5 @@
 #define VOID_OB "/system/object/void"
 
 #define LOG_DIR "/log/"
+
+#define DB_PASSWD "secret"

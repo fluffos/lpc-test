@@ -67,6 +67,19 @@ int valid_bind(object binder, object old_owner, object new_owner)
     return 1;
 }
 
+mixed valid_database(object caller, string func, mixed *info)
+{
+
+    debug_message("caller : " + caller);
+    debug_message("func : " + func);
+    debug_message("info : " + save_variable(info));
+
+    if (func == "connect")
+        return DB_PASSWD; // mysql数据库密码
+    else
+        return 1;
+}
+
 // set_hide()
 int valid_hide(object ob)
 {
@@ -74,9 +87,34 @@ int valid_hide(object ob)
     return 1;
 }
 
+// link()
+int valid_link(string from, string to)
+{
+    debug_message("from : " + from);
+    debug_message("to : " + to);
+    return 1;
+}
+/*
+int valid_read(string file, mixed user, string func)
+{
+    debug_message("file : " + file);
+    debug_message("user : " + user);
+    debug_message("func : " + func);
+    return 1;
+}
+ */
 // shadow()
 int valid_shadow(object ob)
 {
     debug_message("valid_shadow : " + ob);
     return 1;
 }
+/*
+int valid_write(string file, mixed user, string func)
+{
+    debug_message("file : " + file);
+    debug_message("user : " + user);
+    debug_message("func : " + func);
+    return 1;
+}
+ */
