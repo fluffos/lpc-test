@@ -28,7 +28,7 @@ int main(object me, string arg)
         fun = bind((: shadow, ob2 :), ob1);
         if(catch(evaluate(fun)))
         {
-            return notify_fail(HIR "对象 " + str1 + " 已经投影了其它对象或正在被其它对象投影\n" NOR);
+            return notify_fail(HIR "对象 " + str1 + " 已经投影了其它对象或正在被其它对象投影，或者在某个环境中\n" NOR);
         }
         msg = HIG "对象 " + str1 + " 投影 " + str2 + " 成功\n" NOR;
     }

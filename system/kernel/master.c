@@ -103,6 +103,14 @@ int valid_read(string file, mixed user, string func)
     return 1;
 }
  */
+// seteuid()
+int valid_seteuid(object obj, string euid)
+{
+    debug_message("obj : " + obj);
+    debug_message("euid : " + euid);
+    return 1;
+}
+
 // shadow()
 int valid_shadow(object ob)
 {
