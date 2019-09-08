@@ -14,6 +14,16 @@ varargs void create(string arg)
     }
 }
 
+mixed process_input(string verb)
+{
+    if (strsrch(verb, "chat") == 0)
+    {
+        return replace_string(verb, "chat", "shout", 0, 1);
+    }
+
+    return 0;
+}
+
 int command_hook(string arg)
 {
     string cmd, test;
