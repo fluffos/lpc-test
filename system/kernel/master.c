@@ -117,6 +117,15 @@ int valid_shadow(object ob)
     debug_message("valid_shadow : " + ob);
     return 1;
 }
+
+// socket
+int valid_socket(object caller, string func, mixed *info)
+{
+    debug_message("caller : " + caller);
+    debug_message("func : " + func);
+    debug_message("info : " + save_variable(info));
+    return 1;
+}
 /*
 int valid_write(string file, mixed user, string func)
 {
