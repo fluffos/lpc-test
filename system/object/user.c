@@ -24,6 +24,21 @@ mixed process_input(string verb)
     return 0;
 }
 
+void receive_message(string type, string message)
+{
+    receive(message);
+}
+
+void receive_snoop(string message)
+{
+    receive(message);
+}
+
+void write_prompt(void)
+{
+    write(ctime() + " > ");
+}
+
 int command_hook(string arg)
 {
     string cmd, test;
