@@ -1,20 +1,24 @@
 string get_root_uid()
 {
+    debug_message("get_root_uid : ROOT");
     return "ROOT";
 }
 
 string author_file(string str)
 {
+    debug_message("author_file : " + str);
     return str;
 }
 
 string get_bb_uid()
 {
+    debug_message("get_bb_uid : BACKBONE");
     return "BACKBONE";
 }
 
 string domain_file(string str)
 {
+    debug_message("domain_file : " + str);
     return str;
 }
 
@@ -25,6 +29,7 @@ object connect(int port)
 
 string creator_file(string str)
 {
+    debug_message("creator_file : " + str);
     return str;
 }
 
@@ -52,6 +57,8 @@ void error_handler(mapping map, int flag)
                 map["line"],
                 implode(map_array(map["trace"],
                     (: sprintf("\n\tProgram: %s\n\tObject: %O \n\tFile: %s\n\tFunction : %s\n\tLine: %d\n", $1["program"], $1["object"], $1["file"], $1["function"], $1["line"]) :)), "\n"));
+
+    // str = save_variable(map);
     write_file(LOG_DIR + "error_handler", str);
 
     if (!flag && ob)
@@ -94,7 +101,7 @@ int valid_link(string from, string to)
     debug_message("to : " + to);
     return 1;
 }
-/*
+
 int valid_read(string file, mixed user, string func)
 {
     debug_message("file : " + file);
@@ -102,7 +109,7 @@ int valid_read(string file, mixed user, string func)
     debug_message("func : " + func);
     return 1;
 }
- */
+
 // seteuid()
 int valid_seteuid(object obj, string euid)
 {
@@ -126,7 +133,7 @@ int valid_socket(object caller, string func, mixed *info)
     debug_message("info : " + save_variable(info));
     return 1;
 }
-/*
+
 int valid_write(string file, mixed user, string func)
 {
     debug_message("file : " + file);
@@ -134,4 +141,3 @@ int valid_write(string file, mixed user, string func)
     debug_message("func : " + func);
     return 1;
 }
- */
