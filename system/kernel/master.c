@@ -58,11 +58,17 @@ void error_handler(mapping map, int flag)
                 implode(map_array(map["trace"],
                     (: sprintf("\n\tProgram: %s\n\tObject: %O \n\tFile: %s\n\tFunction : %s\n\tLine: %d\n", $1["program"], $1["object"], $1["file"], $1["function"], $1["line"]) :)), "\n"));
 
-    // str = save_variable(map);
     write_file(LOG_DIR + "error_handler", str);
-
+    str = save_variable(map);
     if (!flag && ob)
         tell_object(ob, str);
+}
+
+void crash(string crash_message, object command_giver, object current_object)
+{
+    debug_message("crash crash_message : " + crash_message);
+    debug_message("crash command_giver : " + command_giver);
+    debug_message("crash current_object : " + current_object);
 }
 
 // bind()
