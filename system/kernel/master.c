@@ -68,18 +68,17 @@ void error_handler(mapping map, int flag)
 // bind()
 int valid_bind(object binder, object old_owner, object new_owner)
 {
-    debug_message("binder : " + binder);
-    debug_message("old_owner : " + old_owner);
-    debug_message("new_owner : " + new_owner);
+    debug_message("valid_bind binder : " + binder);
+    debug_message("valid_bind old_owner : " + old_owner);
+    debug_message("valid_bind new_owner : " + new_owner);
     return 1;
 }
 
 mixed valid_database(object caller, string func, mixed *info)
 {
-
-    debug_message("caller : " + caller);
-    debug_message("func : " + func);
-    debug_message("info : " + save_variable(info));
+    debug_message("valid_database caller : " + caller);
+    debug_message("valid_database func : " + func);
+    debug_message("valid_database info : " + save_variable(info));
 
     if (func == "connect")
         return DB_PASSWD; // mysql数据库密码
@@ -90,54 +89,54 @@ mixed valid_database(object caller, string func, mixed *info)
 // set_hide()
 int valid_hide(object ob)
 {
-    debug_message("valid_hide : " + ob);
+    debug_message("valid_hide ob : " + ob);
     return 1;
 }
 
 // link()
 int valid_link(string from, string to)
 {
-    debug_message("from : " + from);
-    debug_message("to : " + to);
+    debug_message("valid_link from : " + from);
+    debug_message("valid_link to : " + to);
     return 1;
 }
 
 int valid_read(string file, mixed user, string func)
 {
-    debug_message("file : " + file);
-    debug_message("user : " + user);
-    debug_message("func : " + func);
+    debug_message("valid_read file : " + file);
+    debug_message("valid_read user : " + user);
+    debug_message("valid_read func : " + func);
     return 1;
 }
 
 // seteuid()
 int valid_seteuid(object obj, string euid)
 {
-    debug_message("obj : " + obj);
-    debug_message("euid : " + euid);
+    debug_message("valid_seteuid obj : " + obj);
+    debug_message("valid_seteuid euid : " + euid);
     return 1;
 }
 
 // shadow()
 int valid_shadow(object ob)
 {
-    debug_message("valid_shadow : " + ob);
+    debug_message("valid_shadow ob : " + ob);
     return 1;
 }
 
 // socket
 int valid_socket(object caller, string func, mixed *info)
 {
-    debug_message("caller : " + caller);
-    debug_message("func : " + func);
-    debug_message("info : " + save_variable(info));
+    debug_message("valid_socket caller : " + caller);
+    debug_message("valid_socket func : " + func);
+    debug_message("valid_socket info : " + save_variable(info));
     return 1;
 }
 
 int valid_write(string file, mixed user, string func)
 {
-    debug_message("file : " + file);
-    debug_message("user : " + user);
-    debug_message("func : " + func);
+    debug_message("valid_write file : " + file);
+    debug_message("valid_write user : " + user);
+    debug_message("valid_write func : " + func);
     return 1;
 }
