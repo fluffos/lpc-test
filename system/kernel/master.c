@@ -64,11 +64,38 @@ void error_handler(mapping map, int flag)
         tell_object(ob, str);
 }
 
+string *epilog(int load_empty)
+{
+    debug_message("epilog : " + load_empty);
+    return ({});
+}
+
+void preload(string filename)
+{
+    debug_message("preload : " + filename);
+}
+
+void flag(string flag)
+{
+    debug_message("flag : " + flag);
+}
+
+string *get_include_path(string file)
+{
+    debug_message("get_include_path file : " + file);
+    return ({ ":DEFAULT:" });
+}
+
 void crash(string crash_message, object command_giver, object current_object)
 {
     debug_message("crash crash_message : " + crash_message);
     debug_message("crash command_giver : " + command_giver);
     debug_message("crash current_object : " + current_object);
+}
+
+string object_name( object ob )
+{
+    return file_name(ob);
 }
 
 // bind()
@@ -104,6 +131,20 @@ int valid_link(string from, string to)
 {
     debug_message("valid_link from : " + from);
     debug_message("valid_link to : " + to);
+    return 1;
+}
+
+int valid_object( object obj )
+{
+    debug_message("valid_object obj : " + obj);
+    return 1;
+}
+
+int valid_override( string file, string efun_name , string main_file )
+{
+    debug_message("valid_override file : " + file);
+    debug_message("valid_override efun_name : " + efun_name);
+    debug_message("valid_override main_file : " + main_file);
     return 1;
 }
 

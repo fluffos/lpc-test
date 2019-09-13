@@ -39,6 +39,11 @@ void write_prompt(void)
     write(ctime() + " > ");
 }
 
+void net_dead( void )
+{
+    say("玩家 " + this_object() + " 断线了\n");
+}
+
 int command_hook(string arg)
 {
     string cmd, test;
