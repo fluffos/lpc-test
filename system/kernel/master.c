@@ -1,24 +1,24 @@
 string get_root_uid()
 {
-    debug_message("get_root_uid : ROOT");
+    // debug_message("get_root_uid : ROOT");
     return "ROOT";
 }
 
 string author_file(string str)
 {
-    debug_message("author_file : " + str);
+    // debug_message("author_file : " + str);
     return str;
 }
 
 string get_bb_uid()
 {
-    debug_message("get_bb_uid : BACKBONE");
+    // debug_message("get_bb_uid : BACKBONE");
     return "BACKBONE";
 }
 
 string domain_file(string str)
 {
-    debug_message("domain_file : " + str);
+    // debug_message("domain_file : " + str);
     return str;
 }
 
@@ -29,7 +29,7 @@ object connect(int port)
 
 string creator_file(string str)
 {
-    debug_message("creator_file : " + str);
+    // debug_message("creator_file : " + str);
     return str;
 }
 
@@ -66,23 +66,23 @@ void error_handler(mapping map, int flag)
 
 string *epilog(int load_empty)
 {
-    debug_message("epilog : " + load_empty);
+    // debug_message("epilog : " + load_empty);
     return ({});
 }
 
 void preload(string filename)
 {
-    debug_message("preload : " + filename);
+    // debug_message("preload : " + filename);
 }
 
 void flag(string flag)
 {
-    debug_message("flag : " + flag);
+    // debug_message("flag : " + flag);
 }
 
 string *get_include_path(string file)
 {
-    debug_message("get_include_path file : " + file);
+    // debug_message("get_include_path file : " + file);
     return ({ ":DEFAULT:" });
 }
 
@@ -92,12 +92,12 @@ void crash(string crash_message, object command_giver, object current_object)
     debug_message("crash command_giver : " + command_giver);
     debug_message("crash current_object : " + current_object);
 }
-
+/*
 string object_name( object ob )
 {
     return file_name(ob);
 }
-
+*/
 // bind()
 int valid_bind(object binder, object old_owner, object new_owner)
 {
@@ -107,6 +107,7 @@ int valid_bind(object binder, object old_owner, object new_owner)
     return 1;
 }
 
+// database
 mixed valid_database(object caller, string func, mixed *info)
 {
     debug_message("valid_database caller : " + caller);
@@ -133,13 +134,13 @@ int valid_link(string from, string to)
     debug_message("valid_link to : " + to);
     return 1;
 }
-
+/*
 int valid_object( object obj )
 {
     debug_message("valid_object obj : " + obj);
     return 1;
 }
-
+*/
 int valid_override( string file, string efun_name , string main_file )
 {
     debug_message("valid_override file : " + file);
@@ -147,7 +148,7 @@ int valid_override( string file, string efun_name , string main_file )
     debug_message("valid_override main_file : " + main_file);
     return 1;
 }
-
+/*
 int valid_read(string file, mixed user, string func)
 {
     debug_message("valid_read file : " + file);
@@ -155,7 +156,7 @@ int valid_read(string file, mixed user, string func)
     debug_message("valid_read func : " + func);
     return 1;
 }
-
+*/
 // seteuid()
 int valid_seteuid(object obj, string euid)
 {
@@ -179,7 +180,7 @@ int valid_socket(object caller, string func, mixed *info)
     debug_message("valid_socket info : " + save_variable(info));
     return 1;
 }
-
+/*
 int valid_write(string file, mixed user, string func)
 {
     debug_message("valid_write file : " + file);
@@ -187,3 +188,4 @@ int valid_write(string file, mixed user, string func)
     debug_message("valid_write func : " + func);
     return 1;
 }
+*/
