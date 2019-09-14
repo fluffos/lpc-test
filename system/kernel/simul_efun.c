@@ -1,5 +1,12 @@
 #include <ansi.h>
 
+void debug(mixed arg)
+{
+    string *color = ({HIB, HIC, HIG, HIM, HIR, HIW, HIY});
+
+    write(element_of(color) + arg + NOR "\n");
+}
+
 // 数字字符串转数字
 int atoi(string str)
 {
