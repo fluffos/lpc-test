@@ -1,12 +1,20 @@
+// 调试模式开关
+nosave int debug = 0;
+
 string get_root_uid()
 {
+
     // debug_message("get_root_uid : ROOT");
     return "ROOT";
 }
 
 string author_file(string str)
 {
-    // debug_message("author_file : " + str);
+    if (debug)
+    {
+        debug_message("author_file : " + str);
+    }
+
     return str;
 }
 
@@ -18,7 +26,11 @@ string get_bb_uid()
 
 string domain_file(string str)
 {
-    // debug_message("domain_file : " + str);
+    if (debug)
+    {
+        debug_message("domain_file : " + str);
+    }
+
     return str;
 }
 
@@ -29,7 +41,11 @@ object connect(int port)
 
 string creator_file(string str)
 {
-    // debug_message("creator_file : " + str);
+    if (debug)
+    {
+        debug_message("creator_file : " + str);
+    }
+
     return str;
 }
 
@@ -67,52 +83,73 @@ void error_handler(mapping map, int flag)
 string *epilog(int load_empty)
 {
     // debug_message("epilog : " + load_empty);
-    return ({});
+    return ({"/system/object/login", "/system/object/user", "/system/object/void"});
 }
 
 void preload(string filename)
 {
     // debug_message("preload : " + filename);
+    if (stringp(filename))
+    {
+        load_object(filename);
+    }
 }
 
 void flag(string flag)
 {
-    // debug_message("flag : " + flag);
+    if (flag == "debug")
+    {
+        debug = 1;
+    }
 }
 
 string *get_include_path(string file)
 {
-    // debug_message("get_include_path file : " + file);
+    if (debug)
+    {
+        debug_message("get_include_path file : " + file);
+    }
+
     return ({ ":DEFAULT:" });
 }
 
 void crash(string crash_message, object command_giver, object current_object)
 {
-    debug_message("crash crash_message : " + crash_message);
-    debug_message("crash command_giver : " + command_giver);
-    debug_message("crash current_object : " + current_object);
+    if (debug)
+    {
+        debug_message("crash crash_message : " + crash_message);
+        debug_message("crash command_giver : " + command_giver);
+        debug_message("crash current_object : " + current_object);
+    }
 }
-/*
+
 string object_name( object ob )
 {
-    return file_name(ob);
+    return geteuid(ob);
 }
-*/
+
 // bind()
 int valid_bind(object binder, object old_owner, object new_owner)
 {
-    debug_message("valid_bind binder : " + binder);
-    debug_message("valid_bind old_owner : " + old_owner);
-    debug_message("valid_bind new_owner : " + new_owner);
+    if (debug)
+    {
+        debug_message("valid_bind binder : " + binder);
+        debug_message("valid_bind old_owner : " + old_owner);
+        debug_message("valid_bind new_owner : " + new_owner);
+    }
+
     return 1;
 }
 
 // database
 mixed valid_database(object caller, string func, mixed *info)
 {
-    debug_message("valid_database caller : " + caller);
-    debug_message("valid_database func : " + func);
-    debug_message("valid_database info : " + save_variable(info));
+    if (debug)
+    {
+        debug_message("valid_database caller : " + caller);
+        debug_message("valid_database func : " + func);
+        debug_message("valid_database info : " + save_variable(info));
+    }
 
     if (func == "connect")
         return DB_PASSWD; // mysql数据库密码
@@ -123,69 +160,104 @@ mixed valid_database(object caller, string func, mixed *info)
 // set_hide()
 int valid_hide(object ob)
 {
-    debug_message("valid_hide ob : " + ob);
+    if (debug)
+    {
+        debug_message("valid_hide ob : " + ob);
+    }
+
     return 1;
 }
 
 // link()
 int valid_link(string from, string to)
 {
-    debug_message("valid_link from : " + from);
-    debug_message("valid_link to : " + to);
+    if (debug)
+    {
+        debug_message("valid_link from : " + from);
+        debug_message("valid_link to : " + to);
+    }
+
     return 1;
 }
-/*
+
 int valid_object( object obj )
 {
-    debug_message("valid_object obj : " + obj);
+    if (debug)
+    {
+        debug_message("valid_object obj : " + obj);
+    }
+
     return 1;
 }
-*/
+
 int valid_override( string file, string efun_name , string main_file )
 {
-    debug_message("valid_override file : " + file);
-    debug_message("valid_override efun_name : " + efun_name);
-    debug_message("valid_override main_file : " + main_file);
+    if (debug)
+    {
+        debug_message("valid_override file : " + file);
+        debug_message("valid_override efun_name : " + efun_name);
+        debug_message("valid_override main_file : " + main_file);
+    }
+
     return 1;
 }
-/*
+
 int valid_read(string file, mixed user, string func)
 {
-    debug_message("valid_read file : " + file);
-    debug_message("valid_read user : " + user);
-    debug_message("valid_read func : " + func);
+    if (debug)
+    {
+        debug_message("valid_read file : " + file);
+        debug_message("valid_read user : " + user);
+        debug_message("valid_read func : " + func);
+    }
+
     return 1;
 }
-*/
+
 // seteuid()
 int valid_seteuid(object obj, string euid)
 {
-    debug_message("valid_seteuid obj : " + obj);
-    debug_message("valid_seteuid euid : " + euid);
+    if (debug)
+    {
+        debug_message("valid_seteuid obj : " + obj);
+        debug_message("valid_seteuid euid : " + euid);
+    }
+
     return 1;
 }
 
 // shadow()
 int valid_shadow(object ob)
 {
-    debug_message("valid_shadow ob : " + ob);
+    if (debug)
+    {
+        debug_message("valid_shadow ob : " + ob);
+    }
+
     return 1;
 }
 
 // socket
 int valid_socket(object caller, string func, mixed *info)
 {
-    debug_message("valid_socket caller : " + caller);
-    debug_message("valid_socket func : " + func);
-    debug_message("valid_socket info : " + save_variable(info));
+    if (debug)
+    {
+        debug_message("valid_socket caller : " + caller);
+        debug_message("valid_socket func : " + func);
+        debug_message("valid_socket info : " + save_variable(info));
+    }
+
     return 1;
 }
-/*
+
 int valid_write(string file, mixed user, string func)
 {
-    debug_message("valid_write file : " + file);
-    debug_message("valid_write user : " + user);
-    debug_message("valid_write func : " + func);
+    if (debug)
+    {
+        debug_message("valid_write file : " + file);
+        debug_message("valid_write user : " + user);
+        debug_message("valid_write func : " + func);
+    }
+
     return 1;
 }
-*/

@@ -1,6 +1,6 @@
-// 示例：5.6.4
-inherit "/cmds/test/5.6.4.1";
-inherit "/cmds/test/5.6.4.2";
+// 示例：5.7.4
+inherit "/cmds/demo/5.7.4.1";
+inherit "/cmds/demo/5.7.4.2";
 
 int main(object me, string arg)
 {

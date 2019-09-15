@@ -1,4 +1,4 @@
-// 示例：5.6.2
+// 示例：5.7.2
 int main(object me, string arg)
 {
     // 取得游戏中所有已加载对象
