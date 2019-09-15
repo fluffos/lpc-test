@@ -56,10 +56,9 @@ void log_error(string file, string message)
 
 void error_handler(mapping map, int flag)
 {
-    object ob;
     string str;
 
-    ob = this_interactive() || this_player();
+    printf("%O\n", map);
 
     if (flag)
         str = "*Error caught\n";
@@ -75,9 +74,6 @@ void error_handler(mapping map, int flag)
                     (: sprintf("\n\tProgram: %s\n\tObject: %O \n\tFile: %s\n\tFunction : %s\n\tLine: %d\n", $1["program"], $1["object"], $1["file"], $1["function"], $1["line"]) :)), "\n"));
 
     write_file(LOG_DIR + "error_handler", str);
-    str = save_variable(map);
-    if (!flag && ob)
-        tell_object(ob, str);
 }
 
 string *epilog(int load_empty)
