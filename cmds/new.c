@@ -5,6 +5,10 @@ int main(object me, string arg)
     int id;
     object ob;
 
+    if (!arg)
+    {
+        return notify_fail(HIY "指令格式： new /path/filename\n" NOR);
+    }
     if (ob = new(arg))
     {
         sscanf(file_name(ob), "%*s#%s", id);

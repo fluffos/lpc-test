@@ -8,7 +8,7 @@ int main(object me, string arg)
     arg = "/cmds/" + arg + ".c";
     if (file_size(arg) < 0)
     {
-        return notify_fail("没有找到这个档案 T_T\n");
+        return notify_fail("cmds 目录下没有找到这个档案 T_T\n");
     }
     else
     {
