@@ -12,9 +12,9 @@ void setup(string arg)
 {
     object from, to;
 
-    if (!(arg = filter(arg, (: $1 > 96 && $1 < 123 :))))
+    if (!arg || arg == "")
     {
-        write("名称只能是英文字母（a~z）请重新输入：");
+        write("ID不能为空，请重新输入：");
         input_to("setup");
     }
     else
@@ -28,6 +28,6 @@ void setup(string arg)
 void logon()
 {
     write(read_file(WELCOME));
-    write("请输入你的英文名(限a~z，无关字符会过滤掉)：");
+    write("请输入你的ID：");
     input_to("setup");
 }

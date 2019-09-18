@@ -114,8 +114,8 @@ void crash(string crash_message, object command_giver, object current_object)
     if (debug)
     {
         debug_message("crash crash_message : " + crash_message);
-        debug_message("crash command_giver : " + command_giver);
-        debug_message("crash current_object : " + current_object);
+        debug_message("crash command_giver : " + file_name(command_giver));
+        debug_message("crash current_object : " + file_name(current_object));
     }
 }
 
@@ -129,9 +129,9 @@ int valid_bind(object binder, object old_owner, object new_owner)
 {
     if (debug)
     {
-        debug_message("valid_bind binder : " + binder);
-        debug_message("valid_bind old_owner : " + old_owner);
-        debug_message("valid_bind new_owner : " + new_owner);
+        debug_message("valid_bind binder : " + file_name(binder));
+        debug_message("valid_bind old_owner : " + file_name(old_owner));
+        debug_message("valid_bind new_owner : " + file_name(new_owner));
     }
 
     return 1;
@@ -142,7 +142,7 @@ mixed valid_database(object caller, string func, mixed *info)
 {
     if (debug)
     {
-        debug_message("valid_database caller : " + caller);
+        debug_message("valid_database caller : " + file_name(caller));
         debug_message("valid_database func : " + func);
         debug_message("valid_database info : " + save_variable(info));
     }
@@ -158,7 +158,7 @@ int valid_hide(object ob)
 {
     if (debug)
     {
-        debug_message("valid_hide ob : " + ob);
+        debug_message("valid_hide ob : " + file_name(ob));
     }
 
     return 1;
@@ -180,7 +180,7 @@ int valid_object( object obj )
 {
     if (debug)
     {
-        debug_message("valid_object obj : " + obj);
+        debug_message("valid_object obj : " + file_name(obj));
     }
 
     return 1;
@@ -215,7 +215,7 @@ int valid_seteuid(object obj, string euid)
 {
     if (debug)
     {
-        debug_message("valid_seteuid obj : " + obj);
+        debug_message("valid_seteuid obj : " + file_name(obj));
         debug_message("valid_seteuid euid : " + euid);
     }
 
@@ -227,7 +227,7 @@ int valid_shadow(object ob)
 {
     if (debug)
     {
-        debug_message("valid_shadow ob : " + ob);
+        debug_message("valid_shadow ob : " + file_name(ob));
     }
 
     return 1;
@@ -238,7 +238,7 @@ int valid_socket(object caller, string func, mixed *info)
 {
     if (debug)
     {
-        debug_message("valid_socket caller : " + caller);
+        debug_message("valid_socket caller : " + file_name(caller));
         debug_message("valid_socket func : " + func);
         debug_message("valid_socket info : " + save_variable(info));
     }

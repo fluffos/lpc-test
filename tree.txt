@@ -19,6 +19,7 @@
 │   ├── domain_stats        domain 统计
 │   ├── error_handler       编译错误日志
 │   └── log_error           代码错误及警告日志
+├── mudos.exe               旧版MUDOS(兼容性测试用)
 ├── README                  说明文件
 ├── system                  系统文件目录
 │   ├── kernel              核心文件目录
@@ -29,4 +30,3 @@
 │       ├── user.c          玩家对象
 │       └── void.c          默认环境对象
 └── tree.txt                当前文档结构说明文件
-

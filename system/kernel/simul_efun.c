@@ -1,8 +1,30 @@
 #include <ansi.h>
 
+#ifndef FLUFFOS
+
+mixed abs(mixed n)
+{
+    if (!floatp(n) && !intp(n))
+        return 0;
+
+    return (n < 0) ? -n : n;
+}
+
+mixed element_of(mixed *arr)
+{
+    return arr[random(sizeof(arr))];
+}
+
+#endif
+
 void debug(mixed arg)
 {
     string *color = ({HIB, HIC, HIG, HIM, HIR, HIW, HIY});
+
+    if (objectp(arg))
+    {
+        arg = file_name(arg);
+    }
 
     write(element_of(color) + arg + NOR "\n");
 }
@@ -45,6 +67,12 @@ varargs void print_r(mixed *arr, int step)
                 {
                     write("    ");
                 }
+                // 兼容 MUDOS
+                if (objectp(arr[i]))
+                {
+                    arr[i] = file_name(arr[i]);
+                }
+
                 write(i + " => " + arr[i] + "\n");
             }
         }
