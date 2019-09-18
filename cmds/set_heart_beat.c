@@ -9,7 +9,7 @@ int main(object me, string arg)
 
     if (!arg)
     {
-        return notify_fail(HIY "指令格式： set_heart_beat /path/target heart_beat_number\n" NOR);
+        return notify_fail(HIY "指令格式： set_heart_beat [/path/target] heart_beat_number\n" NOR);
     }
     sscanf(arg, "%s %d", str, i);
     if (i)

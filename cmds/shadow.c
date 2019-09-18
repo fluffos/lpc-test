@@ -40,7 +40,7 @@ int main(object me, string arg)
         }
         if (ob2 = query_shadowing(ob1))
         {
-            msg = HIG + arg + " 投影的对象是 " + ob2 + "\n" NOR;
+            msg = HIG + arg + " 投影的对象是 " + file_name(ob2) + "\n" NOR;
         }
         else
         {
