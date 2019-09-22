@@ -88,3 +88,21 @@ varargs void print_r(mixed *arr, int step)
         write(YEL "({ })\n" NOR);
     }
 }
+
+//检查state的第pos位是否为1
+int bitCheck(int state, int pos)
+{
+    return state & (1 << (pos - 1));
+}
+
+//将state的第pos位的值设为1
+int bitSet(int state, int pos)
+{
+    return state | (1 << (pos - 1));
+}
+
+//将state的第pos位的值设为0
+int bitClear(int state, int pos)
+{
+    return state & (~(1 << (pos - 1)));
+}
