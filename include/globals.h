@@ -2,6 +2,9 @@
  * 所有对象加载时都会自动包含本文件
  */
 
+#ifndef GLOBALS_H
+#define GLOBALS_H
+
 #ifndef __SENSIBLE_MODIFIERS__
 #define nosave static
 #endif
@@ -13,3 +16,5 @@
 #define LOG_DIR "/log/"
 
 #define DB_PASSWD "secret"
+
+#endif
