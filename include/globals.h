@@ -13,6 +13,8 @@
 #define USER_OB "/system/object/user"
 #define VOID_OB "/system/object/void"
 
+#define DBASE "/inherit/dbase"
+
 #define LOG_DIR "/log/"
 
 #define DB_PASSWD "secret"
