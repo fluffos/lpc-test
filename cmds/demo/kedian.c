@@ -1,3 +1,4 @@
+// user.c
 inherit DBASE;
 
 void create()
@@ -9,8 +10,8 @@ void create()
 二里里外外忙得团团转，接待着南腔北调的客人。
 LONG );
     set("exits", ([
-        "west":__DIR__ "beidajie1",
+        "west":__DIR__ "beidajie",
         "up":__DIR__ "kedian2",
-        "south":__DIR__ "liaotian",
+        "south":__DIR__ "chufang",
     ]));
 }

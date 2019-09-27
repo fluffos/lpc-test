@@ -1,3 +1,4 @@
+// 自定义 user 对象
 #define CMD_PATH "/cmds/"
 #define TEST_PATH "/cmds/test/"
 #define GO_CMD "/cmds/go"
