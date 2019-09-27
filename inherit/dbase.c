@@ -1,7 +1,7 @@
 /*****************************************************************************
 Copyright: 2019, Mud.Ren
 File name: dbase.c
-Description: 数据库存取接口
+Description: 数据存取接口
 Author: xuefeng
 Version: v1.0
 Date: 2019-09-15

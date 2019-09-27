@@ -6,11 +6,11 @@ int main(object me, string arg)
 
     if (!arg)
     {
-        write(HIG "你在 " + file_name(environment(me)) + " 中\n" NOR);
+        write(HIG "你在 " + environment(me) + " 中\n" NOR);
     }
     else if (ob = find_object(arg))
     {
-        write(HIG "对象 " + arg + " 在 " + file_name(environment(ob)) + " 中\n" NOR);
+        write(HIG "对象 " + arg + " 在 " + environment(ob) + " 中\n" NOR);
     }
     else
     {

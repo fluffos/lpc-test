@@ -1,5 +1,8 @@
 #include <ansi.h>
 
+#ifndef __SAVE_GZ_EXTENSION__
+#define __SAVE_GZ_EXTENSION__ ".o.gz"
+#endif
 #define DATA_DIR "/data/"
 
 int main(object me, string arg)

@@ -148,7 +148,7 @@ mixed valid_database(object caller, string func, mixed *info)
     }
 
     if (func == "connect")
-        return DB_PASSWD; // mysql数据库密码
+        return "secret"; // mysql数据库密码
     else
         return 1;
 }

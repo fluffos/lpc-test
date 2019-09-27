@@ -17,6 +17,4 @@
 
 #define LOG_DIR "/log/"
 
-#define DB_PASSWD "secret"
-
 #endif
