@@ -22,6 +22,7 @@ void setup(string arg)
         from = this_object();
         to = new(USER_OB, arg);
         exec(to, from);
+        // destruct(from);
     }
 }
 

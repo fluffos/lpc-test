@@ -2,19 +2,33 @@
 
 int main(object me, string arg)
 {
-    object ob;
+    object ob, env;
 
     if (!arg)
     {
-        write(HIG "你在 " + environment(me) + " 中\n" NOR);
+        if (env = environment(me))
+        {
+            debug("你在 " + file_name(env) + " 中");
+        }
+        else
+        {
+            debug("你没在任何环境中");
+        }
     }
     else if (ob = find_object(arg))
     {
-        write(HIG "对象 " + arg + " 在 " + environment(ob) + " 中\n" NOR);
+        if (env = environment(ob))
+        {
+            debug("对象 " + arg + " 在 " + file_name(env) + " 中");
+        }
+        else
+        {
+            debug("对象没在任何环境中");
+        }
     }
     else
     {
-        return notify_fail(HIR "没有找到对象 " + arg + "\n" NOR);
+        debug("没有找到对象 " + arg);
     }
 
     return 1;

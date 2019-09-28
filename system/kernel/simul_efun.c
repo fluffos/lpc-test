@@ -15,6 +15,41 @@ mixed element_of(mixed *arr)
     return arr[random(sizeof(arr))];
 }
 
+varargs string base_name(mixed ob)
+{
+    string file;
+
+    if (!ob)
+    {
+        file = file_name(previous_object());
+    }
+    else if (objectp(ob))
+    {
+        file = file_name(ob);
+    }
+    else if (stringp(ob))
+    {
+        file = ob;
+    }
+
+    sscanf(file, "%s#%*d", file);
+
+    return file;
+}
+
+// 去掉 str 两端的空格
+string trim(string str)
+{
+    int len;
+
+    while (str[0] == ' ')
+        str = str[1.. < 1];
+    while ((len = strlen(str) - 1) >= 0 && str[len] == ' ')
+        str = str[0.. < 2];
+
+    return str;
+}
+
 #endif
 
 void debug(mixed arg)
