@@ -27,6 +27,7 @@ int main(object me, string arg)
     {
         user = new(__FILE__, geteuid(me));
         exec(user, me);
+        // destruct(me);
     }
 
     return 1;
