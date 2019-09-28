@@ -1,4 +1,7 @@
 .
+├── area                    游戏环境区域所在目录
+│   ├── tower.c             勇者之塔
+│   └── virtual.c           虚拟环境控制文件
 ├── cmds                    游戏指令（包括教程演示代码）所在目录
 │   ├── demo                教程示例代码所在目录
 │   │   └── ...
@@ -7,14 +10,15 @@
 │   │   └── ...
 │   ├── update.c
 │   └── ...
-├── config.ini              运行时配置文件
+├── config.ini              *运行时配置文件*
 ├── data                    存档文件保存目录
 │   └── ...
 ├── include                 头文件所在目录
-│   ├── ansi.h              颜色控制头文件
-│   └── globals.h           全局默认包含头文件
+│   ├── ansi.h              *颜色控制头文件*
+│   └── globals.h           *全局默认包含头文件*
 ├── inherit                 继承功能文件目录
-│   └── dbase.c             数据库存取接口
+│   ├── clean_up.c          内存清理接口
+│   └── dbase.c             数据存取接口
 ├── log                     日志记录目录
 │   ├── author_stats        author 统计
 │   ├── debug.log           驱动日志
@@ -25,10 +29,10 @@
 ├── README                  说明文件
 ├── system                  系统文件目录
 │   ├── kernel              核心文件目录
-│   │   ├── master.c        主控对象
-│   │   └── simul_efun.c    模拟外部函数
+│   │   ├── master.c        *主控对象*
+│   │   └── simul_efun.c    *模拟外部函数*
 │   └── object              核对对象目录
-│       ├── login.c         连线对象
-│       ├── user.c          玩家对象
-│       └── void.c          默认环境对象
+│       ├── login.c         *连线对象*
+│       ├── user.c          *玩家对象*
+│       └── void.c          *默认环境对象*
 └── tree.txt                当前文档结构说明文件

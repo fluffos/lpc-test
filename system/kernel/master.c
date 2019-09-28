@@ -124,6 +124,25 @@ string object_name( object ob )
     return geteuid(ob);
 }
 
+mixed compile_object(string str)
+{
+    string tmp;
+
+    if (debug)
+    {
+        debug_message("compile_object : " + str);
+    }
+
+    if (sscanf(str, "/area/%*s", str))
+    {
+        return call_other("/area/virtual", "compile_area", str);
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 // bind()
 int valid_bind(object binder, object old_owner, object new_owner)
 {

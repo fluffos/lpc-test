@@ -14,37 +14,7 @@ varargs void create(string arg)
         move_object(VOID_OB);
     }
 }
-/*
-mixed process_input(string verb)
-{
-    if (strsrch(verb, "chat") == 0)
-    {
-        return replace_string(verb, "chat", "shout", 0, 1);
-    }
 
-    return 0;
-}
-
-void receive_message(string type, string message)
-{
-    receive(message);
-}
-
-void receive_snoop(string message)
-{
-    receive(message);
-}
-
-void write_prompt(void)
-{
-    write(ctime() + " > ");
-}
-
-void net_dead( void )
-{
-    say("玩家(" + geteuid() + ")断线了。\n");
-}
-*/
 int command_hook(string arg)
 {
     string cmd, test;
