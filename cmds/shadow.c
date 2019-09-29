@@ -9,7 +9,6 @@ int main(object me, string arg)
     if (!arg)
     {
         debug("指令格式： shadow /path/target 或者 shadow /path/ob1 on /path/ob2");
-        return 1;
     }
     else
     {

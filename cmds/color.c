@@ -4,7 +4,7 @@ int main(object me, string arg)
 {
         tell_object(me, MAG "★" HIY "色彩精灵向您报告" MAG "★\n\n" NOR);
         tell_object(me,
-"  黑色- BLK"BLK"■■■"NOR"                 BBLK"BBLK"■■■"NOR"\n"
+"  黑色- BLK"BLK"■■■"NOR"                       BBLK"BBLK"■■■"NOR"\n"
 "  红色- RED"RED"■■■"NOR" HIR"HIR"■■■"NOR" HBRED"HBRED"■■■"NOR" BRED"BRED"■■■"NOR"\n"
 "  绿色- GRN"GRN"■■■"NOR" HIG"HIG"■■■"NOR" HBGRN"HBGRN"■■■"NOR" BGRN"BGRN"■■■"NOR"\n"
 "  黄色- YEL"YEL"■■■"NOR" HIY"HIY"■■■"NOR" HBYEL"HBYEL"■■■"NOR" BYEL"BYEL"■■■"NOR"\n"

@@ -14,7 +14,7 @@ int main(object me, string arg)
     }
     else
     {
-        return notify_fail(HIR "没有找到对象 " + arg + "\n" NOR);
+        debug("没有找到对象 " + arg);
     }
 
     return 1;
