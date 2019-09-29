@@ -3,52 +3,71 @@
 int main(object me, string arg)
 {
     string msg, str1, str2;
-    object ob1, ob2;
+    object ob1, ob2, ob;
     function fun;
 
     if (!arg)
     {
-        return notify_fail(HIY "指令格式： shadow /path/target 或者 shadow /path/ob1 on /path/ob2\n" NOR);
-    }
-
-    sscanf(arg, "%s on %s", str1, str2);
-
-    if (str2)
-    {
-        if (!(ob1 = load_object(str1)))
-        {
-            return notify_fail(HIR "没有找到对象 " + str1 + "\n" NOR);
-        }
-
-        if (!(ob2 = load_object(str2)))
-        {
-            return notify_fail(HIR "没有找到对象 " + str2 + "\n" NOR);
-        }
-
-        fun = bind((: shadow, ob2 :), ob1);
-        if(catch(evaluate(fun)))
-        {
-            return notify_fail(HIR "投影失败，可能对象 " + str1 + " 已经投影了其它对象或正在被其它对象投影，或者在某个环境中\n" NOR);
-        }
-        msg = HIG "对象 " + str1 + " 投影 " + str2 + " 成功\n" NOR;
+        debug("指令格式： shadow /path/target 或者 shadow /path/ob1 on /path/ob2");
+        return 1;
     }
     else
     {
-        if (!(ob1 = load_object(arg)))
+        sscanf(arg, "%s on %s", str1, str2);
+
+        if (str2)
         {
-            return notify_fail(HIR "没有找到对象 " + arg + "\n" NOR);
-        }
-        if (ob2 = query_shadowing(ob1))
-        {
-            msg = HIG + arg + " 投影的对象是 " + file_name(ob2) + "\n" NOR;
+            if (!(ob1 = load_object(str1)))
+            {
+                debug("没有找到对象 " + str1);
+            }
+            else if (ob = environment(ob1))
+            {
+                debug("对象 " + str1 + " 在环境 " + file_name(ob) + " 中");
+            }
+            else if (ob = query_shadowing(ob1))
+            {
+                debug("对象 " + str1 + " 已经投影了对象 " + file_name(ob));
+            }
+            else if (ob = shadow(ob1, 0))
+            {
+                debug("对象 " + str1 + " 已经被对象 " + file_name(ob) + " 投影了");
+            }
+            else if (!(ob2 = load_object(str2)))
+            {
+                debug("没有找到对象 " + str2);
+            }
+            else if (ob = query_shadowing(ob2))
+            {
+                debug("对象 " + str2 + " 已经投影了对象 " + file_name(ob));
+            }
+            else
+            {
+                fun = bind((: shadow, ob2:), ob1);
+                catch (evaluate(fun));
+                debug("对象 " + str1 + " 投影 " + str2 + " 成功");
+            }
         }
         else
         {
-            return notify_fail(HIR + arg + " 没有投影任何对象\n" NOR);
+            if (!(ob1 = load_object(arg)))
+            {
+                debug("没有找到对象 " + arg);
+            }
+            else if (ob2 = query_shadowing(ob1))
+            {
+                debug(arg + " 投影的对象是 " + file_name(ob2));
+            }
+            else if (ob2 = shadow(ob1, 0))
+            {
+                debug("对象 " + arg + " 已经被对象 " + file_name(ob2) + " 投影了");
+            }
+            else
+            {
+                debug(arg + " 没有投影任何对象");
+            }
         }
     }
-
-    write(msg);
 
     return 1;
 }
