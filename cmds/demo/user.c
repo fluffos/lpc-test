@@ -18,16 +18,17 @@ varargs void create(string arg)
 int main(object me, string arg)
 {
     object user;
+    string file;
 
-    if (base_name(me) == file_name(this_object()))
+    if (base_name(me) == (file = file_name()))
     {
         debug("请不要重复操作。");
     }
     else
     {
-        user = new(__FILE__, geteuid(me));
+        user = new(file, geteuid(me));
         exec(user, me);
-        // destruct(me);
+        destruct(me);
     }
 
     return 1;

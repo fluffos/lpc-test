@@ -14,23 +14,26 @@ int main(object me, string arg)
 
     if (!arg || (sscanf(arg, "%s to %s flag %d", str, file, i) != 3))
     {
-        return notify_fail(HIY "指令格式： save_object /path/object to save_name flag [00|01|10|11]\n" NOR);
+        debug("指令格式： save_object /path/object to save_name flag [00|01|10|11]");
     }
-
-    if (!(ob = load_object(str)))
+    else
     {
-        return notify_fail(HIR "没有找到对象 " + str + "\n" NOR);
-    }
-
-    file = DATA_DIR + file;
-
-    fun = bind((: save_object :), ob);
-    if (evaluate(fun, file, i))
-    {
-        if (i >= 10)
-            write(HIG "存档文件：" + file + __SAVE_GZ_EXTENSION__ + "\n" NOR);
+        if (!(ob = load_object(str)))
+        {
+            debug("没有找到对象 " + str);
+        }
         else
-            write(HIG "存档文件：" + file + __SAVE_EXTENSION__ + "\n" NOR);
+        {
+            file = DATA_DIR + file;
+            fun = bind((: save_object :), ob);
+            if (evaluate(fun, file, i))
+            {
+                if (i >= 10)
+                    write(HIG "存档文件：" + file + __SAVE_GZ_EXTENSION__ + "\n" NOR);
+                else
+                    write(HIG "存档文件：" + file + __SAVE_EXTENSION__ + "\n" NOR);
+            }
+        }
     }
 
     return 1;

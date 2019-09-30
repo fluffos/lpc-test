@@ -64,6 +64,85 @@ void debug(mixed arg)
     write(element_of(color) + arg + NOR "\n");
 }
 
+// 对象代称，不指定参数为返回当前玩家的代称
+varargs string pronoun(mixed arg, int type)
+{
+    if (!objectp(arg))
+    {
+        return "你";
+    }
+    else
+    {
+        arg = arg->query("gender");
+        switch (type)
+        {
+        case 1:
+            return "自己";
+        case 2:
+            return "你";
+        case 3:
+        default:
+            switch (arg)
+            {
+            case "男":
+                return "他";
+            case "女":
+                return "她";
+            default:
+                return "它";
+            }
+        }
+    }
+}
+
+// 目标广播
+varargs void boardcast(string type, string msg, object me, object you, object *others, object *exclude)
+{
+    string my_name, my_msg, your_name, your_msg, other_msg;
+
+    if (!msg || !objectp(me))
+        return;
+    my_name = capitalize(geteuid(me));
+
+    // 对 me 显示的消息
+    my_msg = replace_string(msg, "$ME", pronoun());
+    // 对 others 显示的消息
+    other_msg = replace_string(msg, "$ME", my_name);
+    // 对 you 的消息处理
+    if (objectp(you) && interactive(you))
+    {
+        your_name = capitalize(geteuid(you));
+        // 对 me 显示的消息
+        my_msg = replace_string(my_msg, "$YOU", your_name, 1);
+        my_msg = replace_string(my_msg, "$YOU", pronoun(you));
+        // 对 you 显示的消息
+        your_msg = replace_string(msg, "$ME", my_name, 1);
+        your_msg = replace_string(your_msg, "$ME", pronoun(me));
+        your_msg = replace_string(your_msg, "$YOU", pronoun());
+        // 对 others 显示的消息
+        other_msg = replace_string(other_msg, "$YOU", your_name);
+        // 对 you 送出信息
+        if (!arrayp(exclude) || member_array(you, exclude) == -1)
+            message(type, your_msg, you);
+    }
+    // 对 me 送出信息
+    if (!arrayp(exclude) || member_array(me, exclude) == -1)
+        message(type, my_msg, me);
+    // 对其他人送出信息
+    if (arrayp(others))
+    {
+        exclude = (exclude || ({})) + (you ? ({me, you}) : ({me}));
+        message(type, other_msg, others, exclude);
+    }
+}
+
+// 区域广播
+varargs void msg(string type, string msg, object me, object you, object *exclude)
+{
+    object *others = all_inventory(environment(me));
+    boardcast(type, msg, me, you, others, exclude);
+}
+
 // 数字字符串转数字
 int atoi(string str)
 {
