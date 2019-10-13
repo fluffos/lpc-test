@@ -1,5 +1,4 @@
-#include <ansi.h>
-
+// call_other.c
 int main(object me, string arg)
 {
     object ob;

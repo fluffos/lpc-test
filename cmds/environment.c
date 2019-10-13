@@ -1,5 +1,4 @@
-#include <ansi.h>
-
+// environment.c
 int main(object me, string arg)
 {
     object ob, env;

@@ -126,8 +126,6 @@ string object_name( object ob )
 
 mixed compile_object(string str)
 {
-    string tmp;
-
     if (debug)
     {
         debug_message("compile_object : " + str);

@@ -1,8 +1,7 @@
-#include <ansi.h>
-
+// shadow.c
 int main(object me, string arg)
 {
-    string msg, str1, str2;
+    string str1, str2;
     object ob1, ob2, ob;
     function fun;
 

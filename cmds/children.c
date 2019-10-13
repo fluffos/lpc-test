@@ -1,14 +1,14 @@
-#include <ansi.h>
-
+// children.c
 int main(object me, string arg)
 {
-
     if (!arg)
     {
-        return notify_fail(HIY "指令格式： children /path/target\n" NOR);
+        debug("指令格式： children /path/target");
     }
-
-    print_r(children(arg));
+    else
+    {
+        print_r(children(arg));
+    }
 
     return 1;
 }

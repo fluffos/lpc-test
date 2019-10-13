@@ -1,5 +1,4 @@
-#include <ansi.h>
-
+// all_inventory.c
 int main(object me, string arg)
 {
     object ob;
