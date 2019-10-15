@@ -43,7 +43,7 @@ void write_prompt()
 void net_dead()
 {
     say(HIR "玩家(" + geteuid() + ")断线了。\n" NOR);
-    destruct();
+    destruct(this_object());
 }
 
 int id(string id)
