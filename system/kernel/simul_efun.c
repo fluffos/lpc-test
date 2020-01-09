@@ -36,7 +36,9 @@ varargs string base_name(mixed ob)
 
     return file;
 }
+#endif
 
+#ifndef __PACKAGE_TRIM__
 // 去掉 str 两端的空格
 string trim(string str)
 {

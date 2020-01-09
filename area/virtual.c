@@ -1,32 +1,36 @@
 // 虚拟环境服务
 mixed compile_area(string file)
 {
-    string *path, virtual;
+    string virtual;
     object ob;
-    int x, y, z, elements, n;
+    int x, y, z, m, n;
 
-    path = explode(file, "/");
-    n = sizeof(path) - 1;
-    virtual = replace_string(file, "/" + path[n], "");
+    n = strsrch(file, "/", -1);
+    if (n < 1)
+    {
+        return 0;
+    }
+
+    virtual = file[0..n - 1];
 
     if (file_size(virtual + ".c") < 1)
     {
         return 0;
     }
 
-    if ((elements = sscanf(path[n], "%d,%d,%d", x, y, z)) != 3)
+    if ((m = sscanf(file[n + 1..], "%d,%d,%d", x, y, z)) != 3)
     {
-        if ((elements = sscanf(path[n], "%d,%d", x, y)) != 2)
+        if ((m = sscanf(file[n + 1..], "%d,%d", x, y)) != 2)
         {
             return 0;
         }
     }
 
-    if (elements == 2 && !(ob = new (virtual, x, y)))
+    if (m == 2 && !(ob = new (virtual, x, y)))
     {
         return 0;
     }
-    else if (elements == 3 && !(ob = new (virtual, x, y, z)))
+    else if (m == 3 && !(ob = new (virtual, x, y, z)))
     {
         return 0;
     }
