@@ -26,7 +26,9 @@ int main(object me, string arg)
         }
         else
         {
+            msg("info", "$ME离开了这里！", me, environment(me), ({me}));
             me->move(dest);
+            msg("info", "$ME走了过了！", me, environment(me), ({me}));
         }
     }
 
