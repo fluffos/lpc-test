@@ -1,6 +1,6 @@
 inherit DBASE;
 
-void create()
+void create(int x, int y, int z)
 {
     set("short", "客店二楼");
     set("long", @LONG
@@ -8,6 +8,6 @@ void create()
 如果需要开房请到楼下的掌柜处付钱。
 LONG);
     set("exits", ([
-        "down":__DIR__ "kedian",
+        "down":__DIR__ "0,0,0",
     ]));
 }

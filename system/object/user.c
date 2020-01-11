@@ -29,6 +29,6 @@ int command_hook(string arg)
     }
     else
     {
-        return notify_fail("指令不存在 T_T\n");
+        return notify_fail("指令不存在，你可以输入 tutorial 寻求帮助。\n");
     }
 }

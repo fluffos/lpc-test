@@ -1,5 +1,5 @@
 // 战斗模块F_COMBAT
-#define COMBAT_D __DIR__"COMBAT_D"
+#define COMBAT_D "/system/daemons/combat_d"
 
 // 敌人列表
 nosave object *enemies = ({});

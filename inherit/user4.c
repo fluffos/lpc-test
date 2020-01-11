@@ -2,8 +2,7 @@
 #include <ansi.h>
 
 inherit __DIR__ "user3";
-inherit DBASE;              // 数据模块
-inherit __DIR__ "F_COMBAT"; // 战斗模块
+inherit __DIR__ "combat"; // 战斗模块
 
 varargs void create(string arg)
 {

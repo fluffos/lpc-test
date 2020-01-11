@@ -1,7 +1,10 @@
 // 自定义 user 对象
+inherit DBASE;
+
 #define CMD_PATH "/cmds/"
 #define TEST_PATH "/cmds/test/"
 #define GO_CMD "/cmds/go"
+#define WORLD "/area/world/0,0,0"
 
 varargs void create(string arg)
 {
@@ -11,27 +14,8 @@ varargs void create(string arg)
         add_action("command_hook", "", 1);
         seteuid(arg);
         set_living_name(arg);
-        move_object(__DIR__ "kedian");
+        move_object(WORLD);
     }
-}
-
-int main(object me, string arg)
-{
-    object user;
-    string file;
-
-    if (base_name(me) == (file = file_name()))
-    {
-        debug("请不要重复操作。");
-    }
-    else
-    {
-        user = new(file, geteuid(me));
-        exec(user, me);
-        destruct(me);
-    }
-
-    return 1;
 }
 
 nomask int command_hook(string arg)

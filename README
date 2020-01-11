@@ -19,5 +19,4 @@
 |  ★    domain_file、author_file、creator_file
 |  ★ 所有对象加载时都会调用对象本身的 void create(void) 方法（如果有）
 └---------------------------------------------------------------------------┘
-本项目为 LPMUD 驱动测试用，仅包含必须的基本文件和 apply 方法。可用基础指令如下：
-    cat、shutdown、test、update
+本项目为 LPMUD 开发学习用，配套教程：https://bbs.mud.ren/threads/3

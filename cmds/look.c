@@ -25,7 +25,7 @@ int main(object me, string arg)
                 else if (sizeof(dirs) == 1)
                     desc += "    这里唯一的出口是 " + BOLD + dirs[0] + NOR + "。\n";
                 else
-                    desc += sprintf("    这里明显的出口是 " + BOLD + "%s" + NOR + " 和 " + BOLD + "%s" + NOR + "。\n", implode(dirs[0..sizeof(dirs)-2], "、"), dirs[sizeof(dirs) - 1]);
+                    desc += sprintf("    这里可移动的方向是 " + BOLD + "%s" + NOR + " 和 " + BOLD + "%s" + NOR + "。\n", implode(dirs[0..sizeof(dirs)-2], "、"), dirs[sizeof(dirs) - 1]);
             }
             write(desc);
         }
