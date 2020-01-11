@@ -3,6 +3,7 @@ inherit DBASE;
 
 #define CMD_PATH "/cmds/"
 #define TEST_PATH "/cmds/test/"
+#define EFUN_PATH "/cmds/efun/"
 #define GO_CMD "/cmds/go"
 #define WORLD "/area/world/0,0,0"
 
@@ -20,12 +21,13 @@ varargs void create(string arg)
 
 nomask int command_hook(string arg)
 {
-    string verb, cmd, test;
+    string verb, cmd, test, efun_cmd;
     object me, cmd_ob;
 
     verb = query_verb();
     cmd = CMD_PATH + verb;
     test = TEST_PATH + verb;
+    efun_cmd = EFUN_PATH + verb;
     me = this_object();
 
     if ((verb = trim(verb)) == "")
@@ -35,7 +37,7 @@ nomask int command_hook(string arg)
     {
         call_other(GO_CMD, "main", me, verb);
     }
-    else if (cmd_ob = load_object(cmd) || cmd_ob = load_object(test))
+    else if (cmd_ob = load_object(cmd) || cmd_ob = load_object(test) || cmd_ob = load_object(efun_cmd))
     {
         call_other(cmd_ob, "main", me, arg);
     }
