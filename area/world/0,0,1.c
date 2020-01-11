@@ -1,6 +1,6 @@
 inherit DBASE;
 
-void create(int x, int y, int z)
+void create()
 {
     set("short", "客店二楼");
     set("long", @LONG

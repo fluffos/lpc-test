@@ -26,8 +26,7 @@ int main(object me, string arg)
             debug("你当前所在环境是：" + environment(me));
         }
     }
-
-    if (arg == "user")
+    else if (arg == "user")
     {
         if (me->query_temp("step") != 1)
         {
@@ -38,18 +37,17 @@ int main(object me, string arg)
             debug("恭喜，成功啦！\n");
             debug("你当前玩家对象是：" + user);
             debug("你当前所在环境是：" + environment(user));
-            debug("现在你在新的环境中了，可以输入出口方向移动了。");
+            debug("现在你在新的环境中了，再次输入 look 看看吧。");
             debug("你可以使用更多指令了，如：say shout shutdown 等等");
             debug("\n相关教程：https://bbs.mud.ren/threads/47\n");
-            debug("但是移动必须输入完整的方向，非常不方便呀，使用 tutorial user2 试试吧。");
+            debug("现在移动必须输入完整的方向，非常不方便，使用 tutorial user2 试试吧。");
         }
         else
         {
             debug("你当前就在此状态，无需重复操作！");
         }
     }
-
-    if (arg == "user2")
+    else if (arg == "user2")
     {
         if (me->query_temp("step") != 2)
         {
@@ -68,8 +66,7 @@ int main(object me, string arg)
             debug("你当前就在此状态，无需重复操作！");
         }
     }
-
-    if (arg == "user3")
+    else if (arg == "user3")
     {
         if (me->query_temp("step") != 3)
         {
@@ -89,8 +86,7 @@ int main(object me, string arg)
             debug("你当前就在此状态，无需重复操作！");
         }
     }
-
-    if (arg == "user4")
+    else if (arg == "user4")
     {
         if (me->query_temp("step") != 4)
         {
@@ -100,13 +96,17 @@ int main(object me, string arg)
             destruct(me);
             debug("恭喜，成功啦！\n");
             debug("你当前玩家对象是：" + user);
-            debug("你现在可以战斗了，试试和其他玩家 fight 吧。");
+            debug("你现在有 HP 了，可以战斗了，试试和其他玩家 fight 吧。");
             debug("\n相关教程参考：https://bbs.mud.ren/threads/54\n");
         }
         else
         {
             debug("你当前就在此状态，无需重复操作！");
         }
+    }
+    else
+    {
+        debug("暂时没有相关内容的指引，请使用 tutorial user");
     }
 
     return 1;

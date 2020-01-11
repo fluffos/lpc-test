@@ -1,7 +1,7 @@
 // user.c
 inherit DBASE;
 
-void create(int x, int y, int z)
+void create()
 {
     set("short", "龙门客栈");
     set("long", @LONG

@@ -133,7 +133,7 @@ mixed compile_object(string str)
 
     if (sscanf(str, "/area/%*s", str))
     {
-        return call_other("/area/virtual", "compile_area", str);
+        return call_other("/system/daemons/virtual_d", "compile_area", str);
     }
     else
     {
