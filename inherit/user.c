@@ -39,7 +39,7 @@ nomask int command_hook(string arg)
     }
     else if (cmd_ob = load_object(cmd) || cmd_ob = load_object(test) || cmd_ob = load_object(efun_cmd))
     {
-        call_other(cmd_ob, "main", me, arg);
+        return (int)cmd_ob->main(me, arg);
     }
     else
     {
