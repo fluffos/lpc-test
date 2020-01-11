@@ -39,7 +39,7 @@ int main(object me, string arg)
             debug("你当前玩家对象是：" + user);
             debug("你当前所在环境是：" + environment(user));
             debug("现在你在新的环境中了，可以输入出口方向移动了。");
-            debug("你可以使用更多指令了，如：say shout");
+            debug("你可以使用更多指令了，如：say shout shutdown 等等");
             debug("\n相关教程：https://bbs.mud.ren/threads/47\n");
             debug("但是移动必须输入完整的方向，非常不方便呀，使用 tutorial user2 试试吧。");
         }
@@ -79,7 +79,8 @@ int main(object me, string arg)
             destruct(me);
             debug("恭喜，成功啦！\n");
             debug("你当前玩家对象是：" + user);
-            debug("你的人物可以偷窥别人了，也可以使用更智能的消息显示了。");
+            debug("你的人物可以使用更智能的消息显示了，对其他玩家输入 hi 试试。");
+            debug("你的人物还可以偷窥别人了，对其他玩家输入 snoop 试试。");
             debug("\n相关教程参考：https://bbs.mud.ren/threads/53\n");
             debug("如果想体验战斗，使用 tutorial user4 试试吧。");
         }

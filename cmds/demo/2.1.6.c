@@ -6,6 +6,8 @@ int main(object me, string arg)
     printf("s = %s\n", s);
 
     printf("s[4..4] = %s\n", s[4..4]);
+    printf("s[4] = %c\n",s[4]);
+    printf("s[4] = %d\n",s[4]);
     printf("s[4..6] = %s\n", s[4..6]);
 
     printf("s[0..20] = %s\n", s[0..20]);
