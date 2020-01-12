@@ -6,7 +6,7 @@ int main(object me, string arg)
 
     if (!arg)
     {
-        destruct();
+        destruct(this_object());
         return notify_fail(HIY "指令格式： destruct /path/target\n" NOR);
     }
     else if (ob = find_object(arg))

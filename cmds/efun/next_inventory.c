@@ -6,11 +6,11 @@ int main(object me, string arg)
 
     if (!arg)
     {
-        write(next_inventory(me) + "\n");
+        debug(next_inventory(me));
     }
     else if (ob = load_object(arg))
     {
-        write(next_inventory(ob) + "\n");
+        debug(next_inventory(ob));
     }
     else
     {

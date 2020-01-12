@@ -3,15 +3,10 @@
 
 int main(object me, string arg)
 {
-
 #ifdef FLUFFOS
     debug("driver 是 FLUFFOS!");
 #else
-    #ifdef MUDOS
-        debug("driver 是 MUDOS!");
-    #else
-        debug("未知 driver!");
-    #endif
+    debug("driver 是 MUDOS!");
 #endif
 
 #if X < 1 || X > 10

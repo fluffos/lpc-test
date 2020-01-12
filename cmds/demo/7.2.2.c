@@ -6,8 +6,9 @@ int main(object me, string arg)
 {
     debug(F("mud.ren"));
     // 不能使用，debug(F(mud.ren)); 会报错！
+#ifdef FLUFFOS
     debug(STR(mud.ren));
     debug(STR("mud.ren"));
-
+#endif
     return 1;
 }
