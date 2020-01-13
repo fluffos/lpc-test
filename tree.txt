@@ -1,38 +1,51 @@
 .
-├── area                    游戏环境区域所在目录
-│   ├── tower.c             勇者之塔
-│   └── virtual.c           虚拟环境控制文件
-├── cmds                    游戏指令（包括教程演示代码）所在目录
-│   ├── demo                教程示例代码所在目录
+├── README
+├── area                    游戏地区
+│   ├── tower.c
+│   ├── world
+│   │   ├── 0,0,0.c
+│   │   └── 0,0,1.c
+│   └── world.c
+├── cmds                    游戏指令
+│   ├── demo                教程演示指令
 │   │   └── ...
-│   ├── test                个人学习代码存放目录
-│   │   ├── test.c
+│   ├── efun                教程 efun 指令
 │   │   └── ...
-│   ├── update.c
+│   ├── test                个人测试目录
+│   │   └── test.c
 │   └── ...
-├── config.ini              *运行时配置文件*
-├── data                    存档文件保存目录
-│   └── ...
-├── include                 头文件所在目录
-│   ├── ansi.h              *颜色控制头文件*
-│   └── globals.h           *全局默认包含头文件*
-├── inherit                 继承功能文件目录
-│   ├── clean_up.c          内存清理接口
-│   └── dbase.c             数据存取接口
-├── log                     日志记录目录
-│   ├── author_stats        author 统计
-│   ├── debug.log           驱动日志
-│   ├── domain_stats        domain 统计
-│   ├── error_handler       编译错误日志
-│   └── log_error           代码错误及警告日志
-├── mudos.exe               旧版MUDOS(兼容性测试用)
-├── README                  说明文件
-├── system                  系统文件目录
-│   ├── kernel              核心文件目录
-│   │   ├── master.c        *主控对象*
-│   │   └── simul_efun.c    *模拟外部函数*
-│   └── object              核对对象目录
-│       ├── login.c         *连线对象*
-│       ├── user.c          *玩家对象*
-│       └── void.c          *默认环境对象*
-└── tree.txt                当前文档结构说明文件
+├── config.cfg              旧版运行时配置文件
+├── config.ini              新版运行时配置文件（v2019）
+├── data                    存档目录
+├── include                 头文件目录
+│   ├── ansi.h              颜色控制头文件
+│   └── globals.h           全局包含头文件
+├── inherit                 功能继承模块
+│   ├── clean_up.c
+│   ├── combat.c            战斗模块
+│   ├── dbase.c             数据存档模块
+│   ├── user.c
+│   ├── user2.c
+│   ├── user3.c
+│   └── user4.c
+├── log                     日志目录
+│   ├── author_stats
+│   ├── debug.log           游戏运行日志
+│   ├── domain_stats
+│   ├── error_handler       编译错误追踪日志
+│   └── log_error           错误及警告日志
+├── mudos.exe               旧版驱动，兼容性测试用
+├── system                  系统目录
+│   ├── daemons             守护进程
+│   │   ├── combat_d.c      战斗守护进程
+│   │   └── virtual_d.c     虚拟对象守护进程
+│   ├── kernel              核心文件
+│   │   ├── master.c        主控文件
+│   │   └── simul_efun.c    模拟外部函数文件
+│   └── object              核对对象
+│       ├── login.c         连线对象
+│       ├── user.c          玩家对象
+│       └── void.c
+├── tree.txt
+└── www                     WEBSOCKET
+    └── ...
