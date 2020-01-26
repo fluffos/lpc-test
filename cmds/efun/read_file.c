@@ -1,4 +1,4 @@
-// 查看/cmds/目录下源文件
+// 查看源文件
 int main(object me, string arg)
 {
     if (!arg)
@@ -8,7 +8,7 @@ int main(object me, string arg)
     arg = arg + ".c";
     if (file_size(arg) < 0)
     {
-        return notify_fail("cmds 目录下没有找到这个档案 T_T\n");
+        return notify_fail("目录下没有找到这个档案 T_T\n");
     }
     else
     {
