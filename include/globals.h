@@ -1,5 +1,5 @@
 /**
- * 所有对象加载时都会自动包含本文件
+ * The global include file is included automatically
  */
 
 #ifndef GLOBALS_H
