@@ -27,6 +27,7 @@ nosave mapping alias = ([
       "who":"users",
         "i":"all_inventory",
         "l":"look",
+       "ls":"get_dir",
 ]);
 
 // apply函数：如果用户对象中有process_input()，驱动会将玩家所有输入传入这里
@@ -38,6 +39,10 @@ mixed process_input(string arg)
     if (sscanf(arg, "l %s", arg))
     {
         arg = "look " + arg;
+    }
+    else if (sscanf(arg, "ls %s", arg))
+    {
+        arg = "get_dir " + arg;
     }
     else if (sscanf(arg, "chat %s", arg))
     {
