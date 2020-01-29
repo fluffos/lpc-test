@@ -55,24 +55,16 @@ void log_error(string file, string message)
     write_file(LOG_DIR + "log_error", message);
 }
 
-void error_handler(mapping map, int flag)
+void error_handler(mapping map, int caught)
 {
-    string str;
+    string str = "[" + ctime(time()) + "]";
 
-    printf("%O\n", map);
+    str += sprintf("\n%O\n\n", map);
 
-    if (flag)
-        str = "*Error caught\n";
-    else
-        str = "";
+    if (caught)
+        printf("%s", str);
 
-    str += sprintf("\nError: %s\nProgram: %s\nObject: %O\nFile: %s - Line: %d\n[%s]\n",
-                map["error"], (map["program"] || "No program"),
-                (map["object"] || "No object"),
-                map["file"],
-                map["line"],
-                implode(map_array(map["trace"],
-                    (: sprintf("\n\tProgram: %s\n\tObject: %O \n\tFile: %s\n\tFunction : %s\n\tLine: %d\n", $1["program"], $1["object"], $1["file"], $1["function"], $1["line"]) :)), "\n"));
+    debug("出错啦！请查看 error_handler 日志。");
 
     write_file(LOG_DIR + "error_handler", str);
 }

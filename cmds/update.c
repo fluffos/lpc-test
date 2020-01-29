@@ -34,7 +34,7 @@ int main(object me, string file)
     }
     else
     {
-        write("失败!\n");
+        write("失败，对象不存在!\n");
     }
 
     return 1;
