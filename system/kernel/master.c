@@ -1,3 +1,4 @@
+#define VIRTUAL_D "/system/daemons/virtual_d"
 // 调试模式开关
 nosave int debug = 0;
 
@@ -133,7 +134,7 @@ mixed compile_object(string str)
 
     if (sscanf(str, "/area/%*s", str))
     {
-        return call_other("/system/daemons/virtual_d", "compile_area", str);
+        return call_other(VIRTUAL_D, "compile_area", str);
     }
     else
     {
