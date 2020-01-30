@@ -1,4 +1,4 @@
-// user.c
+// 0,0,0.c
 inherit DBASE;
 
 void create()

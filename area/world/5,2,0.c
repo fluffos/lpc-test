@@ -1,4 +1,4 @@
-// user.c
+// 5.2.0.c
 inherit ROOM;
 
 void create()
@@ -8,7 +8,7 @@ void create()
     这里是下午镇郊外，几位提着兽皮灯笼的白银城冒险者正在这里探索。
 LONG );
     set("objects",([
-        __DIR__ "npc/npc" : 1 + random(5),
+        __DIR__ "npc/npc" : 1 + random(3),
     ]));
     set("exits", ([
         "east":__DIR__ "6,2,0",
