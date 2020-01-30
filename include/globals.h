@@ -15,6 +15,7 @@
 
 #define CLEAN_UP "/inherit/clean_up"
 #define DBASE "/inherit/dbase"
+#define ROOM "/inherit/room"
 
 #define LOG_DIR "/log/"
 

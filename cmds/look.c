@@ -11,7 +11,7 @@ int main(object me, string arg)
     mapping exits;
 
     if (arg)
-        return notify_fail("暂时不支持查看指定的对象\n");
+        return notify_fail("暂时不支持查看指定的对象。\n");
 
     if (objectp(env))
     {
@@ -52,28 +52,31 @@ string desc_of_objects(object *obs)
     {
         int i;
         string str;
-        mapping list, unit;
+        mapping amount, unit;
         string short_name;
         string *ob;
 
         str = "    这里有：";
-        list = ([]);
+        amount = ([]);
         unit = ([]);
 
         for (i = 0; i < sizeof(obs); i++)
         {
-            short_name = geteuid(obs[i]);
-
-            list[short_name] += obs[i]->query_temp("amount") ? obs[i]->query_temp("amount") : 1;
+            short_name = obs[i]->query("name");
+            if (!short_name)
+            {
+                short_name = geteuid(obs[i]);
+            }
+            amount[short_name] += 1;
             unit[short_name] = obs[i]->query("unit") ? obs[i]->query("unit") : "个";
         }
 
-        ob = sort_array(keys(list), 1);
+        ob = sort_array(keys(amount), 1);
 
         for (i = 0; i < sizeof(ob); i++)
         {
-            if (list[ob[i]] > 1)
-                str += list[ob[i]] + unit[ob[i]] + ob[i] + " ";
+            if (amount[ob[i]] > 1)
+                str += amount[ob[i]] + unit[ob[i]] + ob[i] + " ";
             else
                 str += ob[i] + " ";
         }
