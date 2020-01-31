@@ -1,11 +1,12 @@
 #define VIRTUAL_D "/system/daemons/virtual_d"
+#define PASSWD "mud.ren"
 // 调试模式开关
 nosave int debug = 0;
 
 string get_root_uid()
 {
 
-    // debug_message("get_root_uid : ROOT");
+    debug_message(ctime(time()) + " : get_root_uid()!");
     return "ROOT";
 }
 
@@ -21,7 +22,7 @@ string author_file(string str)
 
 string get_bb_uid()
 {
-    // debug_message("get_bb_uid : BACKBONE");
+    debug_message(ctime(time()) + " : get_bb_uid()!");
     return "BACKBONE";
 }
 
@@ -62,9 +63,9 @@ void error_handler(mapping map, int caught)
     str += sprintf("\n%O\n\n", map);
 
     if (caught)
-        printf("%s", str);
-
-    debug("出错啦！请查看 error_handler 日志。");
+        printf("%s", map["error"]);
+    else
+        debug("出错啦！详情记录在 error_handler 日志。");
 
     write_file(LOG_DIR + "error_handler", str);
 }
@@ -158,7 +159,7 @@ mixed valid_database(object caller, string func, mixed *info)
     }
 
     if (func == "connect")
-        return "secret"; // mysql数据库密码
+        return PASSWD; // mysql数据库密码
     else
         return 1;
 }
