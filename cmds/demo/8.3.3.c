@@ -30,7 +30,7 @@ int main(object me, string arg)
     }
     else
     {
-        debug("【系统提示】消息已发送！");
+        debug("【系统】消息已发送！");
     }
     return 1;
 }

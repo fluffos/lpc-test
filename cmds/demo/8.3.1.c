@@ -46,7 +46,7 @@ void socket_init(int mode)
             }
             else
             {
-                debug("【系统提示】UDP Socket 服务已启动 : " + socket_address(s, 1));
+                debug("【8.3.1】UDP Socket 服务已启动 : " + socket_address(s, 1));
             }
         }
     }
@@ -69,11 +69,11 @@ int main(object me, string arg)
         err = socket_release(S, load_object(__DIR__"8.3.5"), "release_callback");
         if (err < 0)
         {
-            debug("【服务端】socket_release error : " + socket_error(err));
+            debug("【8.3.1】socket_release error : " + socket_error(err));
         }
         else
         {
-            debug("【系统提示】socket_release SUCCESS！");
+            debug("【8.3.1】socket_release SUCCESS！");
         }
     }
     else
@@ -82,11 +82,11 @@ int main(object me, string arg)
         err = socket_write(S, arg);
         if (err < 0)
         {
-            debug("【服务端】socket_write error : " + socket_error(err));
+            debug("【8.3.1】socket_write error : " + socket_error(err));
         }
         else
         {
-            debug("【系统提示】消息已发送！");
+            debug("【系统】消息已发送！");
         }
     }
     return 1;
@@ -108,11 +108,7 @@ void listen_callback(int fd)
         err = socket_write(S, "欢迎连接到服务器 mud.ren ^_^");
         if (err < 0)
         {
-            debug("【客户端】socket_write error : " + socket_error(err));
-        }
-        else
-        {
-            debug("【系统提示】消息已发送！");
+            debug("【8.3.1】socket_write error : " + socket_error(err));
         }
     }
 }

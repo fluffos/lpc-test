@@ -46,11 +46,11 @@ int main(object me, string arg)
         err = socket_release(s, load_object(__DIR__"8.3.5"), "release_callback");
         if (err < 0)
         {
-            debug("【服务端】socket_release error : " + socket_error(err));
+            debug("【8.3.2】socket_release error : " + socket_error(err));
         }
         else
         {
-            debug("【系统提示】socket_release SUCCESS！");
+            debug("【8.3.2】socket_release SUCCESS！");
         }
         return 1;
     }
@@ -61,7 +61,7 @@ int main(object me, string arg)
     }
     else
     {
-        debug("【系统提示】消息已发送！");
+        debug("【系统】消息已发送！");
     }
     return 1;
 }

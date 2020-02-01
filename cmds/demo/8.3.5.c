@@ -10,11 +10,11 @@ int main(object me, string arg)
     err = socket_write(S, arg);
     if (err < 0)
     {
-        debug("【服务端】socket_write error : " + socket_error(err));
+        debug("【8.3.5】socket_write error : " + socket_error(err));
     }
     else
     {
-        debug("【系统提示】消息已发送！");
+        debug("【系统】消息已发送！");
     }
     return 1;
 }
