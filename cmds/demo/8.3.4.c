@@ -1,24 +1,14 @@
-/**
- * sockets 相关测试
- */
+// 显示 socket_status
 int main(object me, string arg)
 {
+    if (arg)
+    {
+        print_r(socket_status(atoi(arg)));
+    }
+    else
+    {
+        print_r(socket_status());
+    }
+
     return 1;
-}
-
-void release_callback(int fd)
-{
-    socket_acquire(fd, "read_callback", "write_callback", "close_callback");
-}
-
-void read_callback(int fd, mixed message)
-{
-}
-
-void write_callback(int fd)
-{
-}
-
-void close_callback(int fd)
-{
 }
