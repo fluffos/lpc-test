@@ -61,7 +61,7 @@ void write_callback(int fd)
 void read_callback(int fd, mixed message)
 {
     debug("【客户端】read_callback fd : " + fd);
-    shout("【客户端】" + message);
+    shout("【客户端】read_callback : " + message);
     // socket_write(fd, "客户端收到信息是：" + message);
 }
 

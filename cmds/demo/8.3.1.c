@@ -2,6 +2,7 @@
  * sockets 相关测试
  */
 void close_callback(int fd);
+void write_callback(int fd);
 
 int main(object me, string arg)
 {
@@ -54,23 +55,36 @@ void listen_callback(int fd)
     int s;
     debug("【服务器】listen_callback fd : " + fd);
     // 在一个 socket 上接受连接
-    s = socket_accept(fd, "read_callback", "write_callback");
-    debug("【服务器】socket_accept fd = " + s);
+    s = socket_accept(fd, "read_callback2", "write_callback");
     if (s < 0)
     {
         debug("【服务器】socket_accept error : " + socket_error(s));
         close_callback(s);
     }
     else
-        socket_write(s, "欢迎连接到mud.ren服务器!^_^\n");
+    {
+        debug("【服务器】socket_accept fd = " + s);
+        socket_write(s, "欢迎连接到服务器 mud.ren ^_^\n");
+    }
+
 }
 
 void read_callback(int fd, mixed message)
 {
     debug("【服务器】read_callback fd : " + fd);
-    shout("【服务器】" + message);
+    shout("【服务器】read_callback : " + message);
+}
 
-    // socket_write(fd, "你好呀，来访者。\n");
+varargs void read_callback2(int fd, mixed message)
+{
+    debug("【服务器】read_callback2 fd : " + fd);
+    shout("【服务器】read_callback2 : " + message);
+    socket_write(fd, "服务器收到消息：" + message);
+}
+
+void write_callback(int fd)
+{
+    debug("【服务器】write_callback fd : " + fd);
 }
 
 void close_callback(int fd)
