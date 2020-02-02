@@ -76,7 +76,7 @@ int main(object me, string arg)
             debug("【8.3.1】socket_release SUCCESS！");
         }
     }
-    else
+    else if (arg)
     {
 
         err = socket_write(S, arg);
@@ -89,6 +89,7 @@ int main(object me, string arg)
             debug("【系统】消息已发送！");
         }
     }
+
     return 1;
 }
 

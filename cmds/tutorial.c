@@ -39,6 +39,7 @@ int main(object me, string arg)
             debug("你当前所在环境是：" + file_name(environment(user)));
             debug("现在你在新的环境中了，再次输入 look 看看吧。");
             debug("你可以使用更多指令了，如：say shout shutdown 等等");
+            debug("你可以使用 east south west north 移动啦");
             debug("\n相关教程：https://bbs.mud.ren/threads/47\n");
             debug("现在移动必须输入完整的方向，非常不方便，使用 tutorial user2 试试吧。");
         }
@@ -57,7 +58,8 @@ int main(object me, string arg)
             destruct(me);
             debug("恭喜，成功啦！\n");
             debug("你当前玩家对象是：" + file_name(user));
-            debug("你可以更方便的移动了，使用更多指令了，如：chat who l");
+            debug("你可以更方便的移动了: e s w n");
+            debug("你还可以使用更多指令了，如：chat who i l ls");
             debug("\n相关教程参考：https://bbs.mud.ren/threads/48\n");
             debug("如果想变得更智能，使用 tutorial user3 试试吧。");
         }
