@@ -41,12 +41,20 @@ void socket_init(int mode)
                 }
                 else
                 {
+#ifdef FLUFFOS
                     debug("【8.3.1】socket_listen ON " + socket_address(s, 1));
+#else
+                    debug("【8.3.1】socket_listen ON " + socket_address(s));
+#endif
                 }
             }
             else
             {
+#ifdef FLUFFOS
                 debug("【8.3.1】UDP Socket 服务已启动 : " + socket_address(s, 1));
+#else
+                debug("【8.3.1】UDP Socket 服务已启动 : " + socket_address(s));
+#endif
             }
         }
     }
