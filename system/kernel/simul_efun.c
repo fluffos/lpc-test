@@ -222,3 +222,24 @@ int bitClear(int state, int pos)
 {
     return state & (~(1 << (pos - 1)));
 }
+
+// 读取文件按行返回数组
+string *update_file(string file)
+{
+    string *arr;
+    string str;
+    int i;
+
+    str = read_file(file);
+    if (!str) {
+        return ({});
+    }
+    arr = explode(str, "\n");
+    for (i = 0; i < sizeof(arr); i++) {
+        if (arr[i][0] == '#') {
+            arr[i] = 0;
+        }
+    }
+    arr -= ({ 0 });
+    return arr;
+}

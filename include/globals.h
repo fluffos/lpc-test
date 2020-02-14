@@ -17,6 +17,9 @@
 #define DBASE "/inherit/dbase"
 #define ROOM "/inherit/room"
 
+#define DATA_DIR "/data/"
 #define LOG_DIR "/log/"
+
+#define PRELOAD "/system/etc/preload"
 
 #endif

@@ -72,8 +72,12 @@ void error_handler(mapping map, int caught)
 
 string *epilog(int load_empty)
 {
+    string *items = ({});
+#ifdef PRELOAD
+    items = update_file(PRELOAD);
+#endif
     // debug_message("epilog : " + load_empty);
-    return ({"/system/object/login", "/system/object/user", "/system/object/void"});
+    return items;
 }
 
 void preload(string filename)

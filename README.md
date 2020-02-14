@@ -82,3 +82,17 @@ LPC 开发测试 LIB，推荐配合 fluffos v2019 使用，使用 fluffos v2017 
 └── www                     WEBSOCKET
     └── ...
 ```
+
+### 运行
+
+推荐使用 FluffOS v2019 最新版编译的驱动运行，启动方式：
+
+    driver config.ini
+
+如果要后台显示更多信息，可使用以下方式启动：
+
+    driver config.ini -fdebug
+
+如果使用 FluffOS v2017 驱动，请运行：
+
+    driver config.cfg

@@ -6,7 +6,7 @@ Author: xuefeng
 Version: v1.0
 Date: 2019-04-18
 *****************************************************************************/
-#define WELCOME "/README"
+#define WELCOME "/system/etc/motd"
 
 void setup(string arg)
 {
