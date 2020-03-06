@@ -3,10 +3,11 @@ int main(object me, string arg)
 {
 #ifdef FLUFFOS
     float fa = MAX_FLOAT;
-    // 最小值定义有错
-    float fi = MIN_FLOAT;
+    // 最小值
+    float f0 = MIN_FLOAT;
+    float fi = -1 * fa;
 
-    printf("fa = %f\nfi = %f\n", fa, fi);
+    printf("fa = %f\nf0 = %f\nfi = %f\n", fa, f0, fi);
 #endif
     return 1;
 }
