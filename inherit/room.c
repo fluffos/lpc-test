@@ -14,7 +14,8 @@ object make_inventory(string file)
 {
     object ob;
 
-    ob = new(file);
+    if(!objectp(ob = new(file)))
+        return 0;
     ob->move(this_object());
     return ob;
 }
@@ -45,7 +46,7 @@ void reset()
         }
         else
         {
-            if (!arrayp(ob[file]))
+            if (!arrayp(ob[file]) || (sizeof(ob[file]) != amount))
                 ob[file] = allocate(amount);
             for(int i = 0; i < amount; i++)
             {
