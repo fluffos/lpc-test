@@ -1,6 +1,5 @@
 // world.c
-inherit CLEAN_UP;
-inherit DBASE;
+inherit ROOM;
 
 varargs void create(int x, int y, int z)
 {
@@ -26,4 +25,10 @@ LONG);
         "west":__DIR__ "world/" + (x - 1) + "," + y + "," + z,
         "east":__DIR__ "world/" + (x + 1) + "," + y + "," + z,
     ]));
+}
+
+void virtual_start()
+{
+    set("objects", ([__DIR__ "world/npc/npc" : random(3),]));
+    setup();
 }

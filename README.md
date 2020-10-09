@@ -1,6 +1,6 @@
 ## LPC-TEST
 
-LPC 开发测试 LIB，推荐配合 fluffos v2019 使用，使用 fluffos v2017 和旧版 mudos 也能正常运行。
+LPC 开发测试 LIB，配合 fluffos v2019 使用。
 
 ```
                                  _\\|//_
@@ -46,8 +46,7 @@ LPC 开发测试 LIB，推荐配合 fluffos v2019 使用，使用 fluffos v2017 
 │   ├── test                个人测试目录
 │   │   └── test.c
 │   └── ...
-├── config.cfg              旧版运行时配置文件
-├── config.ini              新版运行时配置文件（v2019）
+├── config.ini              运行时配置文件（FluffOS v2019）
 ├── data                    存档目录
 ├── include                 头文件目录
 │   ├── ansi.h              颜色控制头文件
@@ -66,7 +65,6 @@ LPC 开发测试 LIB，推荐配合 fluffos v2019 使用，使用 fluffos v2017 
 │   ├── domain_stats
 │   ├── error_handler       编译错误追踪日志
 │   └── log_error           错误及警告日志
-├── mudos.exe               旧版驱动，兼容性测试用
 ├── system                  系统目录
 │   ├── daemons             守护进程
 │   │   ├── combat_d.c      战斗守护进程
@@ -93,6 +91,6 @@ LPC 开发测试 LIB，推荐配合 fluffos v2019 使用，使用 fluffos v2017 
 
     driver config.ini -fdebug
 
-如果使用 FluffOS v2017 驱动，请运行：
+如果要追踪游戏运行信息，可使用以下方式启动：
 
-    driver config.cfg
+    driver config.ini --tracing trace_driver.json
