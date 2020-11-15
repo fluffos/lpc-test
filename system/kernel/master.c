@@ -1,5 +1,5 @@
 #define VIRTUAL_D "/system/daemons/virtual_d"
-#define PASSWD "mud.ren"
+#define PASSWD ""
 // 调试模式开关
 nosave int debug = 0;
 

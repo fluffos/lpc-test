@@ -9,18 +9,27 @@ int main(object me, string arg)
     else
     {
         db_exec(db, "set names utf8"); // 防止乱码
-        rows = db_exec(db, "SELECT id,title FROM threads limit 30");
+        if (arg)
+        {
+            // db_exec(db, "delete from password_resets where email=\"test@test.cn\"");
+            // db_exec(db, "insert into password_resets values (\"test@test.cn\", \"abcdefg1234567890\", \"2020-10-15 12:34:00\")");
+            // db_exec(db, "update password_resets set token=\"" + arg + "\" where email=\"test@test.cn\"");
+        }
+        rows = db_exec(db, "SELECT * FROM password_resets limit 30");
         if (!rows)
             debug("查询结果为空");
         else if (stringp(rows))
             debug(rows); /* error */
         else
+        {
+            debug(rows);
             for (int i = 0; i <= rows; i++)
             {
                 res = db_fetch(db, i);
                 // printf("%O\n", res);
-                debug(res[0] + " " + res[1]);
+                debug(i + " " + res[0] + " " + res[1] + " " + res[2]);
             }
+        }
 
         db_close(db);
     }
