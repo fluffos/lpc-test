@@ -1,5 +1,5 @@
 /**
- * sockets 相关测试
+ * sockets release 相关测试
  */
 
 nosave int S;

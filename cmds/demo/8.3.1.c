@@ -9,7 +9,7 @@ nosave int S;
 
 void socket_init(int mode)
 {
-    int s, err, port = 5000;
+    int s, err, port = 6000;
 
     // 创建一个 efun socket 连接
     s = socket_create(mode, "read_callback", "close_callback");
@@ -122,12 +122,20 @@ void listen_callback(int fd)
     }
 }
 
-void read_callback(int fd, mixed message)
+// udp模式使用
+void read_callback(int fd, mixed message, string addr)
 {
     debug("【8.3.1】read_callback fd : " + fd);
+    debug("【8.3.1】read_callback from : " + addr);
     shout("【8.3.1】read_callback : " + message + "\n");
+    // 发送消息给客户端，需要udp客户端绑定端口
+    if (message == "hi")
+    {
+        socket_write(fd, "你好，客户端！", addr);
+    }
 }
 
+// tcp模式使用
 varargs void read_callback2(int fd, mixed message)
 {
     debug("【8.3.1】read_callback2 fd : " + fd);

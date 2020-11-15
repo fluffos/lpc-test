@@ -6,7 +6,7 @@ nosave int s;
 void socket_init(int mode)
 {
     int err;
-    string addr = "127.0.0.1 5000";
+    string addr = "127.0.0.1 6000";
     // 创建一个 efun socket 连接
     s = socket_create(mode, "read_callback", "close_callback");
     if (s < 0)
@@ -19,7 +19,7 @@ void socket_init(int mode)
         if (mode != 2 && mode != 4)
         {
             // 启动一个 socket 连接
-            err = socket_connect(s, addr, "read_callback", "write_callback");
+            err = socket_connect(s, addr, "read_callback2", "write_callback");
             if (err < 0)
             {
                 debug("【8.3.2】socket_connect error : " + socket_error(err));
@@ -81,6 +81,12 @@ void read_callback(int fd, mixed message)
 {
     debug("【8.3.2】read_callback fd : " + fd);
     shout("【8.3.2】read_callback : " + message + "\n");
+}
+
+void read_callback2(int fd, mixed message)
+{
+    debug("【8.3.2】read_callback2 fd : " + fd);
+    shout("【8.3.2】read_callback2 : " + message + "\n");
 }
 
 void close_callback(int fd)
