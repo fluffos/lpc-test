@@ -1,5 +1,7 @@
 #include <ansi.h>
 
+#include "simul_efun/json.c"
+
 #ifndef FLUFFOS
 
 mixed abs(mixed n)
@@ -54,6 +56,7 @@ string trim(string str)
 
 #endif
 
+// 随机颜色输出，调试用
 void debug(mixed arg)
 {
     string *color = ({HIB, HIC, HIG, HIM, HIR, HIW, HIY});
@@ -64,6 +67,15 @@ void debug(mixed arg)
     }
 
     write(element_of(color) + arg + NOR "\n");
+}
+
+// 判断是否为中文
+int is_chinese(string str)
+{
+    if (!str)
+        return 0;
+
+    return pcre_match(str, "^\\p{Han}+$");
 }
 
 // 对象代称，不指定参数为返回当前玩家的代称
