@@ -4,6 +4,7 @@ inherit DBASE;
 #define CMD_PATH "/cmds/"
 #define TEST_PATH "/cmds/test/"
 #define EFUN_PATH "/cmds/efun/"
+#define DEMO_PATH "/cmds/demo/"
 #define GO_CMD "/cmds/go"
 #define WORLD "/area/world/0,0,0"
 
@@ -21,13 +22,14 @@ varargs void create(string arg)
 
 nomask int command_hook(string arg)
 {
-    string verb, cmd, test, efun_cmd;
+    string verb, cmd, test, efun_cmd, demo;
     object me, cmd_ob;
 
     verb = query_verb();
     cmd = CMD_PATH + verb;
     test = TEST_PATH + verb;
     efun_cmd = EFUN_PATH + verb;
+    demo = DEMO_PATH + verb;
     me = this_object();
 
     if ((verb = trim(verb)) == "")
@@ -37,13 +39,14 @@ nomask int command_hook(string arg)
     {
         call_other(GO_CMD, "main", me, verb);
     }
-    else if (cmd_ob = load_object(cmd) || cmd_ob = load_object(test) || cmd_ob = load_object(efun_cmd))
+    else if (cmd_ob = load_object(cmd) || cmd_ob = load_object(test) || cmd_ob = load_object(efun_cmd) || cmd_ob = load_object(demo))
     {
         return (int)cmd_ob->main(me, arg);
     }
     else
     {
-        return notify_fail("指令不存在 ^_^\n");
+        // return notify_fail("指令不存在 ^_^\n");
+        return 0;
     }
 
     return 1;

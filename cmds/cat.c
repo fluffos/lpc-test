@@ -8,7 +8,7 @@ int main(object me, string arg)
     arg = "/cmds/demo/" + arg + ".c";
     if (file_size(arg) < 0)
     {
-        return notify_fail("没有找到这个实例，如果你要查看其他文件源码，可以使用 read_file\n");
+        return notify_fail("没有找到这个实例，如果你要查看其他文件源码，可以使用 efun/read_file\n");
     }
     else
     {

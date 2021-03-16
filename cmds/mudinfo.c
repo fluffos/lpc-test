@@ -48,7 +48,7 @@ int main(object me, string arg)
     {
         msg = WHT BBLU "\n Mud名称       运行时间            游戏地址   端口   在线人数" NOR;
         msg += "\n─────────────────────────────────────────────────────────────\n";
-        msg += sprintf(" %-14s%-20s%-11s%-10d%-5d" NOR, MUD_NAME, duration(), "mud.ren", __PORT__, sizeof(users()));
+        msg += sprintf(" %-14s%-20s%-11s%-10d%-5d" NOR, MUD_NAME, duration(), "127.0.0.1", __PORT__, sizeof(users()));
         msg += "\n─────────────────────────────────────────────────────────────\n";
         write(msg);
     }
