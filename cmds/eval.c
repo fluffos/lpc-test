@@ -1,4 +1,3 @@
-#include <ansi.h>
 inherit CLEAN_UP;
 
 int main(object me, string arg)
@@ -14,7 +13,7 @@ int main(object me, string arg)
     if (eval_ob = find_object(filename))
         destruct(eval_ob);
 
-    file = "mixed eval(object me) { " + arg + "; }\n";
+    file = "#include <ansi.h>\nmixed eval(object me) { " + arg + "; }\n";
     write_file(filename, file, 1);
     printf("Result = %O\n", filename->eval(me));
 

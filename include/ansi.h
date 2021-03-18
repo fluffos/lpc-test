@@ -55,13 +55,14 @@
 #define HBWHT SGR("1;47") /* 白 */
 
 // #define NOR ESC + "[2;37;0m" /* Puts everything back to normal */
-#define NOR SGR("0")      /* 清除所有特殊属性 */
+#define NOR SGR("0")     /* 清除所有特殊属性 */
 #define BOLD SGR("1")    /* Turn on bold mode */
-#define ITALIC SGR("3")  /* Turn on bold mode */
+#define ITALIC SGR("3")  /* Turn on ITALIC mode */
 #define U SGR("4")       /* Initialize underscore mode */
 #define BLINK SGR("5")   /* Initialize blink mode */
 #define REV SGR("7")     /* Turns reverse video mode on */
 #define HIREV SGR("1;7") /* Hi intensity reverse video  */
+#define HIDE SGR("8")    /* 消隐 */
 
 /* Additional ansi Esc codes added to ansi.h by Gothic  april 23,1993 */
 /* Note, these are Esc codes for VT100 terminals, and emmulators */
