@@ -61,7 +61,7 @@ int main(object me, string arg)
             debug("你可以更方便的移动了: e s w n");
             debug("你还可以使用更多指令了，如：chat who i l ls");
             debug("\n相关教程参考：https://bbs.mud.ren/threads/48\n");
-            debug("如果想变得更智能，使用 tutorial user3 试试吧。");
+            debug("如果想看到更多信息，使用 tutorial user3 试试吧。");
         }
         else
         {
@@ -78,7 +78,7 @@ int main(object me, string arg)
             destruct(me);
             debug("恭喜，成功啦！\n");
             debug("你当前玩家对象是：" + file_name(user));
-            debug("你的人物可以使用更智能的消息显示了，对其他玩家输入 hi 试试。");
+            debug("你的人物可以使用更智能的消息显示了，对其他玩家输入 hi 试试，或者看看某个对象吧。");
             debug("你的人物还可以偷窥别人了，对其他玩家输入 snoop 试试。");
             debug("\n相关教程参考：https://bbs.mud.ren/threads/53\n");
             debug("如果想体验战斗，使用 tutorial user4 试试吧。");

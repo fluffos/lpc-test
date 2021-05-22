@@ -1,60 +1,5 @@
 #include <ansi.h>
-
 #include "simul_efun/json.c"
-
-#ifndef FLUFFOS
-
-mixed abs(mixed n)
-{
-    if (!floatp(n) && !intp(n))
-        return 0;
-
-    return (n < 0) ? -n : n;
-}
-
-mixed element_of(mixed *arr)
-{
-    return arr[random(sizeof(arr))];
-}
-
-varargs string base_name(mixed ob)
-{
-    string file;
-
-    if (!ob)
-    {
-        file = file_name(previous_object());
-    }
-    else if (objectp(ob))
-    {
-        file = file_name(ob);
-    }
-    else if (stringp(ob))
-    {
-        file = ob;
-    }
-
-    sscanf(file, "%s#%*d", file);
-
-    return file;
-}
-#endif
-
-#ifndef __PACKAGE_TRIM__
-// 去掉 str 两端的空格
-string trim(string str)
-{
-    int len;
-
-    while (str[0] == ' ')
-        str = str[1.. < 1];
-    while ((len = strlen(str) - 1) >= 0 && str[len] == ' ')
-        str = str[0.. < 2];
-
-    return str;
-}
-
-#endif
 
 // 随机颜色输出，调试用
 void debug(mixed arg)
@@ -116,16 +61,16 @@ varargs void boardcast(string type, string msg, object me, object you, object *o
 
     if (!msg || !objectp(me))
         return;
-    my_name = capitalize(geteuid(me));
+    my_name = me->query("name") || capitalize(geteuid(me));
 
     // 对 me 显示的消息
     my_msg = replace_string(msg, "$ME", pronoun());
     // 对 others 显示的消息
     other_msg = replace_string(msg, "$ME", my_name);
     // 对 you 的消息处理
-    if (objectp(you) && interactive(you))
+    if (objectp(you) && living(you))
     {
-        your_name = capitalize(geteuid(you));
+        your_name = you->query("name") || capitalize(geteuid(you));
         // 对 me 显示的消息
         my_msg = replace_string(my_msg, "$YOU", your_name, 1);
         my_msg = replace_string(my_msg, "$YOU", pronoun(you));

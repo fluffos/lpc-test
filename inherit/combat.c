@@ -1,6 +1,8 @@
 // 战斗模块F_COMBAT
 #define COMBAT_D "/system/daemons/combat_d"
 
+int can_fight() { return 1; }
+
 // 敌人列表
 nosave object *enemies = ({});
 // 获取敌人列表
@@ -72,6 +74,21 @@ void die()
     object me = this_object();
     remove_all_enemy();
     msg("danger", "$ME死亡了。", me);
-    me->move(VOID_OB);
-    me->set("hp", 50);
+    me->move(START_ROOM);
+    me->set("hp", me->query("max_hp"));
+}
+
+void heart_beat()
+{
+    // 死亡相关控制
+    if (this_object()->query("hp") < 0)
+    {
+        die();
+    }
+    // 行动相关控制
+    if (is_fighting())
+    {
+        // 战斗吧，皮卡丘
+        attack();
+    }
 }

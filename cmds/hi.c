@@ -2,7 +2,7 @@
 int main(object me, string arg)
 {
     object ob;
-    if (arg &&ob = find_player(arg))
+    if (arg &&ob = find_living(arg))
     {
         if (ob == me)
         {

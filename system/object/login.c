@@ -22,7 +22,9 @@ void setup(string arg)
         from = this_object();
         to = new(USER_OB, arg);
         exec(to, from);
-        // destruct(from);
+        destruct(from);
+        // log
+        debug_message(ctime() + " " + query_ip_number(to) + " " + arg);
     }
 }
 

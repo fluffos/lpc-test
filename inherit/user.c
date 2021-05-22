@@ -1,22 +1,21 @@
 // 自定义 user 对象
 inherit DBASE;
+inherit LIVING;
 
 #define CMD_PATH "/cmds/"
 #define TEST_PATH "/cmds/test/"
 #define EFUN_PATH "/cmds/efun/"
 #define DEMO_PATH "/cmds/demo/"
 #define GO_CMD "/cmds/go"
-#define WORLD "/area/world/0,0,0"
 
 varargs void create(string arg)
 {
     if (clonep())
     {
-        enable_commands();
+        set_living(arg);
+        set("gender", random(2) ? "男" : "女");
         add_action("command_hook", "", 1);
-        seteuid(arg);
-        set_living_name(arg);
-        move_object(WORLD);
+        move_object(START_ROOM);
     }
 }
 
@@ -48,14 +47,6 @@ nomask int command_hook(string arg)
         // return notify_fail("指令不存在 ^_^\n");
         return 0;
     }
-
-    return 1;
-}
-
-int move(mixed dest)
-{
-    move_object(dest);
-    command("look");
 
     return 1;
 }

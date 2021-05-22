@@ -3,44 +3,52 @@
 
 string desc_of_objects(object *obs);
 string look_all_inventory_of_room(object me, object env);
+int look_living(object me, object ob);
+int look_item(object me, object ob);
 
 int main(object me, string arg)
 {
-    object env = environment(me);
+    object ob, env = environment(me);
     string desc, *dirs;
     mapping exits;
 
     if (arg)
-        return notify_fail("暂时不支持查看指定的对象。\n");
-
-    if (objectp(env))
     {
-        if (desc = env->query("short"))
+        ob = present(arg, env);
+        if (objectp(ob))
         {
-            desc = sprintf(HIC "%s\n" NOR "%s", desc, env->query("long"));
-
-            if (mapp(exits = env->query("exits")))
+            if (living(ob))
             {
-                dirs = keys(exits);
-
-                if (sizeof(dirs) == 0)
-                    desc += "    这里没有任何明显的出路。\n";
-                else if (sizeof(dirs) == 1)
-                    desc += "    这里唯一的出口是 " + BOLD + dirs[0] + NOR + "。\n";
-                else
-                    desc += sprintf("    这里可移动的方向是 " + BOLD + "%s" + NOR + " 和 " + BOLD + "%s" + NOR + "。\n", implode(dirs[0..sizeof(dirs)-2], "、"), dirs[sizeof(dirs) - 1]);
+                return look_living(me, ob);
             }
-            desc += look_all_inventory_of_room(me, env);
-            write(desc);
+            else
+            {
+                return look_item(me, ob);
+            }
         }
-        else
+        debug("你瞅啥？");
+    }
+    else if (desc = env->query("short"))
+    {
+        desc = sprintf(HIC "%s\n" NOR "%s", desc, env->query("long"));
+
+        if (mapp(exits = env->query("exits")))
         {
-            debug("这里一片虚无，什么也没有。");
+            dirs = keys(exits);
+
+            if (sizeof(dirs) == 0)
+                desc += "    这里没有任何明显的出路。\n";
+            else if (sizeof(dirs) == 1)
+                desc += "    这里唯一的出口是 " + BOLD + dirs[0] + NOR + "。\n";
+            else
+                desc += sprintf("    这里可移动的方向是 " + BOLD + "%s" + NOR + " 和 " + BOLD + "%s" + NOR + "。\n", implode(dirs[0..sizeof(dirs)-2], "、"), dirs[sizeof(dirs) - 1]);
         }
+        desc += look_all_inventory_of_room(me, env);
+        write(desc);
     }
     else
     {
-        debug("你现在不在任何环境中。");
+        debug("这里一片虚无，什么也没有。");
     }
 
     return 1;
@@ -66,6 +74,10 @@ string desc_of_objects(object *obs)
             if (!short_name)
             {
                 short_name = geteuid(obs[i]);
+            }
+            else
+            {
+                short_name += "(" + geteuid(obs[i]) + ")";
             }
             amount[short_name] += 1;
             unit[short_name] = obs[i]->query("unit") ? obs[i]->query("unit") : "个";
@@ -103,4 +115,24 @@ string look_all_inventory_of_room(object me, object env)
     str += desc_of_objects(obs);
 
     return str;
+}
+
+int look_living(object me, object ob)
+{
+    string msg;
+
+    if (ob != this_player())
+    {
+        msg = "$ME看了看$YOU，好像对$YOU很感兴趣对样子。";
+        msg("vision", msg, me, ob);
+    }
+
+    return 1;
+}
+
+int look_item(object me, object ob)
+{
+    // todo
+
+    return 1;
 }

@@ -83,7 +83,7 @@ LPC 开发测试 LIB，配合 fluffos v2019 使用。
 
 ### 运行
 
-推荐使用 FluffOS v2019 最新版编译的驱动运行，启动方式：
+请使用 FluffOS 最新版本的驱动运行，启动方式：
 
     driver config.ini
 
