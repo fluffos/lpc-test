@@ -1,6 +1,9 @@
 int main(object me, string arg)
 {
 #ifdef __PACKAGE_DB__
+#ifndef __USE_SQLITE3__
+    debug("当前驱动不支持SQLITE3数据库。");
+#else
     mixed db, err;
 
     if (!arg)
@@ -8,7 +11,7 @@ int main(object me, string arg)
 
     if (arg == "db_connect")
     {
-        db = db_connect("127.0.0.1", "demo", "root");
+        db = db_connect("", "/tmp/sqlite.db", "", __USE_SQLITE3__);
         if (stringp(db)) /* error */
             debug("数据库连接失败：" + db);
         else
@@ -24,6 +27,7 @@ int main(object me, string arg)
         else
             debug("数据库关闭失败!");
     }
+#endif
 #else
     debug("当前驱动不支持数据库。");
 #endif

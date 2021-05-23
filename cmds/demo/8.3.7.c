@@ -13,7 +13,6 @@ void write_data(int fd)
 
 void receive_data(int fd, mixed result)
 {
-    string qrcode;
     result = result[strsrch(result, "<pre>") + 5..strsrch(result, "</pre>") - 1];
     // debug_message(sprintf("%d || %O", strlen(result), result));
     tell_object(receiver, result);
