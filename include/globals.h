@@ -18,6 +18,7 @@
 #define DBASE "/inherit/dbase"
 #define LIVING "/inherit/living"
 #define ROOM "/inherit/room"
+#define MAZE "/inherit/maze"
 
 #define DATA_DIR "/data/"
 #define LOG_DIR "/log/"

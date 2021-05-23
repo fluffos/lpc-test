@@ -1,4 +1,4 @@
-// 虚拟环境服务
+// 虚拟环境功能
 mixed compile_area(string file)
 {
     string virtual;
@@ -22,7 +22,7 @@ mixed compile_area(string file)
     {
         if ((m = sscanf(file[n + 1..], "%d,%d", x, y)) != 2)
         {
-            return 0;
+            return virtual->query_maze_room(file[n + 1..]);
         }
     }
 
