@@ -4,10 +4,14 @@ inherit DBASE;
 
 varargs void create(int x, int y, int z)
 {
-    object ob = new (__DIR__ "world/npc/mob", abs(z));
+    object ob = new (__DIR__ "world/npc/mob", z);
     if (z)
     {
         ob->move(this_object());
+    }
+    else
+    {
+        delete("exits/down");
     }
     set("short", "勇者之塔 第 " + z + " 层");
     set("long", @LONG

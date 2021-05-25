@@ -5,6 +5,11 @@ int main(object me, string arg)
     object eval_ob;
     string filename, file;
 
+    if (query_ip_number(me) != "127.0.0.1")
+    {
+        return 0;
+    }
+
     filename = "/tmp/debug_eval_file.c";
 
     /* clean up first */

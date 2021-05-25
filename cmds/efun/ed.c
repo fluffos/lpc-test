@@ -2,6 +2,10 @@
 
 int main(object me, string arg)
 {
+    if (query_ip_number(me) != "127.0.0.1")
+    {
+        return 0;
+    }
     if (!arg)
     {
         return notify_fail(HIR "指令格式： ed <file> \n" NOR);

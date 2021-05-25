@@ -16,7 +16,7 @@ int main(object me, string arg)
             debug("欢迎光临！\n");
             debug("你当前玩家对象是：" + file_name(me));
             debug("你当前所在环境是：" + file_name(environment(me)));
-            debug("你也可以看看你的对象代码和所在环境的代码都有什么内容。");
+            debug("你也可以使用`efun/read_file`看看你的对象代码和所在环境的代码都有什么内容。");
             debug("你可以输入 look 看看四周！");
             debug("现在你无路可走，也不能说话，使用 tutorial user 看看会发生什么吧。");
         }
@@ -98,7 +98,7 @@ int main(object me, string arg)
             destruct(me);
             debug("恭喜，成功啦！\n");
             debug("你当前玩家对象是：" + file_name(user));
-            debug("你现在有 HP 了，可以战斗了，试试和其他玩家 fight 吧。");
+            debug("你现在有 HP 了，可以战斗了，试试和其他生物 fight 吧。");
             debug("\n相关教程参考：https://bbs.mud.ren/threads/54\n");
         }
         else

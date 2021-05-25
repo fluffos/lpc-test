@@ -33,7 +33,7 @@ void clean_up_enemy()
     {
         while (i--)
         {
-            if (!objectp(enemies[i]) || environment(enemies[i]) != environment())
+            if (!objectp(enemies[i]) || (environment(enemies[i]) != environment()))
             {
                 enemies[i] = 0;
             }
@@ -86,15 +86,26 @@ void die()
 
 void heart_beat()
 {
+    object me = this_object();
     // 死亡相关控制
-    if (this_object()->query("hp") < 0)
+    if (me->query("hp") < 0)
     {
         die();
     }
     // 行动相关控制
     if (is_fighting())
     {
-        // 战斗吧，皮卡丘
-        attack();
+        // 怪物变身暗天使，1/3机率
+        if (!userp(me) && !shadow(me, 0) && !query_shadowing(me) && me->query("hp") < 20 && !random(3))
+        {
+            object ob = new ("/area/world/npc/mob", 8);
+            msg("warning", me->query("name") + "变身为" + ob->query("name") + "。", me);
+            ob->shadowto(me);
+        }
+        else
+        {
+            // 战斗吧，皮卡丘
+            attack();
+        }
     }
 }

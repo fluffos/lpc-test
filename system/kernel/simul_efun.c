@@ -98,7 +98,12 @@ varargs void boardcast(string type, string msg, object me, object you, object *o
 // 区域广播
 varargs void msg(string type, string msg, object me, object you, object *exclude)
 {
-    object *others = all_inventory(environment(me));
+    object *others, env = environment(me);
+    if (env)
+    {
+        others = all_inventory(env);
+    }
+
     boardcast(type, msg, me, you, others, exclude);
 }
 

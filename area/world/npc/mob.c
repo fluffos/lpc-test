@@ -31,6 +31,13 @@ void init()
 
     if (interactive(me) && me->can_fight())
     {
-        fight(me);
+        object ob = query_shadowing(this_object()) || this_object();
+        ob->fight(me);
     }
+}
+
+object shadowto(object ob)
+{
+    set_living(geteuid(ob));
+    return shadow(ob, 1);
 }

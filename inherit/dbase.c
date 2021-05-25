@@ -11,7 +11,7 @@ nosave mapping tmp_dbase;
 
 // void create(){}
 
-nomask mixed _set(mapping map, string *parts, mixed value)
+mixed _set(mapping map, string *parts, mixed value)
 {
     if (sizeof(parts) == 1)
         return map[parts[0]] = value;
@@ -22,7 +22,7 @@ nomask mixed _set(mapping map, string *parts, mixed value)
     return _set(map[parts[0]], parts[1..sizeof(parts)-1], value);
 }
 
-nomask mixed _query(mapping map, string *parts)
+mixed _query(mapping map, string *parts)
 {
     mixed value;
     int i, s;
@@ -39,7 +39,7 @@ nomask mixed _query(mapping map, string *parts)
     return value;
 }
 
-nomask int _delete(mapping map, string *parts)
+int _delete(mapping map, string *parts)
 {
     if (sizeof(parts) == 1)
     {
@@ -112,7 +112,7 @@ mapping query_entire_dbase()
     return dbase;
 }
 
-nomask void set_dbase(mapping data)
+void set_dbase(mapping data)
 {
     if (!mapp(data))
         return;
@@ -181,7 +181,7 @@ mapping query_entire_temp_dbase()
     return tmp_dbase;
 }
 
-nomask void set_temp_dbase(mapping data)
+void set_temp_dbase(mapping data)
 {
     if (!mapp(data))
         return;
