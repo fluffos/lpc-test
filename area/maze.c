@@ -8,7 +8,7 @@ void create()
     set_inherit_room( ROOM );
 
     //迷宫房间里的怪物
-    // set_maze_npcs(({}));
+    set_maze_npcs(({__DIR__ "world/npc/mob"}));
 
     //迷宫的单边长
     set_maze_long(10);

@@ -13,6 +13,10 @@
 #define USER_OB "/system/object/user"
 #define VOID_OB "/system/object/void"
 
+#define COMBAT_D "/system/daemons/combat_d"
+#define MONSTER_D "/system/daemons/monster_d"
+#define VIRTUAL_D "/system/daemons/virtual_d"
+
 #define CLEAN_UP "/inherit/clean_up"
 #define COMBAT "/inherit/combat"
 #define DBASE "/inherit/dbase"

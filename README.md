@@ -1,6 +1,6 @@
 ## LPC-TEST
 
-LPC 开发测试 LIB，配合 fluffos v2019 使用。
+LPC 开发测试 LIB，配合 fluffos v2019 使用。本 LIB 和 fluffos 自带的 testsuite 不同点是 testsuite 主要是驱动功能测试，本LIB除了基础LPC语言教程代码外，另外提供具体游戏开发的功能模块测试，比如：玩家对象功能、游戏地图、虚拟迷宫、基础战斗功能等等，用更少的代码理解游戏开发的基础功能实现。
 
 ```
                                  _\\|//_
@@ -33,11 +33,13 @@ LPC 开发测试 LIB，配合 fluffos v2019 使用。
 .
 ├── README.md
 ├── area                    游戏地区
-│   ├── tower.c
-│   ├── world
+│   ├── maze.c              迷宫
+│   ├── tower.c             通天塔
+│   ├── world               世界特别地区
+│   │   ├── npc             NPC（包括魔物）
 │   │   ├── 0,0,0.c
 │   │   └── 5,2,0.c
-│   └── world.c
+│   └── world.c             世界地区
 ├── cmds                    游戏指令
 │   ├── demo                教程演示指令,请输入 demo/xxx 运行
 │   │   └── ...
@@ -55,6 +57,9 @@ LPC 开发测试 LIB，配合 fluffos v2019 使用。
 │   ├── clean_up.c
 │   ├── combat.c            战斗模块
 │   ├── dbase.c             数据存档模块
+│   ├── living.c            生物模块
+│   ├── maze.c              迷宫模块
+│   ├── room.c              环境模块
 │   ├── user.c
 │   ├── user2.c
 │   ├── user3.c
@@ -68,7 +73,9 @@ LPC 开发测试 LIB，配合 fluffos v2019 使用。
 ├── system                  系统目录
 │   ├── daemons             守护进程
 │   │   ├── combat_d.c      战斗守护进程
+│   │   ├── monster_d.c     魔物守护进程
 │   │   └── virtual_d.c     虚拟对象守护进程
+│   ├── etc                 系统配置目录
 │   ├── kernel              核心文件
 │   │   ├── master.c        主控文件
 │   │   └── simul_efun.c    模拟外部函数文件
@@ -76,7 +83,7 @@ LPC 开发测试 LIB，配合 fluffos v2019 使用。
 │       ├── login.c         连线对象
 │       ├── user.c          玩家对象
 │       └── void.c
-├── tree.txt
+├── tmp                     临时文件目录
 └── www                     WEBSOCKET
     └── ...
 ```

@@ -120,12 +120,18 @@ string look_all_inventory_of_room(object me, object env)
 int look_living(object me, object ob)
 {
     string msg;
+    string line = repeat_string("-*-", 12) + "\n";
 
     if (ob != this_player())
     {
         msg = "$ME看了看$YOU，好像对$YOU很感兴趣对样子。";
         msg("vision", msg, me, ob);
     }
+    msg = line;
+    msg += sprintf("  %-36s\n", "ＨＰ：" + ob->query("hp") + " / " + ob->query("max_hp"));
+    msg += sprintf("  %-12s%-12s%-12s\n", "力量：" + ob->query("str"), "敏捷：" + ob->query("agi"), "防御：" + ob->query("def"));
+    msg += line;
+    tell_object(me, msg);
 
     return 1;
 }

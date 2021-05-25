@@ -11,9 +11,9 @@ void create()
     {
         set("max_hp", 50 + random(50));
         set("hp", query("max_hp"));
-        set("str", 40 + random(10));
-        set("def", 30 + random(10));
-        set("agi", 20 + random(10));
+        set("str", 40 + random(40));
+        set("def", 30 + random(30));
+        set("agi", 20 + random(20));
         set("gender", random(2) ? "男" : "女");
         set_heart_beat(1);
     }

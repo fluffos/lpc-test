@@ -1,5 +1,4 @@
 // 战斗模块F_COMBAT
-#define COMBAT_D "/system/daemons/combat_d"
 
 int can_fight() { return 1; }
 
@@ -74,8 +73,15 @@ void die()
     object me = this_object();
     remove_all_enemy();
     msg("danger", "$ME死亡了。", me);
-    me->move(START_ROOM);
-    me->set("hp", me->query("max_hp"));
+    if (userp(me))
+    {
+        me->move(START_ROOM);
+        me->set("hp", me->query("max_hp"));
+    }
+    else
+    {
+        destruct(me);
+    }
 }
 
 void heart_beat()

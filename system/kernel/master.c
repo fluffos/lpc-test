@@ -1,4 +1,4 @@
-#define VIRTUAL_D "/system/daemons/virtual_d"
+// 主控对象，游戏核对文件之一
 #define PASSWD ""
 // 调试模式开关
 nosave int debug = 0;

@@ -13,7 +13,7 @@ int main(object me, string arg)
         env = environment(me);
         if (!env)
         {
-            debug("你哪里也去不了。\n");
+            debug("你哪里也去不了。");
         }
         else if (!mapp(exits = env->query("exits")) || undefinedp(exit = exits[arg]))
         {
@@ -23,6 +23,10 @@ int main(object me, string arg)
         else if (!objectp(dest = load_object(exit)))
         {
             debug(sprintf("目标区域无法加载，无法向 %s 移动。", exit));
+        }
+        else if (me->is_fighting())
+        {
+            debug("你逃跑失败了~");
         }
         else
         {

@@ -16,6 +16,8 @@ LONG);
         set("long", @LONG
     这里是被众神遗弃的地方，这里的天空没有太阳，没有月亮，没有星星，只有不变的黑夜和撕裂着一切的闪电。
 LONG);
+        set("objects", ([__DIR__ "world/npc/mob" : random(3),]));
+        setup();
     }
 
     set("exits", ([

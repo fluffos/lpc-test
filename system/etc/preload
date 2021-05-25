@@ -1,3 +1,6 @@
 /system/object/login
 /system/object/user
 /system/object/void
+/system/daemons/combat_d
+/system/daemons/monster_d
+/system/daemons/virtual_d

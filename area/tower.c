@@ -4,6 +4,11 @@ inherit DBASE;
 
 varargs void create(int x, int y, int z)
 {
+    object ob = new (__DIR__ "world/npc/mob", abs(z));
+    if (z)
+    {
+        ob->move(this_object());
+    }
     set("short", "勇者之塔 第 " + z + " 层");
     set("long", @LONG
     这里是封印着无穷无尽的魔物的勇者之塔，据说这座塔通天彻地，没有人知道具体有多少层，也没有人真正的到达过终点。
