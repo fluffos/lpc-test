@@ -99,7 +99,7 @@ void heart_beat()
         if (!userp(me) && !shadow(me, 0) && !query_shadowing(me) && me->query("hp") < 20 && !random(3))
         {
             object ob = new ("/area/world/npc/mob", 8);
-            msg("warning", me->query("name") + "变身为" + ob->query("name") + "。", me);
+            msg("danger", me->query("name") + "变身为" + ob->query("name") + "。", me);
             ob->shadowto(me);
         }
         else

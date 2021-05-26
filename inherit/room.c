@@ -63,3 +63,31 @@ void setup()
 {
     reset();
 }
+
+// 移除一个出口
+void removeExit(string dir)
+{
+    mapping exits = query("exits");
+    if (mapp(exits) && exits[dir])
+        map_delete(exits, dir);
+}
+
+// 移除随机出口
+void removeRandomExit()
+{
+    mapping exits = query("exits");
+    if (mapp(exits) && sizeof(exits) > 1)
+    {
+        removeExit(element_of(keys(exits)));
+    }
+}
+
+// 增加一个出口
+void addExit(string dir, string dest)
+{
+    mapping exits = query("exits");
+    if (!mapp(exits))
+        exits = ([]);
+    if (!exits[dir])
+        exits[dir] = dest;
+}

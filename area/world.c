@@ -26,6 +26,11 @@ LONG);
         "west":__DIR__ "world/" + (x - 1) + "," + y + "," + z,
         "east":__DIR__ "world/" + (x + 1) + "," + y + "," + z,
     ]));
+    // 一定机率移除随机出口
+    if (!random(3))
+    {
+        removeRandomExit();
+    }
 }
 
 void virtual_start()
