@@ -32,26 +32,23 @@ nosave mapping alias = ([
 
 // apply函数：如果用户对象中有process_input()，驱动会将玩家所有输入传入这里
 // 如果 process_input() 方法返回字符串，此字符串会取代玩家的输入；如果返回 0 则保持玩家输入的内容不变；如果返回 1 则完全过滤掉此输入内容，不再做任何处理。
-mixed process_input(string arg)
+mixed process_input(string verb)
 {
-    arg = lower_case(arg);
+    string *word = explode(verb, " ");
 
-    if (sscanf(arg, "l %s", arg))
+    // verb = lower_case(verb);
+
+    switch (verb[0])
     {
-        arg = "look " + arg;
-    }
-    else if (sscanf(arg, "ls %s", arg))
-    {
-        arg = "get_dir " + arg;
-    }
-    else if (sscanf(arg, "chat %s", arg))
-    {
-        arg = "shout " + arg;
-    }
-    else if (!undefinedp(alias[arg]))
-    {
-        arg = alias[arg];
+    case '.':
+        return "say " + verb[1..];
     }
 
-    return arg;
+    if (sizeof(word) && !undefinedp(alias[word[0]]))
+    {
+        word[0] = alias[word[0]];
+        return implode(word, " ");
+    }
+
+    return verb;
 }

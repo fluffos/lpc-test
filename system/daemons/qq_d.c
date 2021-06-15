@@ -14,7 +14,7 @@ nosave string addr = "118.190.104.241 8006";
 nosave string mirai_authKey = "QQ7300637-6427";
 nosave string mirai_qq = "21791131";
 // 游戏消息转发到指定的QQ群
-nosave int group = 302388378;
+nosave string group = "289906259";
 nosave mapping status = ([]);
 nosave string session;
 
@@ -114,14 +114,14 @@ private void socket_shutdown(int fd)
     socket_close(fd);
 }
 
-/* 中文错误 {"code":400,"msg":"参数格式错误"} */
+/* 游戏消息转发QQ群调用此方法 */
 void msg(string msg)
 {
     int fd;
     int ret;
     string path = "/sendGroupMessage";
-    string body = "{\"sessionKey\":\"" + session + "\",\"target\":" + group + ",\"messageChain\":[{\"type\":\"Plain\",\"text\":\"" + msg + "\"}]}";
-/*
+    // string body = "{\"sessionKey\":\"" + session + "\",\"target\":" + group + ",\"messageChain\":[{\"type\":\"Plain\",\"text\":\"" + msg + "\"}]}";
+    // 美化格式，不用转义
     string body = @RAW
 {
     "sessionKey": "%^session%^",
@@ -139,10 +139,10 @@ RAW;
         "group":group,
         "msg":msg,
     ]));
-*/
+
     fd = socket_create(STREAM, "receive_callback", "socket_shutdown");
     status[fd] = ([]);
-    status[fd]["http"] = "POST " + path + " HTTP/1.1\nHost: " + host + "\nContent-Type: application/json\nContent-Length: " + strlen(body) + "\r\n\r\n" + body;
+    status[fd]["http"] = "POST " + path + " HTTP/1.1\nHost: " + host + "\nContent-Type: application/json\nContent-Length: " + sizeof(string_encode(body, "utf-8")) + "\r\n\r\n" + body;
     debug_message(status[fd]["http"]);
     ret = socket_connect(fd, addr, "receive_msg", "http");
     if (ret != EESUCCESS)
