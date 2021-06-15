@@ -88,7 +88,7 @@ private void receive_data(int fd, mixed result)
         messageChain = json["messageChain"][1];
         if (type == "GroupMessage")
         {
-            string msg;
+            string msg ="[其它类型消息]";
             if (messageChain["type"] == "Plain")
             {
                 msg = messageChain["text"];
