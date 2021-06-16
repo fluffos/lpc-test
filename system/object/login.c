@@ -30,7 +30,7 @@ void setup(string arg)
 
 void logon()
 {
-    write(read_file(WELCOME));
+    color_cat(WELCOME);
     write("请输入你的ID：");
     input_to("setup");
 }

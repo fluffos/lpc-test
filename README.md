@@ -1,8 +1,8 @@
 ## LPC-TEST
 
-LPC 开发测试 LIB，配合 fluffos v2019 使用。
+LPC 开发测试 LIB，配合 fluffos v2019 以上版本使用。
 
-本 LIB 和 fluffos 自带的 testsuite 不同点是 testsuite 主要是驱动功能测试，本LIB除了基础LPC语言教程代码(`/cmds/demo/`)外，另外提供具体游戏开发的功能模块演示，比如：玩家基础功能、游戏地图、虚拟迷宫、战斗和怪物变身等等，用更少的代码理解游戏开发的功能实现。
+本 LIB 和 fluffos 自带的 testsuite 不同点是 testsuite 主要是驱动功能测试，本 LIB 除了基础 LPC语言教程代码(`/cmds/demo/`)外，另外提供具体游戏开发的功能模块演示，比如：玩家基础功能、游戏地图、虚拟迷宫、战斗和怪物变身等等，用更少的代码理解游戏开发的功能实现。
 
 ```
                                  _\\|//_
@@ -76,6 +76,7 @@ LPC 开发测试 LIB，配合 fluffos v2019 使用。
 │   ├── daemons             守护进程
 │   │   ├── combat_d.c      战斗守护进程
 │   │   ├── monster_d.c     魔物守护进程
+│   │   ├── qq_d.c          QQ群消息守护进程(websocket使用演示)
 │   │   └── virtual_d.c     虚拟对象守护进程
 │   ├── etc                 系统配置目录
 │   ├── kernel              核心文件

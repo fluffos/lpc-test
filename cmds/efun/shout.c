@@ -6,7 +6,7 @@ int main(object me, string arg)
         arg = "...";
 
     arg = HIM "【聊天】" NOR HIY "玩家(" + geteuid(me) + ")：" NOR HIC + arg + NOR "\n";
-
+    "/system/daemons/qq_d"->msg(remove_ansi(arg)); // 同步消息到QQ群
     write(arg);
     shout(arg);
 

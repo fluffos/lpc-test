@@ -1,4 +1,5 @@
 #include <ansi.h>
+#include "simul_efun/color.c"
 #include "simul_efun/json.c"
 
 // 随机颜色输出，调试用

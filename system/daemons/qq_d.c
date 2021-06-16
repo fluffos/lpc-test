@@ -14,7 +14,7 @@ nosave string addr = "118.190.104.241 8006";
 nosave string mirai_authKey = "QQ7300637-6427";
 nosave string mirai_qq = "21791131";
 // 游戏消息转发到指定的QQ群
-nosave string group = "289906259";
+nosave string group = "9783836";
 nosave mapping status = ([]);
 nosave string session;
 
@@ -74,7 +74,7 @@ private void receive_data(int fd, mixed result)
     string res;
     int n = strsrch(result, "{");
     // debug_message(result);
-    if (n > 0)
+    if (n > 0 && strsrch(result, "}}}") > 0)
     {
         mixed json;
         mapping sender, messageChain;
