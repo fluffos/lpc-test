@@ -65,7 +65,7 @@ private void receive_verify(int fd, mixed result)
 }
 private void receive_msg(int fd, mixed result)
 {
-    debug_message(sprintf("QQ_D receive_msg(fd = %d, result = %O)", fd, result));
+    // debug_message(sprintf("QQ_D receive_msg(fd = %d, result = %O)", fd, result));
     socket_close(fd);
 }
 
@@ -73,7 +73,7 @@ private void receive_data(int fd, mixed result)
 {
     string res;
     int n = strsrch(result, "{");
-    debug_message("n = " + n + "\n" + result);
+    // debug_message("n = " + n + "\n" + result);
     if (n == 4 && strsrch(result, "}}}") > 0)
     {
         mixed json;
