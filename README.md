@@ -76,7 +76,7 @@ LPC 开发测试 LIB，配合 fluffos v2019 以上版本使用。
 │   ├── daemons             守护进程
 │   │   ├── combat_d.c      战斗守护进程
 │   │   ├── monster_d.c     魔物守护进程
-│   │   ├── qq_d.c          QQ群消息守护进程(websocket使用演示)
+│   │   ├── qq_d.c          QQ群消息守护进程(socket使用演示)
 │   │   └── virtual_d.c     虚拟对象守护进程
 │   ├── etc                 系统配置目录
 │   ├── kernel              核心文件
@@ -104,3 +104,7 @@ LPC 开发测试 LIB，配合 fluffos v2019 以上版本使用。
 如果要追踪游戏运行信息，可使用以下方式启动：
 
     driver config.ini --tracing trace_driver.json
+
+### 提示
+
+在游戏中可以收到QQ群消息，也可以发送消息到QQ群（302388378），如有任何困难，可以直接chat xxx 求帮助。

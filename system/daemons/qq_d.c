@@ -14,7 +14,7 @@ nosave string addr = "118.190.104.241 8006";
 nosave string mirai_authKey = "QQ7300637-6427";
 nosave string mirai_qq = "21791131";
 // 游戏消息转发到指定的QQ群
-nosave string group = "9783836";
+nosave string group = "302388378";
 nosave mapping status = ([]);
 nosave string session;
 
@@ -73,8 +73,8 @@ private void receive_data(int fd, mixed result)
 {
     string res;
     int n = strsrch(result, "{");
-    // debug_message(result);
-    if (n > 0 && strsrch(result, "}}}") > 0)
+    debug_message("n = " + n + "\n" + result);
+    if (n == 4 && strsrch(result, "}}}") > 0)
     {
         mixed json;
         mapping sender, messageChain;
@@ -98,7 +98,7 @@ private void receive_data(int fd, mixed result)
                 msg = "[表情]" + messageChain["name"];
             }
 
-            message("info", "【QQ群】" + sender["memberName"] + "@" + sender["group"]["name"] + "：" + msg, users());
+            message("chat", HIG"【QQ群】"HIC + sender["memberName"] + "@" + sender["group"]["name"] + "：" + msg, users());
         }
     }
 }
