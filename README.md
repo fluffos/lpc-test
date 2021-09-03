@@ -52,6 +52,7 @@ LPC 开发测试 LIB，配合 fluffos v2019 以上版本使用。
 │   └── ...
 ├── config.ini              运行时配置文件（FluffOS v2019）
 ├── data                    存档目录
+├── home                    玩家目录
 ├── include                 头文件目录
 │   ├── ansi.h              颜色控制头文件
 │   └── globals.h           全局包含头文件

@@ -104,7 +104,7 @@ string *get_include_path(string file)
         debug_message("get_include_path file : " + file);
     }
 
-    return ({ ":DEFAULT:" });
+    return ({":DEFAULT:"});
 }
 
 void crash(string crash_message, object command_giver, object current_object)
@@ -117,7 +117,7 @@ void crash(string crash_message, object command_giver, object current_object)
     }
 }
 
-string object_name( object ob )
+string object_name(object ob)
 {
     return geteuid(ob);
 }
@@ -129,7 +129,7 @@ mixed compile_object(string str)
         debug_message("compile_object : " + str);
     }
 
-    if (sscanf(str, "/area/%*s", str))
+    if (sscanf(str, "/area/%*s", str) || sscanf(str, "/home/%*s", str))
     {
         return call_other(VIRTUAL_D, "compile_area", str);
     }
@@ -191,7 +191,7 @@ int valid_link(string from, string to)
     return 1;
 }
 
-int valid_object( object obj )
+int valid_object(object obj)
 {
     if (debug)
     {
@@ -201,7 +201,7 @@ int valid_object( object obj )
     return 1;
 }
 
-int valid_override( string file, string efun_name , string main_file )
+int valid_override(string file, string efun_name, string main_file)
 {
     if (debug)
     {
