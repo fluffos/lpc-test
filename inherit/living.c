@@ -35,3 +35,9 @@ int move(mixed dest)
 
     return 1;
 }
+
+// 控制生物执行指令
+int force_me(string cmd)
+{
+    return command(cmd);
+}

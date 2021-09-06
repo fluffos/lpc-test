@@ -93,6 +93,7 @@ int main(object me, string arg)
             debug("你当前玩家对象是：" + file_name(user));
             debug("你现在有 HP 了，可以战斗了，试试和其他生物 fight 吧。");
             debug("\n相关教程参考：https://bbs.mud.ren/threads/54\n");
+            debug("如果想测试玩家存档功能，使用 tutorial user5 试试吧。");
         }
         else
         {
