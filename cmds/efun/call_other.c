@@ -4,6 +4,11 @@ int main(object me, string arg)
     object ob;
     string arg1, arg2, err;
 
+    if (query_ip_number(me) != "127.0.0.1")
+    {
+        return 0;
+    }
+
     if (!arg || sscanf(arg,"%s %s",arg1, arg2) != 2)
     {
         debug("指令格式： call_other /path/target function [arg1 arg2 ...]");

@@ -1,4 +1,2 @@
-/driver*
-/swapfile*
-*.log
-*.pem
+driver*
+cert.*
