@@ -63,9 +63,9 @@ void error_handler(mapping map, int caught)
     str += sprintf("\n%O\n\n", map);
 
     if (caught)
-        printf("%s", map["error"]);
-    else
         debug("出错啦！详情记录在 error_handler 日志。");
+    else
+        printf("%s", map["error"]);
 
     write_file(LOG_DIR + "error_handler", str);
 }
