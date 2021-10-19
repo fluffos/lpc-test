@@ -1,16 +1,57 @@
 #include <ansi.h>
+inherit CLEAN_UP;
 
 int main(object me, string arg)
 {
-        tell_object(me, MAG "★" HIY "色彩精灵向您报告" MAG "★\n\n" NOR);
-        tell_object(me,
-"  黑色- BLK"BLK"■■■"NOR"                 BBLK"BBLK"■■■"NOR"\n"
-"  红色- RED"RED"■■■"NOR" HIR"HIR"■■■"NOR" HBRED"HBRED"■■■"NOR" BRED"BRED"■■■"NOR"\n"
-"  绿色- GRN"GRN"■■■"NOR" HIG"HIG"■■■"NOR" HBGRN"HBGRN"■■■"NOR" BGRN"BGRN"■■■"NOR"\n"
-"  黄色- YEL"YEL"■■■"NOR" HIY"HIY"■■■"NOR" HBYEL"HBYEL"■■■"NOR" BYEL"BYEL"■■■"NOR"\n"
-"  蓝色- BLU"BLU"■■■"NOR" HIB"HIB"■■■"NOR" HBBLU"HBBLU"■■■"NOR" BBLU"BBLU"■■■"NOR"\n"
-"  粉色- MAG"MAG"■■■"NOR" HIM"HIM"■■■"NOR" HBMAG"HBMAG"■■■"NOR" BMAG"BMAG"■■■"NOR"\n"
-"  青色- CYN"CYN"■■■"NOR" HIC"HIC"■■■"NOR" HBCYN"HBCYN"■■■"NOR" BCYN"BCYN"■■■"NOR"\n"
-"  白色- WHT"WHT"■■■"NOR" HIW"HIW"■■■"NOR" HBWHT"HBWHT"■■■"NOR"\n");
-        return 1;
+    int *rgb = ({0x00, 0x33, 0x66, 0x99, 0xcc, 0xff});
+
+    printf("ANSI颜色测试：\n");
+    for (int i = 30; i < 50; i++)
+    {
+        printf(SGR(i) "%d. 你好ABC■■■" NOR, i);
+        if (i % 5)
+        {
+            write("\t");
+        }
+        else
+        {
+            write("\n");
+        }
+    }
+
+    printf("\n\n256颜色测试：\n");
+    for (int i = 0; i < 256; i++)
+    {
+        printf(FCC(i) "%3d. 你好ABC" NOR, i);
+        if (i % 5)
+        {
+            write("\t");
+        }
+        else
+        {
+            write("\n");
+        }
+    }
+
+    printf("\nRGB颜色测试：\n");
+    for (int r = 0; r < sizeof(rgb); r++)
+    {
+        for (int g = 0; g < sizeof(rgb); g++)
+        {
+            for (int b = 0; b < sizeof(rgb); b++)
+            {
+                printf(RGB(rgb[r], rgb[g], rgb[b]) "%'0'2x%'0'2x%'0'2x\t" NOR, rgb[r], rgb[g], rgb[b]);
+            }
+            write("\n");
+        }
+        write("\n");
+    }
+
+    return 1;
+}
+
+int help()
+{
+    write("color 指令用来测试客户端可支持的颜色模式。\n");
+    return 1;
 }

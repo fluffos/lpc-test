@@ -5,6 +5,7 @@ int main(object me, string arg)
     int x = 0x1f300;
     int i;
 
+    write("\t");
     for (i = 0; i < 16; i++)
     {
         printf("\t %x", i);
@@ -18,12 +19,18 @@ int main(object me, string arg)
         printf("%c\t", x);
         x++;
     }
-    write("\n");
+    write("\n\t");
     for (i = 0; i < 16; i++)
     {
         printf("\t %x", i);
     }
     write("\n");
 
+    return 1;
+}
+
+int help()
+{
+    write("emoji 指令用来显示MUD游戏客户端支持的emoji表情。\n");
     return 1;
 }

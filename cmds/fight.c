@@ -32,3 +32,13 @@ int main(object me, string arg)
 
     return 1;
 }
+
+int help()
+{
+    write(@LONG
+指令格式: fight 目标id
+指令说明:
+    此命令让你可以向目标发动攻击，注意需要进入tutorial user4模式才有效。
+LONG );
+    return  1;
+}
