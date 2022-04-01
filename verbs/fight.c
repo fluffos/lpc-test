@@ -42,7 +42,7 @@ int do_fight_liv(object ob, string arg)
 int help(object me)
 {
     write(@HELP
-指令格式 : fight|hit|kill
+指令格式 : fight | hit | kill
 
 战斗指令，可以向其它生物发起战斗。
 

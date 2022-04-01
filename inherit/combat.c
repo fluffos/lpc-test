@@ -80,6 +80,7 @@ void die()
     }
     else
     {
+        // todo 战斗奖励
         destruct(me);
     }
 }
@@ -95,8 +96,8 @@ void heart_beat()
     // 行动相关控制
     if (is_fighting())
     {
-        // 怪物变身暗天使，1/3机率
-        if (!userp(me) && !shadow(me, 0) && !query_shadowing(me) && me->query("hp") < 20 && !random(3))
+        // 怪物HP少于1/3时有1/3机率变身暗天使
+        if (!userp(me) && !shadow(me, 0) && !query_shadowing(me) && me->query("hp") < me->query("hp") / 3 && !random(3))
         {
             object ob = new ("/area/world/npc/mob", 8);
             msg("danger", me->query("name") + "变身为" + ob->query("name") + "。", me);

@@ -1,7 +1,7 @@
 /*
  * @Author: 雪风@mud.ren
  * @Date: 2022-03-31 15:04:35
- * @LastEditTime: 2022-04-01 14:33:36
+ * @LastEditTime: 2022-04-01 19:21:08
  * @LastEditors: 雪风
  * @Description: 自定义 user 对象
  *  https://bbs.mud.ren
@@ -12,7 +12,6 @@ inherit LIVING;
 #define TEST_PATH "/cmds/test/"
 #define EFUN_PATH "/cmds/efun/"
 #define DEMO_PATH "/cmds/demo/"
-#define GO_CMD "/cmds/go"
 
 varargs void create(string arg)
 {
@@ -54,7 +53,7 @@ nomask int command_hook(string arg)
 
     if (!arg && (objectp(environment()) && stringp(environment()->query("exits/" + verb))))
     {
-        call_other(GO_CMD, "main", me, verb);
+        me->command("go " + verb);
     }
     else if (cmd_ob = load_object(cmd) || cmd_ob = load_object(test) || cmd_ob = load_object(efun_cmd) || cmd_ob = load_object(demo))
     {

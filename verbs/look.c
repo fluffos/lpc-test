@@ -251,9 +251,16 @@ int look_living(object me, object ob)
 int help(object me)
 {
     write(@HELP
-指令格式 : look
+指令格式 : look ｜ l
 
 最基本的look指令，让你睁眼看世界，可以查看对象了解信息。
+
+当存在多个同名对象时，比如有4个NPC，你要查看指定对象可以使用以下格式：
+
+    l 1st n 或 l n 1
+    l 2nd n 或 l n 2
+    l 3rd n 或 l n 3
+    l 4th n 或 l n 4
 
 HELP );
     return 1;
