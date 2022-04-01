@@ -9,11 +9,13 @@ varargs void create(string arg)
     ::create(arg);
     if (clonep())
     {
-        set("max_hp", 50 + random(50));
+        int lv = random(100) + 1;
+        set("lv", lv);
+        set("max_hp", 10 * lv + random(10));
         set("hp", query("max_hp"));
-        set("str", 40 + random(40));
-        set("def", 30 + random(30));
-        set("agi", 20 + random(20));
+        set("str", 4 * lv + random(10));
+        set("def", 3 * lv + random(10));
+        set("agi", 2 * lv + random(10));
 
         set_heart_beat(1);
     }

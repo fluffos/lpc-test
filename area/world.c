@@ -35,6 +35,6 @@ LONG);
 
 void virtual_start()
 {
-    set("objects", ([__DIR__ "world/npc/npc" : random(3),]));
+    set("objects", ([__DIR__ "world/npc/npc" : random(5),]));
     setup();
 }

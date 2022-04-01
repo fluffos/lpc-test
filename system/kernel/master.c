@@ -74,7 +74,7 @@ string *epilog(int load_empty)
 {
     string *items = ({});
 #ifdef PRELOAD
-    items = update_file(PRELOAD);
+    items = read_config(PRELOAD);
 #endif
     // debug_message("epilog : " + load_empty);
     return items;
@@ -119,7 +119,7 @@ void crash(string crash_message, object command_giver, object current_object)
 
 string object_name(object ob)
 {
-    return geteuid(ob);
+    return ob->short() || geteuid(ob);
 }
 
 mixed compile_object(string str)
@@ -128,15 +128,7 @@ mixed compile_object(string str)
     {
         debug_message("compile_object : " + str);
     }
-
-    if (sscanf(str, "/area/%*s", str) || sscanf(str, "/home/%*s", str))
-    {
-        return call_other(VIRTUAL_D, "compile_area", str);
-    }
-    else
-    {
-        return 0;
-    }
+    return call_other(VIRTUAL_D, "compile_object", str);
 }
 
 // bind()
@@ -272,3 +264,58 @@ int valid_write(string file, mixed user, string func)
 
     return 1;
 }
+
+#include <parser_error.h>
+
+string *parse_command_id_list()
+{
+    return ({"thing"});
+}
+
+string *parse_command_adjective_id_list()
+{
+    return ({"the", "a", "an"});
+}
+
+string *parse_command_plural_id_list()
+{
+    return ({"things", "them", "everything"});
+}
+
+string *parse_command_prepos_list()
+{
+    return ({"in", "on", "at", "by", "under", "behind", "with", "into", "onto", "inside", "within", "from"});
+}
+
+string parse_command_all_word()
+{
+    return "all";
+}
+
+object *parse_command_users()
+{
+    return users();
+}
+
+string parser_error_message(int type, object ob, mixed arg, int flag)
+{
+    switch (type)
+    {
+    case ERR_NOT_LIVING:
+        return sprintf("%s 不是生物。\n", arg);
+    case ERR_THERE_IS_NO:
+        return sprintf("这里没有 %s 。\n", arg);
+    case ERR_ALLOCATED:
+        return sprintf("%s\n", arg);
+    case ERR_IS_NOT:
+    case ERR_NOT_ACCESSIBLE:
+    case ERR_AMBIG:
+    case ERR_ORDINAL:
+    case ERR_BAD_MULTIPLE:
+    case ERR_MANY_PATHS:
+    default:
+        return sprintf("parser_error_message : type = %d, ob = %O, arg = %O, flag = %d\n", type, ob, arg, flag);
+    }
+}
+
+void parseRefresh() { parse_refresh(); }

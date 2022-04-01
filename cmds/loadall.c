@@ -27,6 +27,8 @@ int loadall(string dir)
     dirs = get_dir(dir);
     if (dir == "/")
         dirs = dirs - ({".git", ".vscode", "data", "log", "tmp", "www"});
+    if (dir == "/cmds/")
+        dirs = dirs - ({"test", "demo"});
 
     foreach (file in dirs)
     {

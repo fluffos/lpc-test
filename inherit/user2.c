@@ -1,6 +1,11 @@
 inherit __DIR__ "user";
 
-nosave mapping alias = ([
+// apply函数：如果用户对象中有process_input()，驱动会将玩家所有输入传入这里
+// 如果 process_input() 方法返回字符串，此字符串会取代玩家的输入；如果返回 0 则保持玩家输入的内容不变；如果返回 1 则完全过滤掉此输入内容，不再做任何处理。
+mixed process_input(string verb)
+{
+    string *word = explode(verb, " ");
+    mapping alias = ([
         "s":"go south",
         "n":"go north",
         "w":"go west",
@@ -26,15 +31,8 @@ nosave mapping alias = ([
      "chat":"shout",
       "who":"users",
         "i":"all_inventory",
-        "l":"look",
        "ls":"get_dir",
-]);
-
-// apply函数：如果用户对象中有process_input()，驱动会将玩家所有输入传入这里
-// 如果 process_input() 方法返回字符串，此字符串会取代玩家的输入；如果返回 0 则保持玩家输入的内容不变；如果返回 1 则完全过滤掉此输入内容，不再做任何处理。
-mixed process_input(string verb)
-{
-    string *word = explode(verb, " ");
+    ]);
 
     // verb = lower_case(verb);
 

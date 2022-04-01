@@ -37,3 +37,15 @@ mixed compile_area(string file)
 
     return ob;
 }
+
+mixed compile_object(string str)
+{
+    if (sscanf(str, "/area/%*s", str) || sscanf(str, "/home/%*s", str))
+    {
+        return compile_area(str);
+    }
+    else
+    {
+        return 0;
+    }
+}

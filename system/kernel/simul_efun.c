@@ -187,22 +187,20 @@ int bitClear(int state, int pos)
 }
 
 // 读取文件按行返回数组
-string *update_file(string file)
+string *read_config(string file)
 {
-    string *arr;
-    string str;
-    int i;
+    string str = read_file(file);
 
-    str = read_file(file);
-    if (!str) {
+    if (!str)
         return ({});
-    }
-    arr = explode(str, "\n");
-    for (i = 0; i < sizeof(arr); i++) {
-        if (arr[i][0] == '#') {
-            arr[i] = 0;
-        }
-    }
-    arr -= ({ 0 });
-    return arr;
+
+    return filter_array(
+        explode(str, "\n"), function(string line) {
+            if (trim(line) == "" || line[0] == '#' || line[0] == ';')
+            {
+                return 0;
+            }
+
+            return 1;
+        });
 }

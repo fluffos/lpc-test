@@ -1,10 +1,10 @@
-inherit DBASE;
 inherit COMBAT;
 inherit LIVING;
 
 void create(int i)
 {
     mixed info;
+    ::create();
     if (nullp(i))
     {
         i = 1 + random(7);

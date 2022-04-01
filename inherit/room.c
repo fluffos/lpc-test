@@ -1,10 +1,11 @@
-/*****************************************************************************
-Copyright: 2020, Mud.Ren
-File name: room.c
-Description: 通用游戏环境设置接口，通过reset()自动加载物品对象到房间
-Author: xuefeng
-Version: v1.0
-*****************************************************************************/
+/*
+ * @Author: 雪风@mud.ren
+ * @Date: 2022-03-31 15:20:12
+ * @LastEditTime: 2022-03-31 15:20:12
+ * @LastEditors: 雪风
+ * @Description: 通用游戏环境设置接口，通过reset()自动加载物品对象到房间
+ *  https://bbs.mud.ren
+ */
 inherit CLEAN_UP;
 inherit DBASE;
 

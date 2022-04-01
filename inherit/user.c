@@ -1,5 +1,11 @@
-// 自定义 user 对象
-inherit DBASE;
+/*
+ * @Author: 雪风@mud.ren
+ * @Date: 2022-03-31 15:04:35
+ * @LastEditTime: 2022-04-01 14:33:36
+ * @LastEditors: 雪风
+ * @Description: 自定义 user 对象
+ *  https://bbs.mud.ren
+ */
 inherit LIVING;
 
 #define CMD_PATH "/cmds/"
@@ -12,10 +18,22 @@ varargs void create(string arg)
 {
     if (clonep())
     {
+        string *name1 = ({"赵", "钱", "孙", "李", "周", "吴", "郑", "王", "冯", "陈", "褚", "卫", "蒋", "沈", "韩", "杨"});
+        string *name2 = ({"春", "夏", "秋", "冬", "风", "花", "雪", "月", "天", "地", "玄", "黄", "宇", "宙", "洪", "荒"});
+
+        ::create();
         set_living(arg);
         set("gender", random(2) ? "男" : "女");
+        set("name", element_of(name1) + element_of(name2));
         add_action("command_hook", "", 1);
         move_object(START_ROOM);
+    }
+    else
+    {
+        // 自动加载VERB指令
+        map(get_dir("/verbs/*.c"), function(string file) {
+                return "/verbs/" + file;
+        })->load();
     }
 }
 
@@ -44,8 +62,18 @@ nomask int command_hook(string arg)
     }
     else
     {
-        // return notify_fail("指令不存在 ^_^\n");
-        return 0;
+        mixed err = parse_sentence(arg ? verb + " " + arg : verb, 0);
+        if (intp(err))
+        {
+            switch (err)
+            {
+            case 1: // verb 匹配成功
+                return 1;
+            default:
+                return 0;
+            }
+        }
+        return notify_fail(err);
     }
 
     return 1;

@@ -24,7 +24,7 @@ HELP;
     {
         write(ansi(help));
     }
-    else if (file_size(file = "/cmds/" + arg + ".c") > 0 || file_size(file = "/cmds/test/" + arg + ".c") > 0 || file_size(file = "/cmds/efun/" + arg + ".c") > 0 || file_size(file = "/cmds/demo/" + arg + ".c") > 0)
+    else if (file_size(file = "/cmds/" + arg + ".c") > 0 || file_size(file = "/cmds/test/" + arg + ".c") > 0 || file_size(file = "/cmds/efun/" + arg + ".c") > 0 || file_size(file = "/verbs/" + arg + ".c") > 0)
     {
         notify_fail("有这个指令存在，但是并没有详细的说明文件。\n");
         return file->help();
