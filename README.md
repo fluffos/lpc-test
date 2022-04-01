@@ -47,26 +47,31 @@ LPC 开发测试 LIB，配合 fluffos v2019 以上版本使用。
 │   │   └── ...
 │   ├── efun                教程 efun 指令
 │   │   └── ...
-│   ├── test                个人测试目录
+│   ├── test                个人测试目录，你可以把自己的测试指令放在这里
 │   │   └── test.c
 │   └── ...
-├── config.ini              运行时配置文件（FluffOS v2019）
+├── config.cfg              运行时配置文件精简版（FluffOS v2019）
+├── config.ini              运行时配置文件注释版（FluffOS v2019）
 ├── data                    存档目录
-├── home                    玩家目录
+├── home                    个人目录
 ├── include                 头文件目录
 │   ├── ansi.h              颜色控制头文件
-│   └── globals.h           全局包含头文件
+│   ├── globals.h           全局包含头文件
+│   └── ...                 （其它为驱动内置头文件）
 ├── inherit                 功能继承模块
 │   ├── clean_up.c
-│   ├── combat.c            战斗模块
+│   ├── combat.c            战斗功能模块
 │   ├── dbase.c             数据存档模块
-│   ├── living.c            生物模块
-│   ├── maze.c              迷宫模块
-│   ├── room.c              环境模块
-│   ├── user.c
-│   ├── user2.c
-│   ├── user3.c
-│   └── user4.c
+│   ├── living.c            生物对象公共模块
+│   ├── maze.c              迷宫功能实现模块
+│   ├── object.c            实体对象公共模块
+│   ├── room.c              环境功能模块
+│   ├── user.c              玩家对象（实现指令功能模块）
+│   ├── user2.c             玩家对象（实现指令别名功能模块）
+│   ├── user3.c             玩家对象（实现智能消息功能模块）
+│   ├── user4.c             玩家对象（实现战斗功能模块）
+│   ├── user5.c             玩家对象（实现存档功能模块）
+│   └── verb.c              自然语法解析指令功能模块
 ├── log                     日志目录
 │   ├── author_stats
 │   ├── debug.log           游戏运行日志
@@ -88,6 +93,7 @@ LPC 开发测试 LIB，配合 fluffos v2019 以上版本使用。
 │       ├── user.c          玩家对象
 │       └── void.c
 ├── tmp                     临时文件目录
+├── verbs                   自然语法指令目录
 └── www                     WEBSOCKET
     └── ...
 ```
