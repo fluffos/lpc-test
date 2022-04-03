@@ -19,7 +19,8 @@ protected void create()
 
 mixed can_look()
 {
-    if (!environment(this_player()))
+    object env = environment(this_player());
+    if (!env || !env->query("short") && !env->is_area())
         return "你的四周灰蒙蒙地一片，什么也没有。";
     else
         return 1;
@@ -109,6 +110,7 @@ mixed do_look_at_str(string str, string arg)
     object env = environment(me);
     mapping exits = env->query("exits");
     object ob;
+    mixed item_desc;
 
     if (str == "here")
     {
@@ -118,6 +120,8 @@ mixed do_look_at_str(string str, string arg)
         return look_room(me, load_object(exits[str]));
     else if (mapp(exits[str]))
         debug("此方向是区域环境，无法观察。");
+    else if (item_desc = env->query("items/" + str))
+        debug(evaluate(item_desc));
     else if (ob = present(arg, env))
         return do_look_obj(ob);
     else

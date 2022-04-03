@@ -27,15 +27,16 @@
 #define DBASE "/inherit/dbase"
 #define LIVING "/inherit/living"
 #define OBJECT "/inherit/object"
-#define ROOM "/inherit/room"
-#define MAZE "/inherit/maze"
 #define VERB "/inherit/verb"
+#define AREA "/inherit/area"
+#define MAZE "/inherit/maze"
+#define ROOM "/inherit/room"
 // 存档目录
 #define DATA_DIR "/data/"
 #define LOG_DIR "/log/"
 // 预加载列表
 #define PRELOAD "/system/etc/preload"
 // 出生地
-#define START_ROOM "/area/world/0,0,0"
+#define START_ROOM "/world/world/0,0,0"
 
 #endif

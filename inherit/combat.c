@@ -99,7 +99,7 @@ void heart_beat()
         // 怪物HP少于1/3时有1/3机率变身暗天使
         if (!userp(me) && !shadow(me, 0) && !query_shadowing(me) && me->query("hp") < me->query("hp") / 3 && !random(3))
         {
-            object ob = new ("/area/world/npc/mob", 8);
+            object ob = new ("/world/world/npc/mob", 8);
             msg("danger", me->query("name") + "变身为" + ob->query("name") + "。", me);
             ob->shadowto(me);
         }

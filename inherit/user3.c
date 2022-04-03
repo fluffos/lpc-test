@@ -22,6 +22,9 @@ void receive_message(string type, string message)
     case "info":
         receive(HIC + message + "\n" NOR);
         break;
+    case "MAP":
+        receive(message);
+        break;
     default:
         receive(HIW + message + "\n" NOR);
     }

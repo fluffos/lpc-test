@@ -23,15 +23,12 @@ mixed process_input(string verb)
        "nw":"go northwest",
        "ne":"go northeast",
         "d":"go down",
-     "down":"go down",
         "u":"go up",
-       "up":"go up",
-      "out":"go out",
-    "enter":"go enter",
      "chat":"shout",
       "who":"users",
         "i":"all_inventory",
        "ls":"get_dir",
+       "sa":"area_set",
     ]);
 
     // verb = lower_case(verb);

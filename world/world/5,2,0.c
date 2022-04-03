@@ -12,7 +12,7 @@ LONG );
     ]));
     set("exits", ([
         "east":__DIR__ "6,2,0",
-        "north": "/area/maze/entry",
+        "north": "/world/maze/entry",
         "south":__DIR__ "5,1,0",
         "west":__DIR__ "4,2,0",
     ]));

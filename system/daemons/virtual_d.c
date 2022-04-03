@@ -40,7 +40,7 @@ mixed compile_area(string file)
 
 mixed compile_object(string str)
 {
-    if (sscanf(str, "/area/%*s", str) || sscanf(str, "/home/%*s", str))
+    if (sscanf(str, "/world/%*s", str) || sscanf(str, "/home/%*s", str))
     {
         return compile_area(str);
     }

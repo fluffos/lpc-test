@@ -2,7 +2,7 @@ inherit DBASE;
 
 void create()
 {
-    object ob = new ("/area/world/npc/mob", 9);
+    object ob = new ("/world/world/npc/mob", 9, 99);
     ob->move(this_object());
 
     set("short", "巨人王庭大厅");
