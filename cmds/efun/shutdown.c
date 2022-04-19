@@ -1,7 +1,7 @@
 // 关闭服务器
 int main(object me, string arg)
 {
-    if (query_ip_number(me) != "127.0.0.1")
+    if (!wizardp(me))
     {
         return 0;
     }

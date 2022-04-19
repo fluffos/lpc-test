@@ -111,12 +111,7 @@ varargs void msg(string type, string msg, object me, object you, object *exclude
 // 数字字符串转数字
 int atoi(string str)
 {
-    int v;
-
-    if (!stringp(str) || !sscanf(str, "%d", v))
-        return 0;
-
-    return v;
+    return to_int(str);
 }
 
 // 数组打印

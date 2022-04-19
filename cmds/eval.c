@@ -5,7 +5,7 @@ int main(object me, string arg)
     object eval_ob;
     string filename, file;
 
-    if (query_ip_number(me) != "127.0.0.1")
+    if (!wizardp(me))
     {
         return 0;
     }

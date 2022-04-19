@@ -18,7 +18,7 @@ int main(object me, string arg)
         $CYN$color$NOR$       颜色测试指令，显示你的客户端支持的颜色
         $CYN$data$NOR$        存档数据查看指令，查看对象的可存档数据
         $CYN$emoji$NOR$       emoji字符列表，显示常用的emoji表情
-        $CYN$eval$NOR$        强大而简单的游戏测试指令，管理员的金手指
+        $CYN$eval$NOR$        强大而简单的游戏测试指令，需wizard权限
         $CYN$help$NOR$        显示帮助文件，也可以输入 help [cmd] 查看指令使用说明，如：help fight
         $CYN$hi$NOR$          智能消息测试指令，可以和其他玩家打招呼
         $CYN$loadall$NOR$     游戏代码调试用，加载所有文件到内存，看看是否有错
@@ -27,6 +27,7 @@ int main(object me, string arg)
         $CYN$tutorial$NOR$    游戏向导，可以逐步解锁更多能力，也可根据相关代码学习具体实现
         $CYN$update$NOR$      代码更新指令，修改代码后使用此指令更新生效
         $CYN$variables$NOR$   对象全局变量查看指令，能比 data 指令查看更多的内容
+        $CYN$wizard$NOR$      开启wizard权限，允许使用eval指令
 
     当你输入$HIY$tutorial user$NOR$后，会解锁更多功能，你慢慢变的能看、能动、能说、能战斗。
 
