@@ -34,3 +34,9 @@ void logon()
     write("请输入你的ID：");
     input_to("setup");
 }
+
+void net_dead()
+{
+    debug_message(ctime() + " net_dead " + query_ip_number());
+    destruct();
+}

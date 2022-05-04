@@ -37,13 +37,13 @@ LPC 开发测试 LIB，配合 fluffos v2019 以上版本使用。
 .
 ├── README.md
 ├── cmds                    游戏指令
-│   ├── demo                教程演示指令,请输入 demo/xxx 运行
+│   ├── demo                教程演示指令
 │   │   └── ...
 │   ├── efun                教程 efun 指令
 │   │   └── ...
 │   ├── test                个人测试目录，你可以把自己的测试指令放在这里
 │   │   └── test.c
-│   └── ...
+│   └── cmd                 基础指令
 ├── config.cfg              运行时配置文件精简版（FluffOS v2019）
 ├── config.ini              运行时配置文件注释版（FluffOS v2019）
 ├── data                    存档目录

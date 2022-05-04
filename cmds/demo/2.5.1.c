@@ -1,5 +1,5 @@
 // 转义字符输出
-int main()
+int main(object me, string arg)
 {
     // 字符串
     write("\61\11\62\11\63\12");

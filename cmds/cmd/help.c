@@ -31,9 +31,8 @@ int main(object me, string arg)
 
     当你输入$HIY$tutorial user$NOR$后，会解锁更多功能，你慢慢变的能看、能动、能说、能战斗。
 
-    另外还可以可以直接使用 efun 目录下的指令，也可以直接运行 demo 目录下的示例。具体有哪些指令和示例
-可以输入以下指令查看：
-    $CYN$get_dir cmds/efun$NOR$ 和 $CYN$get_dir cmds/demo$NOR$
+    另外还可以可以直接使用 efun 目录下的指令。具体有哪些指令和示例可以输入以下指令查看：
+        $CYN$get_dir cmds/efun$NOR$
 
     提示：如有疑问，可以在输入$HIY$tutorial user3$NOR$后，在线$HIC$chat 问题内容$NOR$寻求QQ群中网友的帮助。
 HELP;

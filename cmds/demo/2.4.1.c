@@ -1,4 +1,4 @@
-int main()
+int main(object me, string arg)
 {
     float f = 251;
     int w = 19.427;
