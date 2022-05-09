@@ -26,7 +26,7 @@ void init()
     add_action(function(string arg) {
         object me = this_player();
         if (me->query_temp("step") < 3)
-            return notify_fail("你当前状态无法传送，输入 tutorial user3 后方可使用此传送门。\n");
+            return notify_fail("你当前状态无法传送，输入 tutorial 3 后方可使用此传送门。\n");
         return me->move("/world/area");
     }, ({"in", "enter"}));
 }
