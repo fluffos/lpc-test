@@ -38,13 +38,19 @@ void mxp_tag(string command)
 
 void act_mxp()
 {
+#if efun_defined(act_mxp)
     efun::act_mxp();
+#endif
 }
 
 // 发送gmcp数据到客户端
 void send_gmcp(string req)
 {
+#if efun_defined(send_gmcp)
     efun::send_gmcp(req);
+#else
+    receive("当前驱动不支持efun send_gmcp\n");
+#endif
 }
 
 void msp_enable()
@@ -55,5 +61,9 @@ void msp_enable()
 // 发送msp数据到客户端
 void msp_oob(string req)
 {
+#if efun_defined(telnet_msp_oob)
     efun::telnet_msp_oob(req);
+#else
+    receive("当前驱动不支持efun telnet_msp_oob\n");
+#endif
 }
