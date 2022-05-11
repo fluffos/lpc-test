@@ -25,9 +25,3 @@ void write_prompt()
 {
     write(sprintf("[%s|%s]", GRN + query("hp") + NOR, HIG + query("max_hp") + NOR));
 }
-
-void net_dead()
-{
-    say(HIR "玩家(" + geteuid() + ")断线了。\n" NOR);
-    destruct(this_object());
-}

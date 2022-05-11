@@ -130,7 +130,8 @@ int main(object me, string arg)
             destruct(me);
             debug("恭喜，成功啦！\n");
             debug("你当前玩家对象是：" + sprintf("%O", user));
-            debug("提示：你现在拥有更多能力了，如播放客户端的声音等，具体看看源代码吧。");
+            debug("提示：你现在拥有更多能力了，如播放客户端的声音等。");
+            debug("提示：如果你使用的是mudlet客户端，进入传送门后会听到美妙的音乐。");
         }
         else
         {

@@ -27,6 +27,7 @@ void init()
         object me = this_player();
         if (me->query_temp("step") < 3)
             return notify_fail("你当前状态无法传送，输入 tutorial 3 后方可使用此传送门。\n");
+        me->msp_oob("!!MUSIC(1001.mp3 L=1 V=100 U=https://mud.ren/storage/wav/)");
         return me->move("/world/area");
     }, ({"in", "enter"}));
 }
