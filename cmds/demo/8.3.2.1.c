@@ -62,7 +62,7 @@ void socket_init(int mode)
 
 void create()
 {
-    socket_init(0);
+    socket_init(2);
 }
 
 int main(object me, string arg)
