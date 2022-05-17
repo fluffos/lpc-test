@@ -10,18 +10,18 @@ nosave object R;
 
 void close_callback(int fd)
 {
-    tell_object(R, sprintf("【TCP客户端】close_callback: fd = %d\n", fd));
+    R && tell_object(R, sprintf("【TCP客户端】close_callback: fd = %d\n", fd));
     socket_close(fd);
 }
 
 void write_callback(int fd)
 {
-    tell_object(R, sprintf("【TCP客户端】write_callback: fd = %d\n", fd));
+    R && tell_object(R, sprintf("【TCP客户端】write_callback: fd = %d\n", fd));
 }
 
 void read_callback(int fd, mixed message)
 {
-    tell_object(R, sprintf("【TCP客户端】read_callback: fd = %d, message = %s\n", fd, message));
+    R && tell_object(R, sprintf("【TCP客户端】read_callback: fd = %d, message = %s\n", fd, message));
 }
 
 private void client_init()
@@ -58,6 +58,7 @@ void create()
 
 int main(object me, string arg)
 {
+    R = me;
     if (arg)
     {
         int err;

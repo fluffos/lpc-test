@@ -10,7 +10,7 @@ nosave object R;
 
 void read_callback(int fd, mixed message, string addr)
 {
-    tell_object(R, sprintf("【UDP客户端】read_callback: fd = %d, from = %s, message = %s\n", fd, addr, message));
+    R && tell_object(R, sprintf("【UDP客户端】read_callback: fd = %d, from = %s, message = %s\n", fd, addr, message));
 }
 
 private void client_init()
@@ -37,6 +37,7 @@ void create()
 
 int main(object me, string arg)
 {
+    R = me;
     if (arg)
     {
         int err;

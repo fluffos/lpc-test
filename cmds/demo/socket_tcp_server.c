@@ -10,18 +10,18 @@ nosave object R;
 
 void close_callback(int fd)
 {
-    tell_object(R, sprintf("【TCP服务端】close_callback: fd = %d\n", fd));
+    R && tell_object(R, sprintf("【TCP服务端】close_callback: fd = %d\n", fd));
     socket_close(fd);
 }
 
 void write_callback(int fd)
 {
-    tell_object(R, sprintf("【TCP服务端】write_callback: fd = %d\n", fd));
+    R && tell_object(R, sprintf("【TCP服务端】write_callback: fd = %d\n", fd));
 }
 
 void read_callback(int fd, mixed message)
 {
-    tell_object(R, sprintf("【TCP服务端】read_callback: fd = %d, message = %s\n", fd, message));
+    R && tell_object(R, sprintf("【TCP服务端】read_callback: fd = %d, message = %s\n", fd, message));
     // 发送消息给客户端
     if (message == "hi")
     {
@@ -32,20 +32,20 @@ void read_callback(int fd, mixed message)
 void listen_callback(int fd)
 {
     int err;
-    tell_object(R, sprintf("【TCP服务端】listen_callback: fd = %d\n", fd));
+    R && tell_object(R, sprintf("【TCP服务端】listen_callback: fd = %d\n", fd));
     // 在一个 socket 上接受连接
     S = socket_accept(fd, "read_callback", "write_callback");
     if (S < 0)
     {
-        tell_object(R, sprintf("【TCP服务端】socket_accept error: %s\n", socket_error(S)));
+        R && tell_object(R, sprintf("【TCP服务端】socket_accept error: %s\n", socket_error(S)));
     }
     else
     {
-        tell_object(R, sprintf("【TCP服务端】socket_accept: fd = %d\n", S));
+        R && tell_object(R, sprintf("【TCP服务端】socket_accept: fd = %d\n", S));
         err = socket_write(S, "欢迎连接到服务器 mud.ren ^_^");
         if (err < 0)
         {
-            tell_object(R, sprintf("【TCP服务端】socket_write error: %s\n", socket_error(err)));
+            R && tell_object(R, sprintf("【TCP服务端】socket_write error: %s\n", socket_error(err)));
         }
     }
 }
@@ -116,6 +116,7 @@ int release()
 
 int main(object me, string arg)
 {
+    R = me;
     if (arg == "release")
     {
         release();

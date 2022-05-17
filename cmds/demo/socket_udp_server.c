@@ -14,7 +14,7 @@ void read_callback(int fd, mixed message, string addr)
 {
     S = fd;
     Addr = addr;
-    tell_object(R, sprintf("【UDP服务端】read_callback: fd = %d, from = %s, message = %s\n", fd, addr, message));
+    R && tell_object(R, sprintf("【UDP服务端】read_callback: fd = %d, from = %s, message = %s\n", fd, addr, message));
     // 发送消息给客户端，需要udp客户端绑定端口
     if (message == "hi")
     {
@@ -58,6 +58,7 @@ void create()
 
 int main(object me, string arg)
 {
+    R = me;
     if (arg)
     {
         int err;
