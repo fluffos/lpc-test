@@ -58,32 +58,32 @@ private void server_init()
     s = socket_create(TCP, "read_callback", "close_callback");
     if (s < 0)
     {
-        debug("【TCP服务端】socket_create error: " + socket_error(s));
+        cecho("【TCP服务端】socket_create error: " + socket_error(s));
     }
     else
     {
-        debug("【TCP服务端】socket_create: fd = " + s);
+        cecho("【TCP服务端】socket_create: fd = " + s);
         // 绑定端口到 socket 连接
         err = socket_bind(s, PORT);
         if (err < 0)
         {
-            debug("【TCP服务端】socket_bind error: " + socket_error(err));
+            cecho("【TCP服务端】socket_bind error: " + socket_error(err));
             socket_close(s);
         }
         else
         {
-            debug("【TCP服务端】socket_bind SUCCESS!");
+            cecho("【TCP服务端】socket_bind SUCCESS!");
 
             // 监听一个 socket 连接
             err = socket_listen(s, "listen_callback");
             if (err < 0)
             {
-                debug("【TCP服务端】socket_listen error: " + socket_error(err));
+                cecho("【TCP服务端】socket_listen error: " + socket_error(err));
                 socket_close(s);
             }
             else
             {
-                debug("【TCP服务端】socket_listen ON " + socket_address(s, 1));
+                cecho("【TCP服务端】socket_listen ON " + socket_address(s, 1));
             }
         }
     }
@@ -103,11 +103,11 @@ int release()
         err = socket_release(S, load_object(__DIR__"socket_server"), "release_callback");
         if (err < 0)
         {
-            debug("【TCP服务端】socket_release error: " + socket_error(err));
+            cecho("【TCP服务端】socket_release error: " + socket_error(err));
         }
         else
         {
-            debug("【TCP服务端】socket_release SUCCESS！");
+            cecho("【TCP服务端】socket_release SUCCESS！");
         }
     }
 
@@ -128,11 +128,11 @@ int main(object me, string arg)
         err = socket_write(S, arg);
         if (err < 0)
         {
-            debug("【TCP服务端】socket_write error: " + socket_error(err));
+            cecho("【TCP服务端】socket_write error: " + socket_error(err));
         }
         else
         {
-            debug("【TCP服务端】消息已发送：" + arg);
+            cecho("【TCP服务端】消息已发送：" + arg);
         }
     }
 

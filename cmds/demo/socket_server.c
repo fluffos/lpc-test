@@ -18,11 +18,11 @@ int main(object me, string arg)
         err = socket_write(S, arg);
         if (err < 0)
         {
-            debug("【Socket】socket_write error: " + socket_error(err));
+            cecho("【Socket】socket_write error: " + socket_error(err));
         }
         else
         {
-            debug("【Socket】消息已发送：" + arg);
+            cecho("【Socket】消息已发送：" + arg);
         }
     }
 

@@ -6,14 +6,14 @@ int main(object me, string arg)
     if (arg && sscanf(arg, "%s %d", str, n) == 2)
     {
         arg = set_bit(str, n - 1);
-        debug(str);
+        cecho(str);
         // 输出位
         for (i = 60; i > 0; i--)
         {
             write(test_bit(str, i - 1));
         }
         write("\n");
-        debug(arg);
+        cecho(arg);
         for (i = 60; i > 0; i--)
         {
             write(test_bit(arg, i - 1));

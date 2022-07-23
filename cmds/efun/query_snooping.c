@@ -5,13 +5,13 @@ int main(object me, string arg)
 
     if (!arg)
     {
-        debug("指令格式：query_snooping snooper");
+        cecho("指令格式：query_snooping snooper");
     }
     else
     {
         if (!objectp(snooper = find_player(arg)))
         {
-            debug("没有找到 " + arg + " 这个玩家，无法查看信息。");
+            cecho("没有找到 " + arg + " 这个玩家，无法查看信息。");
         }
         else if (objectp(snoopee = query_snooping(snooper)))
         {
@@ -19,7 +19,7 @@ int main(object me, string arg)
         }
         else
         {
-            debug("玩家 " + arg + " 没有监听任何人。");
+            cecho("玩家 " + arg + " 没有监听任何人。");
         }
     }
 

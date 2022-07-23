@@ -11,8 +11,8 @@ int main(object me, string arg)
 
     x += y;
     printf("x = %O\n", x);
-    debug(x["test"]);
-    debug(x["key1"]["test"]);
+    cecho(x["test"]);
+    cecho(x["key1"]["test"]);
     y *= (["value2":({1, 2, 3, 4, 5})]);
     printf("y = %O\n", y);
 

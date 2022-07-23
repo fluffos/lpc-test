@@ -7,9 +7,16 @@ void debug(mixed arg)
 {
     string *color = ({HIB, HIC, HIG, HIM, HIR, HIW, HIY});
 
-    if (objectp(arg))
+    debug_message(sprintf("%s%O%s", element_of(color), arg, NOR));
+}
+
+void cecho(mixed arg)
+{
+    string *color = ({HIB, HIC, HIG, HIM, HIR, HIW, HIY});
+
+    if (objectp(arg) || mapp(arg) || arrayp(arg))
     {
-        arg = file_name(arg);
+        arg = sprintf("%O", arg);
     }
 
     write(element_of(color) + arg + NOR "\n");

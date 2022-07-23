@@ -31,21 +31,21 @@ private void client_init()
     S = socket_create(TCP, "read_callback", "close_callback");
     if (S < 0)
     {
-        debug("【TCP客户端】socket_create error : " + socket_error(S));
+        cecho("【TCP客户端】socket_create error : " + socket_error(S));
     }
     else
     {
-        debug("【TCP客户端】socket_create fd = " + S);
+        cecho("【TCP客户端】socket_create fd = " + S);
         // 启动一个 socket 连接
         err = socket_connect(S, ADDR, "read_callback", "write_callback");
         if (err < 0)
         {
-            debug("【TCP客户端】socket_connect error : " + socket_error(err));
+            cecho("【TCP客户端】socket_connect error : " + socket_error(err));
             socket_close(S);
         }
         else
         {
-            debug("【TCP客户端】socket_connect SUCCESS!");
+            cecho("【TCP客户端】socket_connect SUCCESS!");
         }
     }
 }
@@ -65,11 +65,11 @@ int main(object me, string arg)
         err = socket_write(S, arg);
         if (err < 0)
         {
-            debug("【TCP客户端】socket_write error : " + socket_error(err));
+            cecho("【TCP客户端】socket_write error : " + socket_error(err));
         }
         else
         {
-            debug("【TCP客户端】消息已发送：" + arg);
+            cecho("【TCP客户端】消息已发送：" + arg);
         }
     }
 

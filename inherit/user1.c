@@ -33,7 +33,7 @@ varargs void create(string arg)
 
 int move_or_destruct(object dest)
 {
-    debug("突然一阵时空扭曲，你被传送到虚空。");
+    cecho("突然一阵时空扭曲，你被传送到虚空。");
     move(VOID_OB);
 
     return 1;

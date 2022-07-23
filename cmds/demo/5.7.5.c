@@ -12,33 +12,33 @@ void create()
 
 private void test1()
 {
-    debug("调用 test1 方法");
-    debug("我是示例5.7.5 的 private 类型函数");
+    cecho("调用 test1 方法");
+    cecho("我是示例5.7.5 的 private 类型函数");
 }
 
 protected void test2()
 {
-    debug("调用 test2 方法");
-    debug("我是示例5.7.5 的 protected 类型函数");
+    cecho("调用 test2 方法");
+    cecho("我是示例5.7.5 的 protected 类型函数");
 }
 
 public void test3()
 {
-    debug("调用 test3 方法");
-    debug("我是示例5.7.5 的 public 类型函数");
+    cecho("调用 test3 方法");
+    cecho("我是示例5.7.5 的 public 类型函数");
 }
 
 void test()
 {
-    debug("调用 test 方法");
-    debug(s1);
-    debug(s2);
-    debug(s3);
+    cecho("调用 test 方法");
+    cecho(s1);
+    cecho(s2);
+    cecho(s3);
 }
 
 int main(object me, string arg)
 {
-    debug("调用 main 方法");
+    cecho("调用 main 方法");
     test();
     test1();
     test2();

@@ -63,7 +63,7 @@ void error_handler(mapping map, int caught)
     str += sprintf("\n%O\n\n", map);
 
     if (caught)
-        debug("出错啦！详情记录在 error_handler 日志。");
+        cecho("出错啦！详情记录在 error_handler 日志。");
     else
         printf("%s", map["error"]);
 

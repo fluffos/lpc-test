@@ -3,10 +3,10 @@ inherit "/cmds/demo/5.7.5";
 
 int main(object me, string arg)
 {
-    debug("直接继承变量!");
-    debug(s2);
-    debug(s3);
-    debug("直接继承方法!");
+    cecho("直接继承变量!");
+    cecho(s2);
+    cecho(s3);
+    cecho("直接继承方法!");
     test2();
     test3();
     // 可以修改变量的值

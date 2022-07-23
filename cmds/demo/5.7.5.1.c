@@ -11,6 +11,6 @@ int main(object me, string arg)
     // 使用封装的方法修改值
     ob->set_s1("5.7.5.1 重新设置 private 变量的值");
     // 通地封装的方法获取值
-    debug(ob->get_s1());
+    cecho(ob->get_s1());
     return ob->main();
 }

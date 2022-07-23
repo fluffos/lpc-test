@@ -30,22 +30,22 @@ private void server_init()
     s = socket_create(UDP, "read_callback");
     if (s < 0)
     {
-        debug("【UDP服务端】socket_create error: " + socket_error(s));
+        cecho("【UDP服务端】socket_create error: " + socket_error(s));
     }
     else
     {
-        debug("【UDP服务端】socket_create: fd = " + s);
+        cecho("【UDP服务端】socket_create: fd = " + s);
         // 绑定端口到 socket 连接
         err = socket_bind(s, PORT);
         if (err < 0)
         {
-            debug("【UDP服务端】socket_bind error: " + socket_error(err));
+            cecho("【UDP服务端】socket_bind error: " + socket_error(err));
             socket_close(s);
         }
         else
         {
-            debug("【UDP服务端】socket_bind SUCCESS!");
-            debug("【UDP服务端】UDP Socket 服务已启动 : " + socket_address(s, 1));
+            cecho("【UDP服务端】socket_bind SUCCESS!");
+            cecho("【UDP服务端】UDP Socket 服务已启动 : " + socket_address(s, 1));
         }
     }
 }
@@ -66,11 +66,11 @@ int main(object me, string arg)
         err = socket_write(S, arg, Addr);
         if (err < 0)
         {
-            debug("【UDP服务端】socket_write error: " + socket_error(err));
+            cecho("【UDP服务端】socket_write error: " + socket_error(err));
         }
         else
         {
-            debug("【UDP服务端】消息已发送：" + arg);
+            cecho("【UDP服务端】消息已发送：" + arg);
         }
     }
 

@@ -3,7 +3,7 @@ inherit "/cmds/demo/5.7.5";
 
 int main(object me, string arg)
 {
-    debug("示例5.7.5.3");
+    cecho("示例5.7.5.3");
 
     s2 = "我是示例5.7.5.3 的 protected 类型变量";
     s3 = "我是示例5.7.5.3 的 public 类型变量";

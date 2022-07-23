@@ -8,8 +8,8 @@ int main(object me, string arg)
     test1();
     test2();
     // 直接使用继承对象的全局变量
-    debug(s1);
-    debug(s2);
+    cecho(s1);
+    cecho(s2);
 
     return 1;
 }

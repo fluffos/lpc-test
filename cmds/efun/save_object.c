@@ -14,13 +14,13 @@ int main(object me, string arg)
 
     if (!arg || (sscanf(arg, "%s to %s flag %d", str, file, i) != 3))
     {
-        debug("指令格式： save_object /path/object to save_name flag [00|01|10|11]");
+        cecho("指令格式： save_object /path/object to save_name flag [00|01|10|11]");
     }
     else
     {
         if (!(ob = load_object(str)))
         {
-            debug("没有找到对象 " + str);
+            cecho("没有找到对象 " + str);
         }
         else
         {

@@ -10,11 +10,11 @@ int main(object me, string arg)
         }
 
         printf("数值 %d 的第 %d 位是 ", m, n);
-        debug(bitCheck(m, n));
+        cecho(bitCheck(m, n));
         printf("数值 %d 的第 %d 位设置为 1 后结果是 ", m, n);
-        debug(bitSet(m, n));
+        cecho(bitSet(m, n));
         printf("数值 %d 的第 %d 位设置为 0 后结果是 ", m, n);
-        debug(bitClear(m, n));
+        cecho(bitClear(m, n));
     }
     else
     {

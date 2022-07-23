@@ -3,7 +3,7 @@ int main(object me, string arg)
 {
     if (!arg)
     {
-        debug("指令格式： children /path/target");
+        cecho("指令格式： children /path/target");
     }
     else
     {

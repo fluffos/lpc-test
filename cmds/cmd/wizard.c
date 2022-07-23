@@ -5,12 +5,12 @@ int main(object me, string arg)
     if (wizardp(me))
     {
         f = bind((: disable_wizard :), me);
-        debug("关闭wizard权限!");
+        cecho("关闭wizard权限!");
     }
     else
     {
         f = bind((: enable_wizard :), me);
-        debug("开启wizard权限!");
+        cecho("开启wizard权限!");
     }
     evaluate(f);
 

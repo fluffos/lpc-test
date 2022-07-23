@@ -6,11 +6,11 @@ int main(object me, string arg)
 
     if (!arg)
     {
-        debug(next_inventory(me));
+        cecho(next_inventory(me));
     }
     else if (ob = load_object(arg))
     {
-        debug(next_inventory(ob));
+        cecho(next_inventory(ob));
     }
     else
     {

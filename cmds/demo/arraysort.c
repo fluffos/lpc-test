@@ -173,7 +173,7 @@ int main(object me, string arg)
 
     if (!n)
     {
-        debug("请输入 `arraysort n` 生成数据并测试，n 为待排序数据个数。");
+        cecho("请输入 `arraysort n` 生成数据并测试，n 为待排序数据个数。");
         return 1;
     }
     // 待排序数据

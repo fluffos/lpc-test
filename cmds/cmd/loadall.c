@@ -49,7 +49,7 @@ int loadall(string dir)
             if ((dir + file)[ < 2.. < 1] == ".c")
             {
                 if (err = catch (load_object(dir + file)))
-                    debug("loadall", "\n\tcheck : " + dir + file + "\n" + err);
+                    cecho("loadall", "\n\tcheck : " + dir + file + "\n" + err);
             }
         }
     }

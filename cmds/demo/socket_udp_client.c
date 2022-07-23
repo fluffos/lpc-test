@@ -21,11 +21,11 @@ private void client_init()
     socket_bind(S, 52099);
     if (S < 0)
     {
-        debug("【UDP客户端】socket_create error: " + socket_error(S));
+        cecho("【UDP客户端】socket_create error: " + socket_error(S));
     }
     else
     {
-        debug("【UDP客户端】socket_create: fd = " + S);
+        cecho("【UDP客户端】socket_create: fd = " + S);
     }
 }
 
@@ -45,12 +45,12 @@ int main(object me, string arg)
         err = socket_write(S, arg, ADDR);
         if (err < 0)
         {
-            debug("【UDP客户端】socket_write error: " + socket_error(err));
+            cecho("【UDP客户端】socket_write error: " + socket_error(err));
             // socket_close(S);
         }
         else
         {
-            debug("【UDP客户端】消息已发送：" + arg);
+            cecho("【UDP客户端】消息已发送：" + arg);
         }
     }
 

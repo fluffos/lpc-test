@@ -13,7 +13,7 @@ int main(object me, string arg)
     }
     else
     {
-        debug("没有找到对象 " + arg);
+        cecho("没有找到对象 " + arg);
     }
 
     return 1;
