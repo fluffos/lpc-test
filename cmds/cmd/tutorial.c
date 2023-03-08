@@ -16,7 +16,6 @@ int main(object me, string arg)
         cecho("欢迎光临！\n");
         cecho("你当前玩家对象是：" + sprintf("%O", me));
         cecho("你当前所在环境是：" + file_name(environment(me)));
-        cecho("提示：你可以使用`efun/read_file 路径/文件名`看看你的对象代码和所在环境的代码都有什么内容。");
         cecho("提示：现在你不能动、不能看、不能说，输入 tutorial 1 看看会发生什么吧。");
         return 1;
     }
