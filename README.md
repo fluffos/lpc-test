@@ -116,9 +116,11 @@ LPC 开发测试 LIB，配合 fluffos v2019 以上版本使用。
 
     driver config.ini --tracing trace_driver.json
 
+> Ubuntu和WSL系统可以运行`./build.sh`自动下载并编译驱动，运行`./run.sh`启动项目
+
 ### 提示
 
-在游戏中可以收到QQ群消息，也可以发送消息到QQ群（302388378），如有任何困难，可以直接chat xxx 求帮助。
+~~在游戏中可以收到QQ群消息，也可以发送消息到QQ群（302388378），如有任何困难，可以直接chat xxx 求帮助。~~
 
 
     .__                                             .__       .___
