@@ -58,6 +58,19 @@ int move(mixed dest)
     return 1;
 }
 
+void move_or_destruct(object dest)
+{
+    if (dest)
+    {
+        move(dest);
+    }
+    else
+    {
+        cecho("突然一阵时空扭曲，你被传送到虚空。");
+        move(VOID_OB);
+    }
+}
+
 // 对象简称
 string short()
 {

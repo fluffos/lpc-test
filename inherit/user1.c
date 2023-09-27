@@ -31,14 +31,6 @@ varargs void create(string arg)
     }
 }
 
-int move_or_destruct(object dest)
-{
-    cecho("突然一阵时空扭曲，你被传送到虚空。");
-    move(VOID_OB);
-
-    return 1;
-}
-
 void net_dead()
 {
     say(HIR "玩家(" + geteuid() + ")离开了游戏。\n" NOR);
